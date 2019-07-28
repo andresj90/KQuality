@@ -1,0 +1,37 @@
+/* DEFINE THE LAYOUT: Using grid system we locate the main visual elements in the page*/
+
+#wholepage{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(12, 1fr); 
+    grid-template-rows: 50px 560px 50px;
+}
+
+#topnavbar {
+    grid-column:span 12;
+    background-color: cadetblue;
+    box-sizing: border-box;
+}
+
+#navpanel{
+    grid-column: span 2;
+    background-color: dimgrey;
+    box-sizing: border-box;
+    padding: 20px 4px 20px 4px;
+    text-align: justify;
+}
+
+.maincontent {
+    grid-column: span 10;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#bottomfooter {
+    grid-column: span 12;
+    background-color: darkslategrey;
+    box-sizing: border-box;
+}
+
+/* END OF GRID SYSTEM */ 
+
