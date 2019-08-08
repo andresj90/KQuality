@@ -35,6 +35,33 @@ module.exports = {
       passwordResetCount: {
         type: Sequelize.INTEGER
       },
+      companyRoleID: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'CompanyRoles',
+          key: 'id',
+          as: 'companyRoleID'
+        }
+      },
+      companyAreaID: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'CompanyAreas',
+          key: 'id',
+          as: 'companyAreaID'
+        }
+      },
+      systemRoleID: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'SystemRoles', //has to be pluralized
+          key: 'id',
+          as: 'systemRoleID'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -42,15 +69,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }, 
-      systemRoleID: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'systemRoles', //has to be pluralized
-          key: 'id', 
-          as: 'systemRoleID'
-        }
       }
     });
   },

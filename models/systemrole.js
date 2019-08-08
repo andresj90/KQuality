@@ -1,19 +1,18 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const systemRole = sequelize.define('systemRole', 
-  {
+  const SystemRole = sequelize.define('SystemRole', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      is: ["^[a-z]+$",'i']
+      is: ["^[a-z]+$", 'i']
     }
   });
-  systemRole.associate = function(models) {
+  SystemRole.associate = function (models) {
     // a system role has a lot of users associated
-    systemRole.hasMany(models.User, {
-       foreignKey: 'systemRoleID',
-       as: 'users'
+    SystemRole.hasMany(models.User, {
+      foreignKey: 'systemRoleID',
+      as: 'users'
     });
   };
-  return systemRole;
+  return SystemRole;
 };
