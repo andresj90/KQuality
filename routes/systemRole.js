@@ -12,4 +12,8 @@ systemRoleRouter.post('/create', (req, res) => {
     SystemRole.addSystemRole(newRole, res);
 });
 
+systemRoleRouter.get('/all', (req, res) => {
+    SystemRole.getSystemRoles(res);
+})
+
 module.exports = systemRoleRouter;
