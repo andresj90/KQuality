@@ -9,6 +9,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const systemRoleRoutes = require('./routes/systemRole');
 const companyAreaRoutes = require('./routes/companyArea');
+const companyRole = require('./routes/companyRole');
 const models = require('./models')
 const cosr = require('cors');
 
@@ -26,7 +27,8 @@ app.use(cosr());
 
 /* Middleware for applicationroutes */
 app.use('/systemrole', systemRoleRoutes);
-app.use('/area', companyAreaRoutes)
+app.use('/area', companyAreaRoutes);
+app.use('/role', companyRole);
 
 /* verify database connection */
 models.sequelize.sync().then(() => {
