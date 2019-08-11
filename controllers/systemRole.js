@@ -14,13 +14,11 @@ module.exports.addSystemRole = (systemrole, res) => {
                 success: true,
                 msg: 'System Role has been added to the system'
             });
-            console.log("true");
         } else {
             res.json({
                 success: false,
                 msg: 'System Role already exits in the system'
             });
-            console.log("false");
         }
     }).catch((err) => {
         return console.log(err);

@@ -5,15 +5,15 @@ const systemRoleRouter = require('express').Router();
 
 /* Routes for the systemroute in the app */
 
-systemRoleRouter.post('/create', (req, res) => {  
-    let newRole = {
+systemRoleRouter.post('/create', (req, res) => {
+    let newArea = {
         name: req.body.name
-    } 
-    SystemRole.addSystemRole(newRole, res);
+    }
+    SystemRole.addSystemRole(newArea, res);
 });
 
 systemRoleRouter.get('/all', (req, res) => {
-    SystemRole.getSystemRoles(res);
+    SystemRole.listCompanyAreas(res);
 })
 
 module.exports = systemRoleRouter;
