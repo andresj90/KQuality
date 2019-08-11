@@ -9,8 +9,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const systemRoleRoutes = require('./routes/systemRole');
 const models = require('./models')
-
-
+const cosr = require('cors');
 
 
 /* create the application, app is an instance of express */
@@ -22,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.use(cosr());
 
 /* Middleware for applicationroutes */
 app.use('/systemrole', systemRoleRoutes);
@@ -39,7 +39,6 @@ app.get('/', (req, res) =>
   res.status(200).send({
     message: 'Welcome to the beginning of nothingness.',
   }));
-
 
 
 /* PORT LISTENER */

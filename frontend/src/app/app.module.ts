@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -9,13 +12,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
-/* Creating the router array*/ 
 
-const appRoutes : Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent, pathMatch: 'full'},  
+/*Services */
+import { CompanyCRUDService } from './services/company-crud.service';
+
+/* Creating the router array*/
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent, pathMatch: 'full' },
   /* wildcard*/
-  {path: '**', component: NotFoundComponent} 
+  { path: '**', component: NotFoundComponent }
 ]
 
 @NgModule({
@@ -29,9 +36,13 @@ const appRoutes : Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes , {enableTracing: true}),
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [
+    CompanyCRUDService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
