@@ -3,7 +3,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('CompanyRoles', {
       id: {
-        allowNull: false,
+        allowNull: false, 
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
