@@ -1,28 +1,10 @@
-<!--Project Sturcture.-->
-<!-- 
-<div id="wholepage">
-
-  <div id="topnavbar">
-    <app-nav-bar></app-nav-bar>
-  </div>
-  <div id="navpanel">
-    <app-lateral-panel></app-lateral-panel>
-  </div>
-  <div class="maincontent">
-    <router-outlet></router-outlet>
-  </div>
-  <div id="bottomfooter">
-
-  </div>
-</div> -->
-
-<app-nav-bar (hideNavBarEvent)= "statusNavBar=$event"></app-nav-bar>
+<app-nav-bar (hideNavBarEvent)="statusNavBar=$event"></app-nav-bar>
 <mat-sidenav-container>
-   <mat-sidenav mode="side" opened= {{statusNavBar}}>
-        Sidenav
+  <mat-sidenav mode="side" opened={{statusNavBar}}>
+    <p-slideMenu [model]="items"></p-slideMenu>
   </mat-sidenav>
-  <mat-sidenav-content >
-      <router-outlet></router-outlet>   
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 <app-footer></app-footer>

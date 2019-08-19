@@ -4,18 +4,28 @@ mat-toolbar {
     background-color: $primaryC ;
     width: 100%;
     color: #ffffff;
-
+    display: flex;
+    
     #toolbarLeft {
       margin-right: auto;
+      position: relative;
+      flex: 19%;
     }
 
-    #toolbarRight {
-        margin-left: auto;   
+    #toolbarRight { 
+        flex: 10%;      
+        display: flex;
+        padding: 0px 0px 0px 15px; 
+
+        #toolbarRight div:nth-child(1) span{
+          margin-left: auto;
+        }
+
     }
 
     #toolbarMiddle {
       margin: auto; 
-      width: 65%;  
+      flex: 70%;  
     }
 
     #toolbarMiddle .form-control{
@@ -36,6 +46,12 @@ mat-toolbar {
 }
 
 #toolbarLeft mat-icon {
-vertical-align: sub;
+vertical-align: bottom;
 color: #ffffff;
+}
+
+
+#toolbarLeft span:nth-child(2) {
+  position: absolute;
+  right: -10px;
 }

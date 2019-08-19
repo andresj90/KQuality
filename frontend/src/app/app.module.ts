@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module'; 
 import { MaterialCustomModule } from './sharedModule/materialCustom';
-
+import { NgprimeModule } from './sharedModule/ngprime.module';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CompanyCRUDService } from './services/company-crud.service';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    MaterialCustomModule
+    MaterialCustomModule,
+    NgprimeModule
   ],
   providers: [
     CompanyCRUDService

@@ -5,13 +5,15 @@ $primaryC : #151B25;
 mat-sidenav-container  {
     width: 100%;
     height: 700px;
-    // display: flex;
+    overflow: hidden;
+
     mat-sidenav {
-        // flex: 2;
+      
         width: 20%;
         background-color: #eeeeee;
         box-sizing: border-box;
         padding: 10px 10px 10px 10px;
+        overflow: hidden !important;
     }
 
     mat-sidenav-content {
@@ -20,5 +22,8 @@ mat-sidenav-container  {
         box-sizing: border-box; 
         padding: 15px 0px 15px 20px;
     }
+
+  
         
 }
+
