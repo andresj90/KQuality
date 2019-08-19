@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CompanyCRUDService } from './services/company-crud.service';
     NavBarComponent,
     LateralPanelComponent,
     FooterComponent,
-    RoutingComponent
+    RoutingComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
