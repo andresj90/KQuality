@@ -10,8 +10,22 @@ mat-toolbar {
     }
 
     #toolbarRight {
-        margin-left: auto;
-        
+        margin-left: auto;   
+    }
+
+    #toolbarMiddle {
+      margin: auto; 
+      width: 65%;  
+    }
+
+    #toolbarMiddle .form-control{
+      background-color: rgba(255, 255, 255, .1);
+      border:none;
+      color: #ffffff;
+    }
+
+    #toolbarMiddle .form-control::placeholder {
+      color: #ffffff;
     }
 
     #hideshowNav {
