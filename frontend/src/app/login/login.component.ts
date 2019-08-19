@@ -1,4 +1,4 @@
-import { CompanyCRUDService } from '../services/company-crud.service';
+import { CompanyCRUDService } from './../../services/company-crud.service';
 import { Component, OnInit } from '@angular/core';
 
 

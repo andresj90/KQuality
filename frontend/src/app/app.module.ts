@@ -8,9 +8,9 @@ import { MaterialCustomModule } from './sharedModule/materialCustom';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { NavBarComponent } from './layout/components/nav-bar/nav-bar.component';
-import { LateralPanelComponent } from './layout/components/lateral-panel/lateral-panel.component';
-import { FooterComponent } from './layout/components/footer/footer.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LateralPanelComponent } from './components/lateral-panel/lateral-panel.component';
+import { FooterComponent } from './components/footer/footer.component';
  
 
 /*Services */
