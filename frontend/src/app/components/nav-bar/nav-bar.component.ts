@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  opened: boolean = true;
+  @Output() public hideNavBarEvent = new EventEmitter();
+
+ 
+  changeNavBarStatus () {
+    this.opened = !this.opened;
+    this.hideNavBarEvent.emit(this.opened);
+  }
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

@@ -1,0 +1,27 @@
+$primaryC : #034687;
+
+mat-toolbar {
+    background-color: $primaryC ;
+    width: 100%;
+    color: #ffffff;
+
+    #toolbarLeft {
+      margin-right: auto;
+    }
+
+    #toolbarRight {
+        margin-left: auto;
+        
+    }
+
+    #hideshowNav {
+      background-color: transparent;
+      border: none;
+      margin: 0px 20px 0px 0px;
+    }
+}
+
+#toolbarLeft mat-icon {
+vertical-align: sub;
+color: #ffffff;
+}

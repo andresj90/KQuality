@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module'; 
 import { MaterialCustomModule } from './sharedModule/materialCustom';
 
+
 /* Components */
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';

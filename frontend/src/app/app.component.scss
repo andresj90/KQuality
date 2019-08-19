@@ -1,37 +1,23 @@
-// /* DEFINE THE LAYOUT: Using grid system we locate the main visual elements in the page*/
+/*Variables */ 
+$primaryC : #151B25;
 
-// #wholepage{
-//     display: grid;
-//     width: 100%;
-//     grid-template-columns: repeat(12, 1fr); 
-//     grid-template-rows: 50px 560px 50px;
-// }
 
-// #topnavbar {
-//     grid-column:span 12;
-//     background-color: cadetblue;
-//     box-sizing: border-box;
-// }
+mat-sidenav-container  {
+    width: 100%;
+    // display: flex;
+    mat-sidenav {
+        // flex: 2;
+        width: 20%;
+        background-color: #eeeeee;
+        box-sizing: border-box;
+        padding: 10px 10px 10px 10px;
+    }
 
-// #navpanel{
-//     grid-column: span 2;
-//     background-color: dimgrey;
-//     box-sizing: border-box;
-//     padding: 20px 4px 20px 4px;
-//     text-align: justify;
-// }
-
-// .maincontent {
-//     grid-column: span 10;
-//     box-sizing: border-box;
-//     padding: 20px;
-// }
-
-// #bottomfooter {
-//     grid-column: span 12;
-//     background-color: darkslategrey;
-//     box-sizing: border-box;
-// }
-
-// /* END OF GRID SYSTEM */ 
-
+    mat-sidenav-content {
+        width: 80%;
+        background-color: #ffffff;
+        box-sizing: border-box; 
+        padding: 15px 0px 15px 20px;
+    }
+        
+}
