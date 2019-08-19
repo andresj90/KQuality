@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LayoutComponent } from './layout.component';
 
-describe('LayoutComponent', () => {
-  let component: LayoutComponent;
-  let fixture: ComponentFixture<LayoutComponent>;
+import { DocumentMasterComponent } from './document-master.component';
+
+describe('DocumentMasterComponent', () => {
+  let component: DocumentMasterComponent;
+  let fixture: ComponentFixture<DocumentMasterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LayoutComponent ]
+      declarations: [ DocumentMasterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LayoutComponent);
+    fixture = TestBed.createComponent(DocumentMasterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

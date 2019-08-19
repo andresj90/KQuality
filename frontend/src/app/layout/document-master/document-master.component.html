@@ -1,0 +1,16 @@
+<form id=formId (ngSubmit)="getDataForDocument()">
+  <div>
+    <label for="DocumentName"> Nombre del documento </label>
+    <input type="text" name="documentname" id="documentname" [(ngModel)]="newdocument.name">
+  </div>
+  <div>
+    <label for="DescriptionName"> Descripción del documento </label>
+    <input type="text" name="descriptionname" id="descriptionname">
+  </div>
+  <button type="submit" mat-raised-button>Enviar</button>
+</form>
+<div>
+  <ol >
+     <li>{{documents}} </li>
+  </ol>
+</div>

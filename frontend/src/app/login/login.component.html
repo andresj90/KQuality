@@ -1,14 +1,9 @@
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1a/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
 <body>
   <div class="container">
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-header">
-          <h3>Sign In</h3>
+          <h3>KQuality</h3>
         </div>
         <div class="card-body">
           <form>
@@ -29,13 +24,13 @@
               <input type="checkbox">Remember Me
             </div>
             <div class="form-group">
-              <input type="submit" value="Login" class="btn float-right login_btn">
+              <input type="submit" value="Login" class="btn float-right login_btn"  [routerLink]="['']" (click)="onLoggedin()">
             </div>
           </form>
         </div>
         <div class="card-footer">
           <div class="d-flex justify-content-center links">
-            Don't have an account?<a href="#">Sign Up</a>
+            Don't have an account?<a href="#" [routerLink]="['/signup']">{{ 'Sign up' | translate }}</a>
           </div>
           <div class="d-flex justify-content-center">
             <a href="#">Forgot your password?</a>
@@ -44,19 +39,4 @@
       </div>
     </div>
   </div>
-</body> -->
-
-
-<form id=formId (ngSubmit)="getDataForCompanyRole()">
-  <div>
-    <label for="RoleName"> System Role Name </label>
-    <input type="text" name="rolename" id="rolename" [(ngModel)]="newrole.name">
-  </div>
-  <button type="submit" mat-raised-button>Submit</button>
-</form>
-<div>
-  <ol >
-     <li>{{systemroles}} </li>
-  </ol>
-</div>
-
+</body>
