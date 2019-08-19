@@ -1,34 +1,3 @@
-/*Variables */ 
-$primaryC : #151B25;
-
-
-mat-sidenav-container  {
-    width: 100%;
-    height: 700px;
-    // display: flex;
-    mat-sidenav {
-        // flex: 2;
-        width: 20%;
-        background-color: #eeeeee;
-        box-sizing: border-box;
-        padding: 10px 10px 10px 10px;
-    }
-
-    mat-sidenav-content {
-        width: 100%;
-        background-color: #ffffff;
-        box-sizing: border-box; 
-        padding: 15px 0px 15px 20px;
-    }
-        
-}
-
-mat-nav-list {
-    width: 100%;
-    a {
-        mat-icon {
-            margin-right: 15px;
-        }
-        display: block;
-    }
+.panel {
+    color: #ffffff;
 }

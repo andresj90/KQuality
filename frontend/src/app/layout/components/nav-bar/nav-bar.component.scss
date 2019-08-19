@@ -5,8 +5,27 @@ mat-toolbar {
     width: 100%;
     color: #ffffff;
 
+    #toolbarLeft {
+      margin-right: auto;
+    }
+
     #toolbarRight {
         margin-left: auto;   
+    }
+
+    #toolbarMiddle {
+      margin: auto; 
+      width: 65%;  
+    }
+
+    #toolbarMiddle .form-control{
+      background-color: rgba(255, 255, 255, .1);
+      border:none;
+      color: #ffffff;
+    }
+
+    #toolbarMiddle .form-control::placeholder {
+      color: #ffffff;
     }
 
     #hideshowNav {
@@ -14,4 +33,9 @@ mat-toolbar {
       border: none;
       margin: 0px 20px 0px 0px;
     }
+}
+
+#toolbarLeft mat-icon {
+vertical-align: sub;
+color: #ffffff;
 }
