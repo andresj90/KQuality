@@ -1,4 +1,3 @@
-import { CompanyCRUDService } from './../../services/company-crud.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,25 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./organigram.component.scss']
 })
 export class OrganigramComponent implements OnInit {
-  /* variables */ 
-  newrole = {
-    name
+
+  constructor() { }
+
+  ngOnInit() {
   }
-  systemroles:any; 
-   
-  constructor(private companyService: CompanyCRUDService) { }
 
-    ngOnInit() {
-      this.companyService.listSystemRoles().subscribe(roles => {
-        this.systemroles = JSON.stringify(roles);
-        console.log(this.systemroles);
-      
-      });
-    }
-
-    getDataForCompanyRole(){
-      this.companyService.addNewSystemRole(this.newrole).subscribe(data=> {
-        console.log(data);
-      })
-    }
 }
