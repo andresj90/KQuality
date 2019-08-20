@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="starter-template">
+    <div class="row">
+
+      <div class="col-md-12 mt-5">
+        <h1>{{ titulo }} </h1>
+        <form [formGroup]="contacto" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Nombre del documento</label>
+            <input type="text" formControlName="nya" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.nya.errors }" />
+            <div *ngIf="submitted && f.nya.errors" class="invalid-feedback">
+              <div *ngIf="f.nya.errors.required">Por favor, ingrese el nombre del documento</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="text" formControlName="email" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">El correo electrónico es obligatorio</div>
+              <div *ngIf="f.email.errors.email">Por favor, ingrese su correo corporativo</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <input type="text" formControlName="asunto" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.asunto.errors }" />
+            <div *ngIf="submitted && f.asunto.errors" class="invalid-feedback">
+              <div *ngIf="f.asunto.errors.required">Por favor, ingrese el Asunto</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Descripción</label>
+            <textarea class="form-control" formControlName="mensaje" rows="3"
+              [ngClass]="{ 'is-invalid': submitted && f.mensaje.errors }"></textarea>
+            <div *ngIf="submitted && f.mensaje.errors" class="invalid-feedback">
+              <div *ngIf="f.mensaje.errors.required">Por favor, ingrese la descripción del documento ( 6 Caracteres mínimo )</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Aceptar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { MaterialCustomModule } from './sharedModule/materialCustom';
 import { NgprimeModule } from './sharedModule/ngprime.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 /* Components */
@@ -18,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
+import { DocumentMasterComponent } from './components/document-master/document-master.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,7 +31,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     NavBarComponent,
     LateralPanelComponent,
     FooterComponent,
-    RoutingComponent
+    RoutingComponent,
+    DocumentMasterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     AppRoutingModule,
     MaterialCustomModule,
     NgprimeModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

@@ -4,8 +4,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
   { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   /* wildcard*/
   { path: '**', component: NotFoundComponent }
 ];
