@@ -10,9 +10,40 @@
       <input class="form-control" type="text" placeholder="Default input">
     </div>
     <div id="toolbarRight">
-       <div>
-        <span>First Row</span>
-       </div>
+      <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
+          <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #language="matMenu">
+          <button mat-menu-item (click)="changeLang('en')">
+              <span>{{ 'English' | translate }}</span>
+          </button>
+          <button mat-menu-item (click)="changeLang('fr')">
+              <span>{{ 'French' | translate }}</span>
+          </button>
+          <button mat-menu-item (click)="changeLang('ur')">
+              <span>{{ 'Urdu' | translate }}s</span>
+          </button>
+      </mat-menu>
+      <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile">
+          <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profile="matMenu">
+          <button mat-menu-item>
+              <mat-icon>person</mat-icon>
+              <span>{{ 'Perfil' | translate }}</span>
+          </button>
+          <button mat-menu-item>
+              <mat-icon>inbox</mat-icon>
+              <span>{{ 'Bandeja de entrada' | translate }}</span>
+          </button>
+          <button mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <span>{{ 'Ajustes' | translate }}</span>
+          </button>
+      </mat-menu>
+      <button mat-icon-button (click)="onLoggedout()">
+          <mat-icon>exit_to_app</mat-icon>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

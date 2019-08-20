@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module'; 
 import { MaterialCustomModule } from './sharedModule/materialCustom';
 import { NgprimeModule } from './sharedModule/ngprime.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -16,6 +19,9 @@ import { FooterComponent } from './components/footer/footer.component';
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
 
+export const createTranslateLoader = (http: HttpClient) => {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+};
 
 @NgModule({
   declarations: [
@@ -31,7 +37,14 @@ import { CompanyCRUDService } from './services/company-crud.service';
     FormsModule,
     AppRoutingModule,
     MaterialCustomModule,
-    NgprimeModule
+    NgprimeModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [
     CompanyCRUDService

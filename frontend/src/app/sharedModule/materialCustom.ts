@@ -6,6 +6,7 @@ import {MatRadioModule} from '@angular/material'
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 const materialModules = [
   BrowserAnimationsModule,
@@ -13,7 +14,8 @@ const materialModules = [
   MatSidenavModule,
   MatRadioModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatMenuModule
 ]
 
 @NgModule({
