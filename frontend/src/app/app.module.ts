@@ -19,7 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
-import { DocumentMasterComponent } from './components/document-master/document-master.component';
+
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,8 +31,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     NavBarComponent,
     LateralPanelComponent,
     FooterComponent,
-    RoutingComponent,
-    DocumentMasterComponent
+    RoutingComponent
+   
   ],
   imports: [
     BrowserModule,
