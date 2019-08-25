@@ -5,55 +5,38 @@
       <div class="menu-list">
 
           <ul id="menu-content" class="menu-content collapse out">
-              <li>
-                <a href="#">
-                <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                </a>
+              <li  data-toggle="collapse" data-target="#documents" class="collapsed active">
+                <a href="#"><i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span></a>
               </li>
-
-              <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                <a href="#"><i class="fa fa-gift fa-lg"></i> Anlagenauswahl <span class="arrow"></span></a>
-              </li>
-              <ul class="sub-menu collapse" id="products">
-                  <li class="active"><a href="#">RFT-H1</a></li>
-                  <li><a href="#">RFT-H2</a></li>
-                  <li><a href="#">BTB-H1</a></li>
-                  <li><a href="#">BTB-H2</a></li>
+              <ul class="sub-menu collapse" id="documents">
+                  <li class="active"><a href="/create">Crear documento</a></li>
+                  <li><a href="#">Actualizar documento</a></li>
+                  <li><a href="#">Eiminar documento</a></li>
               </ul>
 
 
-              <li data-toggle="collapse" data-target="#service" class="collapsed">
-                <a href="#"><i class="fa fa-globe fa-lg"></i> Auswertungen <span class="arrow"></span></a>
+              <li data-toggle="collapse" data-target="#processes" class="collapsed">
+                <a href="#"><i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span></a>
               </li>  
-              <ul class="sub-menu collapse" id="service">
-                <li>Trendmonitoring</li>
-                <li>Alarmmonitoring</li>
-                <li>Audit-Trail</li>
+              <ul class="sub-menu collapse" id="processes">
+                <li>Crear proceso</li>
+                <li>Actualizar proceso</li>
+                <li>Eliminar proceso</li>
               </ul>
 
 
-              <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> Reporting <span class="arrow"></span></a>
+              <li data-toggle="collapse" data-target="#sitemap" class="collapsed">
+                <a href="#"><i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span></a>
               </li>
-              <ul class="sub-menu collapse" id="new">
-                <li>Alarmstatistik</li>
-                <li>Prozessfähigkeit</li>
+              <ul class="sub-menu collapse" id="sitemap">
+                <li>Crear área</li>
+                <li>Eliminar área</li>
               </ul>
 
 
                <li>
-                <a href="#">
-                <i class="fa fa-user fa-lg"></i> Profile
-                </a>
-                </li>
-
-               <li data-toggle="collapse" data-target="#new" class="collapsed">
-                <a href="#"><i class="fa fa-car fa-lg"></i> Service <span class="arrow"></span></a>
+                <a href="#"><i class="fa fa-list-ul fa-lg"></i> Listado Maestro de Documentos </a>
               </li>
-              <ul class="sub-menu collapse" id="new">
-                <li>Sensorkonfiguration</li>
-                <li>Betriebsarten</li>
-              </ul>
 
           </ul>
    </div>
