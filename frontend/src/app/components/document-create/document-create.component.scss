@@ -1,0 +1,22 @@
+$primaryColor:#ffffff;
+.maincontainer {
+   width: 79%;
+   height: 100%;
+ 
+.contentcontainer {
+    display: flex;
+    box-sizing: border-box;
+
+    .rightcolumn , .leftcolumn{
+        width: inherit; 
+        height: inherit; 
+        //border: 1px solid red;
+        flex: 48%; 
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+   
+}
+
+}
