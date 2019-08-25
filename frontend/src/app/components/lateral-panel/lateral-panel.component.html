@@ -1,44 +1,61 @@
 <div class="nav-side-menu">
-  <div class="brand">Press Curing Control</div>
+  <div class="brand">
+    <div class="profile-sidebar">
+      <div class="profile-userpic">
+        <img src="https://img.icons8.com/bubbles/100/000000/check-male.png" class="img-responsive" alt="">
+      </div>
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          Marcus Doe
+        </div>
+        <div class="profile-usertitle-job">
+          Analista IT
+        </div>
+        <div class="profile-usertitle-email">
+          marcus.doe@company.com
+        </div>
+      </div>
+    </div>
+  </div>
   <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
-      <div class="menu-list">
+  <div class="menu-list">
 
-          <ul id="menu-content" class="menu-content collapse out">
-              <li  data-toggle="collapse" data-target="#documents" class="collapsed active">
-                <a href="#"><i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span></a>
-              </li>
-              <ul class="sub-menu collapse" id="documents">
-                  <li class="active"><a [routerLink]="[ '/create']">Crear Documento
-                  </a></li>
-                  <li><a href="#">Actualizar documento</a></li>
-                  <li><a href="#">Eiminar documento</a></li>
-              </ul>
-
-
-              <li data-toggle="collapse" data-target="#processes" class="collapsed">
-                <a href="#"><i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span></a>
-              </li>  
-              <ul class="sub-menu collapse" id="processes">
-                <li>Crear proceso</li>
-                <li>Actualizar proceso</li>
-                <li>Eliminar proceso</li>
-              </ul>
+    <ul id="menu-content" class="menu-content collapse out">
+      <li data-toggle="collapse" data-target="#documents" class="collapsed active">
+        <a href="#"><i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="documents">
+        <li class="active"><a [routerLink]="[ '/create']">Crear Documento
+          </a></li>
+        <li><a href="#">Actualizar documento</a></li>
+        <li><a href="#">Eiminar documento</a></li>
+      </ul>
 
 
-              <li data-toggle="collapse" data-target="#sitemap" class="collapsed">
-                <a href="#"><i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span></a>
-              </li>
-              <ul class="sub-menu collapse" id="sitemap">
-                <li>Crear área</li>
-                <li>Eliminar área</li>
-              </ul>
+      <li data-toggle="collapse" data-target="#processes" class="collapsed">
+        <a href="#"><i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="processes">
+        <li>Crear proceso</li>
+        <li>Actualizar proceso</li>
+        <li>Eliminar proceso</li>
+      </ul>
 
 
-               <li>
-                <a href="#"><i class="fa fa-list-ul fa-lg"></i> Listado Maestro de Documentos </a>
-              </li>
+      <li data-toggle="collapse" data-target="#sitemap" class="collapsed">
+        <a href="#"><i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="sitemap">
+        <li>Crear área</li>
+        <li>Eliminar área</li>
+      </ul>
 
-          </ul>
-   </div>
+
+      <li>
+        <a href="#"><i class="fa fa-list-ul fa-lg"></i> Listado Maestro de Documentos </a>
+      </li>
+
+    </ul>
+  </div>
 </div>
