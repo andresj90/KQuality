@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
+import { DocumentCreateComponent } from './components/document-create/document-create.component';
 
 
 export const createTranslateLoader = (http: HttpClient) => {
@@ -31,7 +32,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     NavBarComponent,
     LateralPanelComponent,
     FooterComponent,
-    RoutingComponent
+    RoutingComponent,
+    DocumentCreateComponent
    
   ],
   imports: [
