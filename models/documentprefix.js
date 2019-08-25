@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     }, 
     count: {
       type:DataTypes.INTEGER, 
-      default: 0 
+      defaultValue: 0 
     }
   });
   DocumentPrefix.associate = function(models) {

@@ -8,8 +8,42 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
+      code: {
+        type: Sequelize.STRING, 
+        allowNull: false
+       }, 
+       name: {
+         type: Sequelize.STRING, 
+         allowNull: false
+        }, 
+       type: {
+         type: Sequelize.STRING, 
+         allowNull: false
+        },
+       description: {
+         type: Sequelize.STRING, 
+         allowNull: false
+       },
+       procedure: {
+         type: Sequelize.STRING, 
+         allowNull: false
+        }, 
+       area: {
+         type: Sequelize.STRING, 
+         allowNull: false
+        },
+       attachment: {
+         type: Sequelize.STRING, 
+         allowNull: true
+        },    
+      documentPrefixID: {
+        type: Sequelize.INTEGER, 
+        onDelete: 'CASCADE',
+        references: {
+          model: 'DocumentPrefixes',
+          key: 'id',
+          as: 'documentPrefixID'
+        } 
       },
       createdAt: {
         allowNull: false,

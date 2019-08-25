@@ -9,11 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       prefix: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false
       },
       count: {
-        type:DataTypes.INTEGER, 
-        default: 0 
+        type:Sequelize.INTEGER, 
+        defaultValue: 0 
       },
       createdAt: {
         allowNull: false,

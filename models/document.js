@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING, 
       allowNull: false
      }, 
-    version: {
+    type: {
       type: DataTypes.STRING, 
       allowNull: false
      },
@@ -27,12 +27,18 @@ module.exports = (sequelize, DataTypes) => {
      },
     attachment: {
       type: DataTypes.STRING, 
-      allowNull: false
-     },    
-
+      allowNull: true
+     }    
   });
   Document.associate = function(models) {
-    // associations can be defined here
+    Document.hasMany(models.DocumentCode, {
+       foreignKey: 'documentID', 
+       as: 'documentCodes'
+    });
+    Document.belongsTo(models.DocumentPrefix, {
+       foreignKey: 'documentPrefixID', 
+       onDelete: 'CASCADE'
+    });
   };
   return Document;
 };

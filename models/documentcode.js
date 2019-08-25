@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
      type:DataTypes.STRING,
      allowNull: false
     }   
-  }, {});
+  });
   DocumentCode.associate = function(models) {
     DocumentCode.belongsTo(models.Document , {
       foreignKey: 'documentID',
