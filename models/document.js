@@ -37,7 +37,9 @@ module.exports = (sequelize, DataTypes) => {
     });
     Document.belongsTo(models.DocumentPrefix, {
        foreignKey: 'documentPrefixID', 
-       onDelete: 'CASCADE'
+       onDelete: 'NO ACTION',
+       onUpdate: 'CASCADE',
+       constraints:true
     });
   };
   return Document;

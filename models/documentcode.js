@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
   DocumentCode.associate = function(models) {
     DocumentCode.belongsTo(models.Document , {
       foreignKey: 'documentID',
-      onDelete: 'CASCADE'
+      onDelete: 'NO ACTION',
+      onUpdate: 'CASCADE',
+      constraints: true
     });
   };
   return DocumentCode;

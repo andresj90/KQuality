@@ -43,17 +43,20 @@ module.exports = (sequelize, DataTypes) => {
     //A user has a role in the system assigned 
     User.belongsTo(models.SystemRole, {
       foreignKey: 'systemRoleID',
-      onDelete: 'CASCADE'
+      onDelete: 'NO ACTION',
+      onUpdate: 'CASCADE'
     });
 
     User.belongsTo(models.CompanyArea, {
       foreignKey: 'companyAreaID',
-      onDelete: 'CASCADE'
+      onDelete: 'NO ACTION',
+      onUpdate: 'CASCADE'
     });
 
     User.belongsTo(models.CompanyRole, {
       foreignKey: 'companyRoleID',
-      onDelete: 'CASCADE'
+      onDelete: 'NO ACTION',
+      onUpdate: 'CASCADE'
     });
   };
   return User;

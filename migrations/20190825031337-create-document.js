@@ -38,7 +38,8 @@ module.exports = {
         },    
       documentPrefixID: {
         type: Sequelize.INTEGER, 
-        onDelete: 'CASCADE',
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE',
         references: {
           model: 'DocumentPrefixes',
           key: 'id',

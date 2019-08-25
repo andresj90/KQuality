@@ -37,7 +37,8 @@ module.exports = {
       },
       companyRoleID: {
         type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE',
         references: {
           model: 'CompanyRoles',
           key: 'id',
@@ -46,7 +47,8 @@ module.exports = {
       },
       companyAreaID: {
         type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE',
         references: {
           model: 'CompanyAreas',
           key: 'id',
@@ -55,7 +57,8 @@ module.exports = {
       },
       systemRoleID: {
         type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE',
         references: {
           model: 'SystemRoles', //has to be pluralized
           key: 'id',
