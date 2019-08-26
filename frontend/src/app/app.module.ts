@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -8,7 +9,7 @@ import { NgprimeModule } from './sharedModule/ngprime.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -20,7 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 /*Services */
 import { CompanyCRUDService } from './services/company-crud.service';
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
-
+import { DocumentCRUDService } from './services/document-crud.service';
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +45,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     MaterialCustomModule,
     NgprimeModule,
     ReactiveFormsModule,
+    NgxFileDropModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -53,7 +55,8 @@ export const createTranslateLoader = (http: HttpClient) => {
   })
   ],
   providers: [
-    CompanyCRUDService
+    CompanyCRUDService,
+    DocumentCRUDService
   ],
   bootstrap: [AppComponent]
 })

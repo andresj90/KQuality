@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyCRUDService {
+export class DocumentCRUDService {
 
   constructor(
     private http: HttpClient,
@@ -19,15 +19,19 @@ export class CompanyCRUDService {
   /* List of methods for http requests to the backend*/ 
 
   //POST method to add a new role to the system
-  addNewSystemRole(newRole) {
+  addNewDocument(newDocument) {
     this.header.append('Content-type', 'application/json');
-    return this.http.post('http://localhost:3000/systemrole/create', newRole, { headers: this.header });
+    return this.http.post('http://localhost:3000/document/create', newDocument, { headers: this.header });
   }
 
   //get all the roles listed for the users
-  listSystemRoles() {
+  listAllDocuments() {
     this.header.append('content-type', 'application/json'); 
-    return this.http.get('http://localhost:3000/systemrole/all', {headers: this.header});
+    return this.http.get('http://localhost:3000/document/all', {headers: this.header});
   }
+
+
+  
+
 
 }
