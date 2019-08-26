@@ -22,19 +22,19 @@
   <div class="menu-list">
 
     <ul id="menu-content" class="menu-content collapse out">
-      <li data-toggle="collapse" data-target="#documents" class="collapsed active">
-        <a href="#"><i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span></a>
+      <li data-toggle="collapse" data-target="#documents" class="collapsed">
+        <i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span>
       </li>
       <ul class="sub-menu collapse" id="documents">
         <li class="active"><a [routerLink]="[ '/create']">Crear Documento
           </a></li>
-        <li><a href="#">Actualizar documento</a></li>
-        <li><a href="#">Eiminar documento</a></li>
+        <li>Actualizar documento</li>
+        <li>Eiminar documento</li>
       </ul>
 
 
       <li data-toggle="collapse" data-target="#processes" class="collapsed">
-        <a href="#"><i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span></a>
+        <i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span>
       </li>
       <ul class="sub-menu collapse" id="processes">
         <li>Crear proceso</li>
@@ -44,7 +44,7 @@
 
 
       <li data-toggle="collapse" data-target="#sitemap" class="collapsed">
-        <a href="#"><i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span></a>
+        <i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span>
       </li>
       <ul class="sub-menu collapse" id="sitemap">
         <li>Crear área</li>
@@ -52,7 +52,7 @@
       </ul>
 
 
-      <li data-target="#listDocuments" class="active">
+      <li data-target="#listDocuments">
         <i class="fa fa-list-ul fa-lg"></i><a [routerLink]="[ '/list-documents']"> Listado Maestro de Documentos </a>
       </li>
 
