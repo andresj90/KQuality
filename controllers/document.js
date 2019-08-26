@@ -6,7 +6,7 @@ const models = require('../models');
 module.exports.addDocument = (document, res) => {
     /* We will verify if doc does not exist, if it does we will return false 
       true otherwise */
-      console.log(document);
+      console.log("controllador documento : " + JSON.stringify(document));
       Document.findOrCreate({where: {code: document.code}, defaults: {
         name: document.name,
         type: document.type,
