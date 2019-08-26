@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'create', component:  DocumentCreateComponent},
+  { path: 'list-documents', component:  DocumentMasterComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -19,4 +20,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { } export const 
-RoutingComponent = [LoginComponent,NotFoundComponent, DocumentCreateComponent];
+RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent];
