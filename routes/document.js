@@ -1,16 +1,26 @@
 const Document = require('../controllers/document');
 const documentRouter = require('express').Router();
-const multipart = require('connect-multiparty');
-const multipartMiddleware = multipart({
-   uploadDir: './files'
-});
-const formidable = require('formidable');
 const multer = require('multer');
+const path = require('path');
 
 
+/* setting up the storage disk */
+
+var storage = multer.diskStorage({
+   destination: (req, file, cb) => {
+       cb(null, '/files/');
+   },
+   filename: (req, file, cb) => {
+       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+   }
+});
+
+
+//will be using this for uplading
+const upload = multer({ storage: storage })
 
 /* Route for document creation */
-documentRouter.post('/create', multipartMiddleware, (req, res) => {
+documentRouter.post('/create', upload.single('profile'), (req, res) => {
    /*Build object with params from form  */
    let newDoc = {
       code: req.body.code,
@@ -22,10 +32,13 @@ documentRouter.post('/create', multipartMiddleware, (req, res) => {
       attachment: req.body.attachment,
       documentPrefixID: req.body.documentPrefixID
    }
+   
+   // console.log('storage location is ', req.hostname +'/' + req.file);
 
-    console.log(req);
+    console.log(req.body);
+    //return res.send(req.file);
 
-   Document.addDocument(newDoc, res);
+   //Document.addDocument(newDoc, res);
 
 });
 

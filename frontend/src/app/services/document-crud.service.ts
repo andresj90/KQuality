@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DocumentCRUDService {
-  uploadedFiles: Array < File > ;
+  // uploadedFiles: Array < File > ;
+  uploadedFiles: File;
 
   constructor(
     private http: HttpClient,
@@ -36,15 +37,17 @@ export class DocumentCRUDService {
 
   upload() {
     let formData = new FormData();
-    for (var i = 0; i < 1; i++) {
-      formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
-      console.log(this.uploadedFiles[i])
-    }
+    // for (var i = 0; i < 1; i++) {
+    //   formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
+    //   console.log(this.uploadedFiles[i])
+    // }
 
-    this.http.post('http://localhost:3000/document/create', formData)
-      .subscribe((response) => {
-        console.log('response received is ', response);
-      })
+    formData.append("upload", this.uploadedFiles, <string> this.uploadedFiles.name);
+
+    // this.http.post('http://localhost:3000/document/create', formData)
+    //   .subscribe((response) => {
+    //     console.log('response received is ', response);
+    //   })
 
       
   }
