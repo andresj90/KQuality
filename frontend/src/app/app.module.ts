@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CompanyCRUDService } from './services/company-crud.service';
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
 import { DocumentCRUDService } from './services/document-crud.service';
+import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +36,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     LateralPanelComponent,
     FooterComponent,
     RoutingComponent,
-    DocumentCreateComponent
+    DocumentCreateComponent,
+    FileInputValueAccessor
    
   ],
   imports: [

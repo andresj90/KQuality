@@ -22,6 +22,7 @@ const app = express();
 
 /* Middleware goes in here */
 app.use(bodyParser.json());
+app.use(bodyParser.json({type:'*/*', limit: '10mb'}));
 app.use(bodyParser.urlencoded({
   extended: false
 }));

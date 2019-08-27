@@ -8,85 +8,59 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './document-create.component.html',
   styleUrls: ['./document-create.component.scss']
 })
-export class DocumentCreateComponent implements OnInit {
+export class DocumentCreateComponent {
 
-  code: string;
-  name: string;
-  type: string;
-  description: string;
-  procedure: string;
-  area: number;
-  attachment: File | null ;
-  
-  SERVER_URL = "http://localhost:3000/upload";
-  uploadForm: FormGroup; 
-
+  public newDocument: {
+    code: string;
+    name: string;
+    type: string;
+    description: string;
+    procedure: string;
+    area: number;
+    attachment: File | null;
+  };
 
   constructor(
     private http: HttpClient,
-    private formBuilder : FormBuilder,
     private document: DocumentCRUDService
-  ) { }
-
-  ngOnInit() {
-    
-    this.uploadForm = this.formBuilder.group({
-      profile: ['']
-    }); 
+  ) {
+    this.newDocument = {
+      code: "",
+      name: "",
+      type: "",
+      description: "",
+      procedure: "",
+      area: 0,
+      attachment: null
+    };
   }
 
-  addDocument() {
 
-    const newDocument = {
-      fieldname: "field",
-      code: this.code,
-      name: this.name,
-      type: this.type,
-      description: this.description,
-      procedure: this.procedure,
-      area: this.area,
-      attachment: this.attachment,
+  addDocument() {
+    const doc = {
+      code: this.newDocument.code,
+      name: this.newDocument.name,
+      type: this.newDocument.type,
+      description: this.newDocument.description,
+      procedure: this.newDocument.procedure,
+      area: this.newDocument.area,
+      attachment: 
+      {
+         fieldName: 'file',
+         name: this.newDocument.attachment.name,
+         type: this.newDocument.attachment.type
+     },
       documentPrefixID: 1,
     }
 
-   //this.document.upload();
-    
 
-  //this.document.addNewDocument(newDocument).subscribe((data) => {
-   //   console.log(data);
-  //  });
+    this.document.addNewDocument(doc).subscribe((data) => {
+      console.log(data);
+    });
 
-  console.log(newDocument.attachment);
-  }
+    console.log(doc);
+    console.log(doc.attachment);
 
-
-  fileChange(element) {
-    this.document.uploadedFiles = element.target.files;
-    //let fileName = file.name;
-  }
-
-
-  onFileSelect(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get('profile').setValue(file);
-    }
-  }
-
-
-
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.uploadForm.get('profile').value);
-
-    console.log(this.uploadForm.get('profile').value);
-
-    this.http.post<any>('http://localhost:3000/document/create', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
-
-    this.addDocument()
   }
 
 }

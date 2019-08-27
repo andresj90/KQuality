@@ -13,7 +13,7 @@ systemRoleRouter.post('/create', (req, res) => {
 });
 
 systemRoleRouter.get('/all', (req, res) => {
-    SystemRole.listCompanyAreas(res);
+    // SystemRole.listCompanyAreas(res);
 })
 
 module.exports = systemRoleRouter;

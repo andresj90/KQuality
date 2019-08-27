@@ -8,8 +8,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DocumentCRUDService {
-  // uploadedFiles: Array < File > ;
-  uploadedFiles: File;
 
   constructor(
     private http: HttpClient,
@@ -23,6 +21,7 @@ export class DocumentCRUDService {
   //POST method to add a new role to the system
   addNewDocument(newDocument) {
     this.header.append('Content-type', 'application/json');
+    this.header.append('Content-type', 'w-xxx-form-urlencoded');
     return this.http.post('http://localhost:3000/document/create', newDocument, { headers: this.header });
   }
 
@@ -32,24 +31,6 @@ export class DocumentCRUDService {
     return this.http.get('http://localhost:3000/document/all', {headers: this.header});
   }
 
-
-
-
-  upload() {
-    let formData = new FormData();
-    // for (var i = 0; i < 1; i++) {
-    //   formData.append("uploads[]", this.uploadedFiles[i], this.uploadedFiles[i].name);
-    //   console.log(this.uploadedFiles[i])
-    // }
-
-    formData.append("upload", this.uploadedFiles, <string> this.uploadedFiles.name);
-
-    // this.http.post('http://localhost:3000/document/create', formData)
-    //   .subscribe((response) => {
-    //     console.log('response received is ', response);
-    //   })
-
-      
-  }
+ 
 
 }

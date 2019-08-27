@@ -4,6 +4,7 @@ const multer = require('multer');
 const path = require('path');
 
 
+
 /* setting up the storage disk */
 
 var storage = multer.diskStorage({
@@ -11,16 +12,16 @@ var storage = multer.diskStorage({
        cb(null, '/files/');
    },
    filename: (req, file, cb) => {
-       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+       cb(null, file.fieldName + '-' + Date.now() + path.extname(file.name))
    }
 });
 
 
 //will be using this for uplading
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage }).single('attachment');
 
 /* Route for document creation */
-documentRouter.post('/create', upload.single('profile'), (req, res) => {
+documentRouter.post('/create', upload, (req, res) => {
    /*Build object with params from form  */
    let newDoc = {
       code: req.body.code,
@@ -33,10 +34,10 @@ documentRouter.post('/create', upload.single('profile'), (req, res) => {
       documentPrefixID: req.body.documentPrefixID
    }
    
-   // console.log('storage location is ', req.hostname +'/' + req.file);
+    console.log('storage location is ', req.hostname +'/' + req.files);
 
-    console.log(req.body);
-    //return res.send(req.file);
+   //  console.log(req.body.attachment);
+    return res.json(req.body.attachment);
 
    //Document.addDocument(newDoc, res);
 
