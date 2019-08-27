@@ -15,8 +15,6 @@ $primaryColor:#ffffff;
         padding: 10px;
         box-sizing: border-box;
     }
-
-   
 }
 
 }
@@ -57,4 +55,12 @@ $primaryColor:#ffffff;
   }
   
 
+.adjunto {
+    border: 1px solid red;
 
+}
+
+.adjunto #adjunto {
+    border-radius: 10px !important;
+    background-color: aqua;
+}

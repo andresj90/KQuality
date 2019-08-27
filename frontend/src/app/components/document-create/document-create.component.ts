@@ -16,7 +16,7 @@ export class DocumentCreateComponent implements OnInit {
   description: string;
   procedure: string;
   area: number;
-  attachment: string;
+  attachment: File | null ;
   
   SERVER_URL = "http://localhost:3000/upload";
   uploadForm: FormGroup; 
@@ -49,17 +49,20 @@ export class DocumentCreateComponent implements OnInit {
       documentPrefixID: 1,
     }
 
-   this.document.upload();
+   //this.document.upload();
     
 
-  this.document.addNewDocument(newDocument).subscribe((data) => {
-      console.log(data);
-    });
+  //this.document.addNewDocument(newDocument).subscribe((data) => {
+   //   console.log(data);
+  //  });
+
+  console.log(newDocument.attachment);
   }
 
 
   fileChange(element) {
     this.document.uploadedFiles = element.target.files;
+    //let fileName = file.name;
   }
 
 
@@ -82,6 +85,8 @@ export class DocumentCreateComponent implements OnInit {
       (res) => console.log(res),
       (err) => console.log(err)
     );
+
+    this.addDocument()
   }
 
 }

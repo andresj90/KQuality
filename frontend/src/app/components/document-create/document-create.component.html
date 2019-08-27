@@ -4,7 +4,7 @@
     operación de cada uno de los procesos para que en
     ellos se garantice su actualización, disponibilidad y su uso.</p>
 
-  <form [formGroup] = "uploadForm" class="contentcontainer" (ngSubmit)="onSubmit()">
+  <form class="contentcontainer" (ngSubmit)="onSubmit()" >
     <div class="rightcolumn">
 
       <div class="input-group input-group mb-3">
@@ -12,7 +12,7 @@
           <span class="input-group-text" id="code">Código</span>
         </div>
         <input type="text" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" name="code" >
+          aria-describedby="inputGroup-sizing-sm" >
       </div>
 
       <div class="input-group input-group mb-3">
@@ -67,13 +67,11 @@
       </div>
 
       <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupFileAddon01">Adjuntar</span>
+        <div class="adjunto">
+          <input type="file" name="attachment" id="attachment" [(ngModel)]="attachment" observeFiles>
+      
         </div>
-        <div class="custom-file">
-          <input type="file" (change)="fileChange($event)" class="custom-file-input" id="attachment" name="attachment"  aria-describedby="inputGroupFileAddon01">
-          <label class="custom-file-label" for="inputGroupFile01">Selecione archivo</label>
-        </div>
+        
       </div>
 
       <div class="containerButton">
