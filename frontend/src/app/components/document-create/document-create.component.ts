@@ -44,12 +44,12 @@ export class DocumentCreateComponent {
       description: this.newDocument.description,
       procedure: this.newDocument.procedure,
       area: this.newDocument.area,
-      attachment: 
-      {
-         fieldName: 'file',
-         name: this.newDocument.attachment.name,
-         type: this.newDocument.attachment.type
-     },
+      attachment: this.newDocument.attachment,
+    //   {
+    //      fieldName: 'file',
+    //      name: this.newDocument.attachment.name,
+    //      type: this.newDocument.attachment.type
+    //  },
       documentPrefixID: 1,
     }
 

@@ -34,12 +34,12 @@ documentRouter.post('/create', upload, (req, res) => {
       documentPrefixID: req.body.documentPrefixID
    }
    
-    console.log('storage location is ', req.hostname +'/' + req.files);
+    //console.log('storage location is ', req.hostname +'/' + req.files);
 
    //  console.log(req.body.attachment);
-    return res.json(req.body.attachment);
+   
 
-   //Document.addDocument(newDoc, res);
+   Document.addDocument(newDoc, res);
 
 });
 

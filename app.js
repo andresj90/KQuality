@@ -34,13 +34,14 @@ app.use('/area', companyAreaRoutes);
 app.use('/role', companyRoleRoutes);
 app.use('/user', userRoutes);
 app.use('/document', documentRoutes);
+const multer = require('multer');
 
 /* verify database connection */
-// models.sequelize.sync().then(() => {
-//   console.log("Connection to the database stablished");
-// }).catch(err => {
-//   return console.log("Connection could not be stablished " + err);
-// });
+models.sequelize.sync().then(() => {
+  console.log("Connection to the database stablished");
+}).catch(err => {
+  return console.log("Connection could not be stablished " + err);
+});
 
 /* STARTING ROUTE, MAIN ENTRY */
 app.get('/', (req, res) =>
