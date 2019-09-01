@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'create', component:  DocumentCreateComponent},
   { path: 'create-user', component:  CreateUserComponent},
   { path: 'list-documents', component:  DocumentMasterComponent},
+  { path: 'list-user_rol', component:  DocumentMasterComponent},
+  { path: 'rol_level', component:  DocumentMasterComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
