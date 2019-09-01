@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocumentMasterComponent } from './components/document-master/document-master.component';
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'area', component: CompanyAreaComponent },
   { path: 'create', component:  DocumentCreateComponent},
+  { path: 'create-user', component:  CreateUserComponent},
   { path: 'list-documents', component:  DocumentMasterComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
