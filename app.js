@@ -7,14 +7,35 @@
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
+const models = require('./models');
+const cosr = require('cors');
+const multer = require('multer');
+const path = require('path');
+
+
+/* routes required */
+
 const systemRoleRoutes = require('./routes/systemRole');
 const companyAreaRoutes = require('./routes/companyArea');
 const companyRoleRoutes = require('./routes/companyRole');
 const userRoutes = require('./routes/user');
 const documentRoutes = require('./routes/document');
-const models = require('./models');
-const cosr = require('cors');
 
+// /* setting up the storage disk */
+
+// var storage = multer.diskStorage({
+//    destination: (req, file, cb) => {
+//        cb(null, '/files/');
+//    },
+//    filename: (req, file, cb) => {
+//        cb(null, file.fieldName + '-' + Date.now() + path.extname(file.name))
+//    }
+// });
+
+
+
+// //will be using this for uplading
+// exports.upload = multer({ storage: storage });
 
 /* create the application, app is an instance of express */
 const app = express();
@@ -22,11 +43,11 @@ const app = express();
 
 /* Middleware goes in here */
 app.use(bodyParser.json());
-app.use(bodyParser.json({type:'*/*', limit: '10mb'}));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cosr());
+
 
 /* Middleware for applicationroutes */
 app.use('/systemrole', systemRoleRoutes);
@@ -34,7 +55,6 @@ app.use('/area', companyAreaRoutes);
 app.use('/role', companyRoleRoutes);
 app.use('/user', userRoutes);
 app.use('/document', documentRoutes);
-const multer = require('multer');
 
 /* verify database connection */
 models.sequelize.sync().then(() => {

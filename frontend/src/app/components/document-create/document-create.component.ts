@@ -44,7 +44,7 @@ export class DocumentCreateComponent {
       description: this.newDocument.description,
       procedure: this.newDocument.procedure,
       area: this.newDocument.area,
-      attachment: this.newDocument.attachment,
+      file: this.newDocument.attachment,
     //   {
     //      fieldName: 'file',
     //      name: this.newDocument.attachment.name,
@@ -59,7 +59,7 @@ export class DocumentCreateComponent {
     });
 
     console.log(doc);
-    console.log(doc.attachment);
+    console.log(doc.file);
 
   }
 

@@ -1,3 +1,4 @@
+import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +10,7 @@ import { DocumentCreateComponent } from './components/document-create/document-c
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'area', component: CompanyAreaComponent },
   { path: 'create', component:  DocumentCreateComponent},
   { path: 'list-documents', component:  DocumentMasterComponent},
   /* wildcard*/
@@ -20,4 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { } export const 
-RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent];
+RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, CompanyAreaComponent];

@@ -24,7 +24,6 @@ import { CompanyCRUDService } from './services/company-crud.service';
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
 import { DocumentCRUDService } from './services/document-crud.service';
 import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
-import { AreaCreateComponent } from './area-create/area-create.component';
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
@@ -40,7 +39,6 @@ export const createTranslateLoader = (http: HttpClient) => {
     RoutingComponent,
     DocumentCreateComponent,
     FileInputValueAccessor,
-    AreaCreateComponent,
     CompanyAreaComponent
    
   ],
