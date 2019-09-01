@@ -9,30 +9,40 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DocumentMasterComponent implements OnInit {
 
-  contacto: FormGroup;
-  submitted = false;
-  titulo = 'Crear un Formulario con Angular 7 y Bootstrap 4 + Validación';
+  titulo:string; 
+  description:String;
+  listaDocumentos = [{
+    titulo:'',
+    description:'',
+  },
+  {
+    titulo:'',
+    description:'',
+  },
+  {
+    titulo:'',
+    description:'',
+  }]
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.contacto = this.formBuilder.group({
-      nya: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      asunto: ['', Validators.required],
-      postre: ['', Validators.required],
-      mensaje: ['', [Validators.required, Validators.minLength(6)]]
-    });
+    this.listaDocumentos = [{
+      titulo:'Documento 1',
+      description:'Este es el documento 1',
+    },
+    {
+      titulo:'Documento 2',
+      description:'Este es el documento 2',
+    },
+    {
+      titulo:'Documento 3',
+      description:'Este es el documento 3',
+    }]
+
   }
 
-  get f() { return this.contacto.controls; }
+  
 
-  onSubmit() {
-    this.submitted = true;
 
-    if (this.contacto.invalid) {
-      return;
-    }
-    alert('Mensaje Enviado!')
-  }
 }
