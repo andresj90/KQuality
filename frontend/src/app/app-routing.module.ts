@@ -7,6 +7,7 @@ import { DocumentMasterComponent } from './components/document-master/document-m
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
