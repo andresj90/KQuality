@@ -1,14 +1,14 @@
 <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button> -->
-<div class="maincontainer">
-  <h3>Crear área</h3>
-  <p>Creación de áreas de la empresa.</p>
 
+<div class="maincontainer">
   <form class="contentcontainer">
 
       <div class="leftcolumn">
 
+        <h3>Crear área</h3>
+        <p>Creación de áreas de la empresa.</p>
   <mat-vertical-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
@@ -75,6 +75,9 @@
 
 
 <div class="rightcolumn">
+
+  <h3>Listado de áreas</h3>
+  <p>Listado de las áreas de la empresa.</p>
 
     <mat-accordion>
         <mat-expansion-panel>
