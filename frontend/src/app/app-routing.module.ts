@@ -6,6 +6,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DocumentMasterComponent } from './components/document-master/document-master.component';
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'create', component:  DocumentCreateComponent},
   { path: 'create-user', component:  CreateUserComponent},
   { path: 'list-documents', component:  DocumentMasterComponent},
-  { path: 'list-user_rol', component:  DocumentMasterComponent},
-  { path: 'rol_level', component:  DocumentMasterComponent},
+  { path: 'company-rol', component:  CompanyRolComponent},
+  { path: 'rol-level', component:  DocumentMasterComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -26,4 +27,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { } export const 
-RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, CompanyAreaComponent];
+RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
+  CompanyAreaComponent,CompanyRolComponent];
