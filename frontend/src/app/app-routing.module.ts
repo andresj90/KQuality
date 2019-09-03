@@ -13,12 +13,12 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'area', component: CompanyAreaComponent },
-  { path: 'create', component:  DocumentCreateComponent},
-  { path: 'create-user', component:  CreateUserComponent},
-  { path: 'list-documents', component:  DocumentMasterComponent},
-  { path: 'company-rol', component:  CompanyRolComponent},
-  { path: 'rol-level', component:  DocumentMasterComponent},
+  { path: 'area', component: CompanyAreaComponent, canActivate: [AuthGuard] },
+  { path: 'create', component:  DocumentCreateComponent, canActivate: [AuthGuard] },
+  { path: 'create-user', component:  CreateUserComponent, canActivate: [AuthGuard] },
+  { path: 'list-documents', component:  DocumentMasterComponent, canActivate: [AuthGuard] },
+  { path: 'company-rol', component:  CompanyRolComponent, canActivate: [AuthGuard] },
+  { path: 'rol-level', component:  DocumentMasterComponent, canActivate: [AuthGuard]},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
