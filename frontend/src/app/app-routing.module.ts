@@ -7,6 +7,7 @@ import { DocumentMasterComponent } from './components/document-master/document-m
 import { DocumentCreateComponent } from './components/document-create/document-create.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
+import { RolSystemComponent } from './components/rol-system/rol-system.component';
 import { AuthGuard } from './auth/auth.guard';
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'list-documents', component:  DocumentMasterComponent, canActivate: [AuthGuard] },
   { path: 'company-rol', component:  CompanyRolComponent, canActivate: [AuthGuard] },
   { path: 'rol-level', component:  DocumentMasterComponent, canActivate: [AuthGuard]},
+  { path: 'rol-system', component:  RolSystemComponent , canActivate: [AuthGuard]},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -29,4 +31,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent];
+  CreateUserComponent, RolSystemComponent, CompanyAreaComponent,CompanyRolComponent];

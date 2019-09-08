@@ -31,6 +31,7 @@ import { CompanyAreaComponent } from './components/company-area/company-area.com
 import { RolLevelComponent } from './components/rol-level/rol-level.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
+import { RolSystemComponent } from './components/rol-system/rol-system.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,7 +50,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     FileSelectDirective,
     RolLevelComponent,
     CreateUserComponent,
-    CompanyRolComponent
+    CompanyRolComponent,
+    RolSystemComponent
    
   ],
   imports: [
