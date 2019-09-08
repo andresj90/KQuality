@@ -24,7 +24,6 @@ export class CompanyRolComponent {
     name: string;
     description: string;
     area: string;
-    rol: string;
   };
 
   constructor(
@@ -36,8 +35,7 @@ export class CompanyRolComponent {
       code: "",
       name: "",
       description: "",
-      area: "",
-      rol: ""
+      area: ""
     };
   }
 
@@ -48,7 +46,6 @@ export class CompanyRolComponent {
       name: this.newDocument.name,
       description: this.newDocument.description,
       area: this.newDocument.area,
-      type: this.newDocument.rol,
     }
 
 
