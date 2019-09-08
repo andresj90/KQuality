@@ -7,7 +7,14 @@ module.exports.addCompanyRole = (newRole, res) => {
     companyRole.findOrCreate({
         where: {
             name: newRole.name
+            // name: {
+            //     [Op.like] : newRole.name+'%'
+            // }
+        },
+        defaults: {
+            description: newRole.description
         }
+        
     }).
     then(([role, wasCreated]) => {
         if (wasCreated) {

@@ -7,7 +7,8 @@ const systemRoleRouter = require('express').Router();
 
 systemRoleRouter.post('/create', (req, res) => {
     let newArea = {
-        name: req.body.name
+        name: req.body.name,
+        description: req.body.description
     }
     SystemRole.addSystemRole(newArea, res);
 });

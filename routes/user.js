@@ -6,7 +6,6 @@ const userRouter = require('express').Router();
 /* Routes for the systemroute in the app */
 
 userRouter.post('/create', (req, res) => {
-    
     let newUser = {
         name: req.body.name,
         lastname: req.body.lastname,
@@ -22,6 +21,13 @@ userRouter.post('/create', (req, res) => {
 
 userRouter.get('/all', (req, res) => {
     User.listUsers(res);
-})
+});
+
+/* updating data */
+userRouter.put('/update', (req, res) => {
+     let user = req.body; 
+     /*call method on controller */
+     User.updateUser(user, res);
+});
 
 module.exports = userRouter;

@@ -12,11 +12,15 @@ export class CompanyCRUDService {
   constructor(
     private http: HttpClient,
   ) { }
-  
+
   //this is an object of type HTTPHeaders which we will use to send the request 
   header = new HttpHeaders();
 
-  /* List of methods for http requests to the backend*/ 
+  /*
+  ----------------------------------------------------------------------------------------------
+  METHODS FOR SYSTEM ROLE
+  ----------------------------------------------------------------------------------------------
+  */
 
   //POST method to add a new role to the system
   addNewSystemRole(newRole) {
@@ -26,8 +30,45 @@ export class CompanyCRUDService {
 
   //get all the roles listed for the users
   listSystemRoles() {
-    this.header.append('content-type', 'application/json'); 
-    return this.http.get('http://localhost:3000/systemrole/all', {headers: this.header});
+    this.header.append('content-type', 'application/json');
+    return this.http.get('http://localhost:3000/systemrole/all', { headers: this.header });
   }
+
+
+  /*
+ ----------------------------------------------------------------------------------------------
+ METHODS FOR COMPANY AREA
+ ----------------------------------------------------------------------------------------------
+ */
+
+  addCompanyArea(newArea) {
+    this.header.append('Content-type', 'application/json');
+    return this.http.post('http://localhost:3000/area/create', newArea, { headers: this.header });
+  }
+
+  //get all the roles listed for the users
+  listAreas() {
+    this.header.append('content-type', 'application/json');
+    return this.http.get('http://localhost:3000/area/all', { headers: this.header });
+  }
+
+
+  /*
+ ----------------------------------------------------------------------------------------------
+ METHODS FOR COMPANY ROLE
+ ----------------------------------------------------------------------------------------------
+ */
+
+  addNewCompanyRole(newRole) {
+    this.header.append('Content-type', 'application/json');
+    return this.http.post('http://localhost:3000/company/create', newRole, { headers: this.header });
+  }
+
+  //get all the roles listed for the users
+  listCompanyRoles() {
+    this.header.append('content-type', 'application/json');
+    return this.http.get('http://localhost:3000/company/all', { headers: this.header });
+  }
+
 
 }

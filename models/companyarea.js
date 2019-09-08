@@ -5,7 +5,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       is: ["^[a-z]+$", 'i']
-    }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull:false
+     }
   });
   CompanyArea.associate = function (models) {
     CompanyArea.hasMany(models.User, {

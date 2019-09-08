@@ -5,10 +5,12 @@ const companyAreasRouter = require('express').Router();
 /* Routes for the company area in the app */
 
 companyAreasRouter.post('/create', (req, res) => {
-    let newRole = {
-        name: req.body.name
+    let area = {
+        name: req.body.name,
+        description: req.body.description
     }
-    companyArea.addCompanyArea(newRole, res);
+
+    companyArea.addCompanyArea(area, res);
 });
 
 companyAreasRouter.get('/all', (req, res) => {

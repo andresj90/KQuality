@@ -6,6 +6,13 @@ module.exports.addSystemRole = (systemrole, res) => {
     SystemRole.findOrCreate({
         where: {
             name: systemrole.name
+        //      {
+        //         [Op.like]: systemrole.name + '%'
+        //     }
+        // },
+        },
+        defaults: {
+            description: systemrole.description
         }
     }).
     then(([newRole, created]) => {

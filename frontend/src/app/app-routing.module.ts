@@ -1,5 +1,5 @@
-import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { NgModule } from '@angular/core';
+import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -8,17 +8,18 @@ import { DocumentCreateComponent } from './components/document-create/document-c
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RolLevelComponent } from './components/rol-level/rol-level.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'area', component: CompanyAreaComponent, canActivate: [AuthGuard] },
-  { path: 'create', component:  DocumentCreateComponent, canActivate: [AuthGuard] },
-  { path: 'create-user', component:  CreateUserComponent, canActivate: [AuthGuard] },
-  { path: 'list-documents', component:  DocumentMasterComponent, canActivate: [AuthGuard] },
-  { path: 'company-rol', component:  CompanyRolComponent, canActivate: [AuthGuard] },
-  { path: 'rol-level', component:  DocumentMasterComponent, canActivate: [AuthGuard]},
+  { path: 'area', component: CompanyAreaComponent},
+  { path: 'document', component:  DocumentCreateComponent},
+  { path: 'user', component:  CreateUserComponent},
+  { path: 'documents', component:  DocumentMasterComponent },
+  { path: 'companyrole', component:  CompanyRolComponent},
+  { path: 'systemrole', component: RolLevelComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -29,4 +30,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent];
+  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolLevelComponent];

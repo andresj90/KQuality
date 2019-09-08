@@ -29,7 +29,7 @@ const app = express();
 /* Middleware goes in here */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: true
 }));
 app.use(cosr());
 
@@ -38,7 +38,7 @@ app.use(cosr());
 /* Middleware for applicationroutes */
 app.use('/systemrole', systemRoleRoutes);
 app.use('/area', companyAreaRoutes);
-app.use('/role', companyRoleRoutes);
+app.use('/company', companyRoleRoutes);
 app.use('/user', userRoutes);
 app.use('/document', documentRoutes);
 

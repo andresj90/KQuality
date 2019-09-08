@@ -54,3 +54,27 @@ module.exports.listUsers = (res) => {
         return console.log(err)
     })
 }
+
+
+module.exports.updateUser = (user, res) => {
+    /* gets user and updates the values send through form */
+
+    User.upsert(user, {
+        validate: true
+    }).then(() => {
+        if (validate && !user) {
+            res.json({
+                msg: 'User Updated',
+                success: validate
+            });
+        } else {
+            res.json({
+                msg: 'Could not update user, validate fields',
+                success: validate
+            });
+        }
+    }).catch(err => {
+
+    });
+
+}
