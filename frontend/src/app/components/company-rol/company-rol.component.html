@@ -1,0 +1,67 @@
+<div class="maincontainer"> 
+  <h3>Roles para los usuarios en la compañia</h3>
+  <p>Creación de roles para asignación a su respectiva unidad organizacional.</p>
+
+  <form class="contentcontainer" (ngSubmit)="addDocument()" enctype="multipart/form-data">
+    <div class="rightcolumn">
+
+      <div class="input-group input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="code">Código</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm" name="code" [(ngModel)]="newDocument.code">
+      </div>
+
+      <div class="input-group input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="name">Nombre</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm" name="name" id="name" [(ngModel)]="newDocument.name" >
+      </div>
+
+      <div class="input-group input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="description">Descripción</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-sm" name="description" id="description" [(ngModel)]="newDocument.description" >
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Área</label>
+        </div>
+        <select class="custom-select" id="area" name="area" [(ngModel)]="newDocument.area">
+          <option selected>Seleccione...</option>
+          <option value="1">DIR</option>
+          <option value="3">RRHH</option>
+          <option value="3">ADM</option>
+          <option value="3">JUR</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Rol del usuario</label>
+        </div>
+        <select class="custom-select" id="rol" name="rol" [(ngModel)]="newDocument.rol">
+          <option selected>Privilegios...</option>
+          <option value="SuperAdmin">Administrador</option>
+          <option value="LecEdit">Lectura y Escritura</option>
+          <option value="Lectura">Solo Lectura</option>
+        </select>
+      </div>
+
+      <div class="containerButton">
+         <div class="containerbuttonflex">
+            <input class="btn btn-primary" type="reset" value="Limpiar">
+          <button type="submit" class="btn btn-success" >Guardar</button>
+         </div>
+      </div>
+
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,246 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button> -->
+<div class="maincontainer">
+  <h3>Crear Usuario</h3>
+  <p>Creación de ususarios en el sistema.</p>
+
+  <form class="contentcontainer">
+
+    <div class="leftcolumn">
+
+      <mat-vertical-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Nombre</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Nombre" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Apellido</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Appelido" formControlName="secondCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Sexo</ng-template>
+            <mat-form-field>
+              <mat-label>Sexo</mat-label>
+              <!-- <mat-select>
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select> -->
+
+              <select matNativeControl required>
+                <option value="volvo">Masculino</option>
+                <option value="saab">Femenino</option>
+              </select>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="fourthFormGroup">
+          <form [formGroup]="fourthFormGroup">
+            <ng-template matStepLabel>Email</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Ingrese una direccion de email valida
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="fifthFormGroup">
+          <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Usuario</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Usuario" formControlName="fifthCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="sixthFormGroup">
+          <form [formGroup]="sixthFormGroup">
+            <ng-template matStepLabel>Contraseña</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+
+        <mat-step [stepControl]="seventhFormGroup">
+          <form [formGroup]="seventhFormGroup">
+            <ng-template matStepLabel>Rol en el Sistema</ng-template>
+            <mat-form-field>
+              <mat-label>Rol Sistema</mat-label>
+              <!-- <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select> -->
+
+              <select matNativeControl required>
+                <option value="rol1">ROL 1</option>
+                <option value="rol2">ROL 2</option>
+                <option value="rol3">ROL 3</option>
+                <option value="rol4">ROL 4</option>
+              </select>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="eighthFormGroup">
+          <form [formGroup]="eighthFormGroup">
+            <ng-template matStepLabel>Rol en la compañia</ng-template>
+            <mat-form-field>
+              <mat-label>Rol Compañia</mat-label>
+              <!-- <mat-select>
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                  </mat-option>
+                </mat-select> -->
+
+              <select matNativeControl required>
+                <option value="ROL1">ROL 1</option>
+                <option value="ROL2">ROL 2</option>
+                <option value="ROL3">ROL 3</option>
+                <option value="ROL4">ROL 4</option>
+              </select>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="ninethFormGroup">
+          <form [formGroup]="ninethFormGroup">
+            <ng-template matStepLabel>Area en la compañia</ng-template>
+            <mat-form-field>
+              <mat-label>Area Compañia</mat-label>
+              <!-- <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                    </mat-option>
+                  </mat-select> -->
+
+              <select matNativeControl required>
+                <option value="dir">Dirección</option>
+                <option value="aux">Aux. Admin.</option>
+                <option value="rrhh">RRHH</option>
+                <option value="fin">Finanzas</option>
+                <option value="inf">Informática</option>
+                <option value="pub">Publicidad</option>
+              </select>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
+
+
+
+        <mat-step>
+          <ng-template matStepLabel>Registrado</ng-template>
+         Usuario Registrado correctamente.
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+
+    </div>
+
+
+    <div class="rightcolumn">
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="First name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Age">
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
+
+  </form>
+
+
+</div>

@@ -10,6 +10,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { FileSelectDirective } from 'ng2-file-upload';
 
@@ -26,6 +28,9 @@ import { DocumentCreateComponent } from './components/document-create/document-c
 import { DocumentCRUDService } from './services/document-crud.service';
 import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
+import { RolLevelComponent } from './components/rol-level/rol-level.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,7 +46,11 @@ export const createTranslateLoader = (http: HttpClient) => {
     DocumentCreateComponent,
     FileInputValueAccessor,
     CompanyAreaComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    RolLevelComponent,
+    CreateUserComponent,
+    CompanyRolComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -52,6 +61,11 @@ export const createTranslateLoader = (http: HttpClient) => {
     NgprimeModule,
     ReactiveFormsModule,
     NgxFileDropModule,
+    MatStepperModule,
+    MatInputModule,
+    MatButtonModule,
+    MatAutocompleteModule,
+    MatExpansionModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
