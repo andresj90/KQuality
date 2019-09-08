@@ -54,6 +54,17 @@
         </li>
       </ul>
 
+      <li data-toggle="collapse" data-target="#users" class="collapsed">
+        <i class="fa fa-users"></i> Administrar Usuarios <span class="arrow"></span>
+      </li>
+      <ul class="sub-menu collapse" id="users">
+        <li class="active"><a [routerLink]="[ '/company-rol']">Rol en la compañia</a>        
+        </li>
+        <li class="active"><a [routerLink]="[ '/rol-system']">Rol en el Sistema</a> 
+        </li> 
+        <li class="active"><a [routerLink]="[ '/create-user']">Crear Usuarios</a> 
+        </li> 
+      </ul>
 
       <li data-target="#listDocuments">
         <i class="fa fa-list-ul fa-lg"></i><a [routerLink]="[ '/list-documents']"> Listado Maestro de Documentos </a>

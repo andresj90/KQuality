@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { DocumentCRUDService } from 'src/app/services/document-crud.service';
-import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
-
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Document } from './document';
 
 @Component({
   selector: 'app-document-create',
@@ -12,6 +12,16 @@ import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upl
 export class DocumentCreateComponent  {
 
   
+
+  documentModel = new Document(
+     "",
+     "",
+     "",
+     "",
+     "",
+     0,
+     null
+  );
 
   public newDocument: {
     code: string;

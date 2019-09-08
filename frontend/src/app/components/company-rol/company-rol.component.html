@@ -1,67 +1,121 @@
-<div class="maincontainer"> 
-  <h3>Roles para los usuarios en la compañia</h3>
-  <p>Creación de roles para asignación a su respectiva unidad organizacional.</p>
+<div class="maincontainer">
+  <h3>Crear Usuario</h3>
+  <p>Creación de ususarios en el sistema.</p>
 
-  <form class="contentcontainer" (ngSubmit)="addDocument()" enctype="multipart/form-data">
-    <div class="rightcolumn">
+  <form class="contentcontainer">
 
-      <div class="input-group input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="code">Código</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" name="code" [(ngModel)]="newDocument.code">
-      </div>
+    <div class="leftcolumn">
 
-      <div class="input-group input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="name">Nombre</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" name="name" id="name" [(ngModel)]="newDocument.name" >
-      </div>
+      <mat-vertical-stepper [linear]="isLinear" #stepper>
 
-      <div class="input-group input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="description">Descripción</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" name="description" id="description" [(ngModel)]="newDocument.description" >
-      </div>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Código</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Codigo" formControlName="firstCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Área</label>
-        </div>
-        <select class="custom-select" id="area" name="area" [(ngModel)]="newDocument.area">
-          <option selected>Seleccione...</option>
-          <option value="1">DIR</option>
-          <option value="3">RRHH</option>
-          <option value="3">ADM</option>
-          <option value="3">JUR</option>
-        </select>
-      </div>
+        <mat-step [stepControl]="secondFormGroup">
+         <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Nombre</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Nombre" formControlName="secondCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Rol del usuario</label>
-        </div>
-        <select class="custom-select" id="rol" name="rol" [(ngModel)]="newDocument.rol">
-          <option selected>Privilegios...</option>
-          <option value="SuperAdmin">Administrador</option>
-          <option value="LecEdit">Lectura y Escritura</option>
-          <option value="Lectura">Solo Lectura</option>
-        </select>
-      </div>
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Descripción</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Descripcion" formControlName="thirdCtrl" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
 
-      <div class="containerButton">
-         <div class="containerbuttonflex">
-            <input class="btn btn-primary" type="reset" value="Limpiar">
-          <button type="submit" class="btn btn-success" >Guardar</button>
-         </div>
-      </div>
+ 
+          <mat-step [stepControl]="fourthFormGroup">
+            <form [formGroup]="fourthFormGroup">
+              <ng-template matStepLabel>Área</ng-template>
+              <mat-form-field>
+                <mat-label>Rol del Usuario</mat-label>
+                <select matNativeControl required>
+                  <option value="padre1">Padre 1</option>
+                  <option value="padre2">Padre 2</option>
+                  <option value="padre3">Padre 3</option>
+                  <option value="padre4">Padre 4</option>
+                </select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
 
+          <mat-step>
+            <ng-template matStepLabel>Registrado</ng-template>
+            Rol en la compañia registrado correctamente.
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+          </mat-step>
+ 
+      </mat-vertical-stepper>
 
     </div>
+
+
+    <div class="rightcolumn">
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="First name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Age">
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
+
   </form>
+
+
 </div>
