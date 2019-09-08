@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DocumentCRUDService } from 'src/app/services/document-crud.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Document } from './document';
 
 @Component({
   selector: 'app-document-create',
@@ -9,6 +10,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./document-create.component.scss']
 })
 export class DocumentCreateComponent {
+
+  documentModel = new Document(
+     "",
+     "",
+     "",
+     "",
+     "",
+     0,
+     null
+  );
 
   public newDocument: {
     code: string;
