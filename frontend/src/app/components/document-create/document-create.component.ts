@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DocumentCRUDService } from 'src/app/services/document-crud.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
+
+
 
 @Component({
   selector: 'app-document-create',
   templateUrl: './document-create.component.html',
   styleUrls: ['./document-create.component.scss']
 })
-export class DocumentCreateComponent {
+export class DocumentCreateComponent  {
+
+  
 
   public newDocument: {
     code: string;
@@ -17,11 +20,15 @@ export class DocumentCreateComponent {
     description: string;
     procedure: string;
     area: number;
-    attachment: File | null;
+    file: File | null;
   };
 
+   
+  
+  
+
+
   constructor(
-    private http: HttpClient,
     private document: DocumentCRUDService
   ) {
     this.newDocument = {
@@ -31,12 +38,14 @@ export class DocumentCreateComponent {
       description: "",
       procedure: "",
       area: 0,
-      attachment: null
+      file: null
     };
   }
 
-
+  
   addDocument() {
+
+
     const doc = {
       code: this.newDocument.code,
       name: this.newDocument.name,
@@ -44,12 +53,7 @@ export class DocumentCreateComponent {
       description: this.newDocument.description,
       procedure: this.newDocument.procedure,
       area: this.newDocument.area,
-      file: this.newDocument.attachment,
-    //   {
-    //      fieldName: 'file',
-    //      name: this.newDocument.attachment.name,
-    //      type: this.newDocument.attachment.type
-    //  },
+      file: this.newDocument.file,
       documentPrefixID: 1,
     }
 
@@ -58,9 +62,16 @@ export class DocumentCreateComponent {
       console.log(data);
     });
 
-    console.log(doc);
-    console.log(doc.file);
+    console.log();
+   
 
   }
+
+
+
+
+
+
+
 
 }
