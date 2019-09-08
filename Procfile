@@ -1,2 +1,2 @@
-npm start --prefix /Github/KQuality/frontend
+web npm start --prefix /Github/KQuality/frontend
 
