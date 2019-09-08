@@ -21,21 +21,6 @@ const companyRoleRoutes = require('./routes/companyRole');
 const userRoutes = require('./routes/user');
 const documentRoutes = require('./routes/document');
 
-// /* setting up the storage disk */
-
-// var storage = multer.diskStorage({
-//    destination: (req, file, cb) => {
-//        cb(null, '/files/');
-//    },
-//    filename: (req, file, cb) => {
-//        cb(null, file.fieldName + '-' + Date.now() + path.extname(file.name))
-//    }
-// });
-
-
-
-// //will be using this for uplading
-// exports.upload = multer({ storage: storage });
 
 /* create the application, app is an instance of express */
 const app = express();
@@ -47,6 +32,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cosr());
+
 
 
 /* Middleware for applicationroutes */

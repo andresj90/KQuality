@@ -13,6 +13,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+import { FileSelectDirective } from 'ng2-file-upload';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     DocumentCreateComponent,
     FileInputValueAccessor,
     CompanyAreaComponent,
+    FileSelectDirective,
     RolLevelComponent,
     CreateUserComponent,
     CompanyRolComponent

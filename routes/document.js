@@ -38,7 +38,7 @@ documentRouter.post('/create', upload.single('file'), (req, res) => {
 
    res.json({msg: req.file});
    
-   console.log(JSON.stringify(req.file.path));
+//    console.log(JSON.stringify(req.file.path));
 
    // Document.addDocument(newDoc, res);
 
