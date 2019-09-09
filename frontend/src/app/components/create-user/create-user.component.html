@@ -10,11 +10,11 @@
     <div class="leftcolumn">
 
       <mat-vertical-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
+        <mat-step [stepControl]="name">
+          <form [formGroup]="name">
             <ng-template matStepLabel>Nombre</ng-template>
             <mat-form-field>
-              <input matInput placeholder="Nombre" formControlName="firstCtrl" required>
+              <input matInput placeholder="Nombre" formControlName="name" required>
             </mat-form-field>
             <div>
               <button mat-button matStepperNext>Siguiente</button>
@@ -22,11 +22,11 @@
           </form>
         </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup">
-          <form [formGroup]="secondFormGroup">
+        <mat-step [stepControl]="lastname">
+          <form [formGroup]="lastname">
             <ng-template matStepLabel>Apellido</ng-template>
             <mat-form-field>
-              <input matInput placeholder="Appelido" formControlName="secondCtrl" required>
+              <input matInput placeholder="Appelido" formControlName="lastname" required>
             </mat-form-field>
             <div>
               <button mat-button matStepperPrevious>Atras</button>
@@ -35,9 +35,37 @@
           </form>
         </mat-step>
 
-        <mat-step [stepControl]="thirdFormGroup">
-          <form [formGroup]="thirdFormGroup">
-            <ng-template matStepLabel>Sexo</ng-template>
+
+        <mat-step [stepControl]="username">
+            <form [formGroup]="username">
+              <ng-template matStepLabel>Usuario</ng-template>
+              <mat-form-field>
+                <input matInput placeholder="Nombre Usuario" formControlName="username" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
+
+
+          <mat-step [stepControl]="password">
+              <form [formGroup]="password">
+                <ng-template matStepLabel>Contraseña</ng-template>
+                <mat-form-field>
+                  <input matInput placeholder="Contraseña" formControlName="password" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Atras</button>
+                  <button mat-button matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
+
+        <mat-step [stepControl]="companyAreaID">
+          <form [formGroup]="companyAreaID">
+            <ng-template matStepLabel>Area</ng-template>
             <mat-form-field>
               <mat-label>Sexo</mat-label>
               <!-- <mat-select>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { CompanyCRUDService } from 'src/app/services/company-crud.service';
+
 
 @Component({
   selector: 'app-rol-system',
@@ -9,28 +11,39 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./rol-system.component.scss']
 })
 export class RolSystemComponent implements OnInit {
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
-  
+  isLinear = true;
+  name: FormGroup;
+  description: FormGroup;
 
 
-    ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+
+  constructor(
+    private _formBuilder: FormBuilder ,
+    private company: CompanyCRUDService 
+  ) { }
+
+  ngOnInit() {
+    this.name = this._formBuilder.group({
+      name: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.description = this._formBuilder.group({
+      description: ['', Validators.required]
     });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+  }
+
+  addRole() {
+    let newRole = {
+      name: this.name.get('name').value,
+      description: this.description.get('description').value
+    }
+
+    this.company.addNewSystemRole(newRole).subscribe((data) => {
+      console.log(data);
+    }, (error) => {
+      console.log(error);
     });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
+
   }
 
 }

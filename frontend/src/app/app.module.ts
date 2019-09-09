@@ -28,15 +28,8 @@ import { DocumentCreateComponent } from './components/document-create/document-c
 import { DocumentCRUDService } from './services/document-crud.service';
 import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
-<<<<<<< HEAD
 import { UserCRUDService } from './services/user-crud.service';
 
-=======
-import { RolLevelComponent } from './components/rol-level/rol-level.component';
-import { CreateUserComponent } from './components/create-user/create-user.component';
-import { CompanyRolComponent } from './components/company-rol/company-rol.component';
-import { RolSystemComponent } from './components/rol-system/rol-system.component';
->>>>>>> 3b2446cf6ff38e6b2ba41a98f8fbcfe8110a8469
 
 export const createTranslateLoader = (http: HttpClient) => {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -52,15 +45,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     DocumentCreateComponent,
     FileInputValueAccessor,
     CompanyAreaComponent,
-<<<<<<< HEAD
     FileSelectDirective
-=======
-    FileSelectDirective,
-    RolLevelComponent,
-    CreateUserComponent,
-    CompanyRolComponent,
-    RolSystemComponent
->>>>>>> 3b2446cf6ff38e6b2ba41a98f8fbcfe8110a8469
    
   ],
   imports: [

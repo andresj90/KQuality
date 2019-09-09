@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 
 @Component({
   selector: 'app-company-area',
@@ -7,24 +8,38 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./company-area.component.scss']
 })
 export class CompanyAreaComponent implements OnInit {
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
+  isLinear = true;
+  name: FormGroup;
+  description: FormGroup;
   panelOpenState = false;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(
+    private _formBuilder: FormBuilder,
+    private company: CompanyCRUDService 
+    ) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.name = this._formBuilder.group({
+      name: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+    this.description = this._formBuilder.group({
+      description: ['', Validators.required]
     });
   }
+
+  addArea() {
+    let newArea = {
+      name: this.name.get('name').value,
+      description: this.description.get('description').value
+    }
+
+    this.company.addCompanyArea(newArea).subscribe((data) => {
+      console.log(data);
+    }, (error) => {
+      console.log(error);
+    });
+
+  }
+
 
 }

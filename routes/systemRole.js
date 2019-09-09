@@ -6,11 +6,12 @@ const systemRoleRouter = require('express').Router();
 /* Routes for the systemroute in the app */
 
 systemRoleRouter.post('/create', (req, res) => {
-    let newArea = {
+    let newRole = {
         name: req.body.name,
         description: req.body.description
     }
-    SystemRole.addSystemRole(newArea, res);
+    console.log(newRole)
+    SystemRole.addSystemRole(newRole, res);
 });
 
 systemRoleRouter.get('/all', (req, res) => {

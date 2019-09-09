@@ -8,23 +8,12 @@
   
         <mat-vertical-stepper [linear]="isLinear" #stepper>
   
-          <mat-step [stepControl]="firstFormGroup">
-            <form [formGroup]="firstFormGroup">
-              <ng-template matStepLabel>Código</ng-template>
-              <mat-form-field>
-                <input matInput placeholder="Codigo" formControlName="firstCtrl" required>
-              </mat-form-field>
-              <div>
-                <button mat-button matStepperNext>Siguiente</button>
-              </div>
-            </form>
-          </mat-step>
-  
-          <mat-step [stepControl]="secondFormGroup">
-           <form [formGroup]="secondFormGroup">
+          <mat-step [stepControl]="name">
+            <form [formGroup]="name">
               <ng-template matStepLabel>Nombre</ng-template>
               <mat-form-field>
-                <input matInput placeholder="Nombre" formControlName="secondCtrl" required>
+                <input matInput placeholder="name" formControlName="name" 
+                 required>
               </mat-form-field>
               <div>
                 <button mat-button matStepperNext>Siguiente</button>
@@ -32,45 +21,24 @@
             </form>
           </mat-step>
   
-          <mat-step [stepControl]="thirdFormGroup">
-            <form [formGroup]="thirdFormGroup">
+          <mat-step [stepControl]="description">
+           <form [formGroup]="description">
               <ng-template matStepLabel>Descripción</ng-template>
               <mat-form-field>
-                    <textarea matInput placeholder="Descripción"></textarea>
+                <textarea matInput placeholder="Descripción" formControlName="description"  required></textarea>
               </mat-form-field>
               <div>
+                  <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
             </form>
           </mat-step>
-  
-   
-  
-            <mat-step [stepControl]="fourthFormGroup">
-                <form [formGroup]="fourthFormGroup">
-                  <ng-template matStepLabel>Rol en Sistema</ng-template>
-                  <mat-form-field>
-                    <mat-label>Rol</mat-label>
-                    <select matNativeControl required>
-                      <option value="adm">Administrador</option>
-                      <option value="ap">Aprobador de cambios</option>
-                      <option value="lye">Lectura y Escritura</option>
-                      <option value="sl">Solo Lectura</option>
-                    </select>
-                  </mat-form-field>
-                  <div>
-                    <button mat-button matStepperPrevious>Atras</button>
-                    <button mat-button matStepperNext>Siguiente</button>
-                  </div>
-                </form>
-              </mat-step>
-  
 
               <mat-step>
-                  <ng-template matStepLabel>Registrado</ng-template>
-                 Rol Registrado correctamente.
+                  <ng-template matStepLabel>Registro</ng-template>
                   <div>
                     <button mat-button matStepperPrevious>Atras</button>
+                    <button mat-button (click)="addRole()" >Registrar</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
                   </div>
                 </mat-step>

@@ -9,7 +9,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 import { RolSystemComponent } from './components/rol-system/rol-system.component';
 import { AuthGuard } from './auth/auth.guard';
-import { RolLevelComponent } from './components/rol-level/rol-level.component';
+
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'user', component:  CreateUserComponent},
   { path: 'documents', component:  DocumentMasterComponent },
   { path: 'companyrole', component:  CompanyRolComponent},
-  { path: 'systemrole', component: RolLevelComponent},
+  { path: 'systemrole', component: RolSystemComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -31,4 +31,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolLevelComponent];
+  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent];

@@ -10,11 +10,11 @@
         <h3>Crear área</h3>
         <p>Creación de áreas de la empresa.</p>
   <mat-vertical-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
+    <mat-step [stepControl]="name">
+      <form [formGroup]="name">
         <ng-template matStepLabel>Nombre del área</ng-template>
         <mat-form-field>
-          <input matInput placeholder="Area" formControlName="firstCtrl" required>
+          <input matInput placeholder="Area" formControlName="name" required>
         </mat-form-field>
         <div>
           <button mat-button matStepperNext>Siguiente</button>
@@ -22,11 +22,11 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
+    <mat-step [stepControl]="description">
+      <form [formGroup]="description">
         <ng-template matStepLabel>Descripción del área</ng-template>
         <mat-form-field>
-          <textarea matInput placeholder="Descripcion"></textarea>
+          <textarea matInput placeholder="Descripcion" formControlName="description"></textarea>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Atras</button>
@@ -35,18 +35,18 @@
       </form>
     </mat-step>
 
-    <mat-step [stepControl]="thirdFormGroup">
+    <!-- <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Padre</ng-template>
         <mat-form-field>
-          <mat-label>Padre</mat-label>
+          <mat-label>Padre</mat-label> -->
           <!-- <mat-select>
             <mat-option *ngFor="let food of foods" [value]="food.value">
               {{food.viewValue}}
             </mat-option>
           </mat-select> -->
 
-          <select matNativeControl required>
+          <!-- <select matNativeControl required>
             <option value="padre1">Padre 1</option>
             <option value="padre2">Padre 2</option>
             <option value="padre3">Padre 3</option>
@@ -59,13 +59,13 @@
           <button mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
-    </mat-step>
+    </mat-step> -->
 
     <mat-step>
-      <ng-template matStepLabel>Registrada</ng-template>
-      Area registrada correctamente.
+      <ng-template matStepLabel>Registro</ng-template>
       <div>
         <button mat-button matStepperPrevious>Atras</button>
+        <button mat-button (click)="addArea()" >Registrar</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
       </div>
     </mat-step>
