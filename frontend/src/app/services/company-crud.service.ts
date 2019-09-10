@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { tap, map, filter } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { CRole } from './../interfaces/croleinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -43,13 +43,14 @@ export class CompanyCRUDService {
 
   addCompanyArea(newArea) {
     this.header.append('Content-type', 'application/json');
-    return this.http.post('http://localhost:3000/area/create', newArea, { headers: this.header });
+    return this.http.post('http://localhost:3000/area/create', newArea, { headers: this.header })
+    .pipe(map((res:Response) => res.json()));
   }
 
   //get all the roles listed for the users
   listAreas() {
     this.header.append('content-type', 'application/json');
-    return this.http.get('http://localhost:3000/area/all', { headers: this.header });
+    return this.http.get('http://localhost:3000/area/all');
   }
 
 
@@ -65,9 +66,9 @@ export class CompanyCRUDService {
   }
 
   //get all the roles listed for the users
-  listCompanyRoles() {
+  listCompanyRoles(): Observable<CRole[]> {
     this.header.append('content-type', 'application/json');
-    return this.http.get('http://localhost:3000/company/all', { headers: this.header });
+    return this.http.get<CRole[]>('http://localhost:3000/company/all', { headers: this.header });
   }
 
 

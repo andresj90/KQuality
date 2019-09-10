@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
-
+import { CRole } from './../../interfaces/croleinterface';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,20 +18,21 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./create-user.component.scss']
 })
 export class CreateUserComponent implements OnInit  {
-  isLinear = true;
+  isLinear = false;
+  panelOpenState = false;
+  hide = true;
 
   name: FormGroup;
   lastname: FormGroup;
   username: FormGroup;
   password: FormGroup;
+  sexo: FormGroup;
   companyRoleID: FormGroup;
   companyAreaID: FormGroup;
   systemRoleID: FormGroup;
-  panelOpenState = false;
-  hide = true;
-  systemroles: [] | object;
+  systemroles:  CRole[];
   areas: [] | object;
-  companyroles: [] | object;
+  companyroles: CRole[];
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -48,6 +49,7 @@ export class CreateUserComponent implements OnInit  {
     ) { }
 
   ngOnInit() {
+
     this.name = this._formBuilder.group({
       name: ['', Validators.required]
     });
@@ -60,11 +62,14 @@ export class CreateUserComponent implements OnInit  {
     this.password = this._formBuilder.group({
       password: ['', Validators.required]
     });
-    this.systemRoleID = this._formBuilder.group({
-      systemRoleID: ['', Validators.required]
+    this.sexo = this._formBuilder.group({
+      sexo : ['', Validators.required]
     });
     this.companyRoleID = this._formBuilder.group({
       companyRoleID: ['', Validators.required]
+    });
+    this.systemRoleID = this._formBuilder.group({
+      systemRoleID: ['', Validators.required]
     });
     this.companyAreaID = this._formBuilder.group({
       companyAreaID: ['', Validators.required]
