@@ -8,6 +8,7 @@ import { DocumentCreateComponent } from './components/document-create/document-c
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 import { RolSystemComponent } from './components/rol-system/rol-system.component';
+import { HierarchyViewComponent } from './components/hierarchy-View/hierarchy-View.component';
 import { AuthGuard } from './auth/auth.guard';
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'documents', component:  DocumentMasterComponent },
   { path: 'companyrole', component:  CompanyRolComponent},
   { path: 'systemrole', component: RolSystemComponent},
+  { path: 'hierarchyView', component: HierarchyViewComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -31,4 +33,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent];
+  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent,
+  HierarchyViewComponent];
