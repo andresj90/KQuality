@@ -39,7 +39,6 @@ export class CompanyRolComponent {
     };
   }
 
-
   addDocument() {
     const doc = {
       code: this.newDocument.code,
@@ -48,13 +47,10 @@ export class CompanyRolComponent {
       area: this.newDocument.area,
     }
 
-
     this.document.addNewDocument(doc).subscribe((data) => {
       console.log(data);
     });
-
     console.log(doc);
-
   }
 
   ngOnInit() {
