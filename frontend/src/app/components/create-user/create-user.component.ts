@@ -75,10 +75,10 @@ export class CreateUserComponent implements OnInit  {
       companyAreaID: ['', Validators.required]
     });
 
-     this.company.listSystemRoles().subscribe((data) => {
-      this.systemroles = data; 
-      console.log(data);
-     });
+    //  this.company.listSystemRoles().subscribe((data) => {
+    //   this.systemroles = data; 
+    //   console.log(data);
+    //  });
 
      this.company.listAreas().subscribe((data) => {
       this.areas = data;
