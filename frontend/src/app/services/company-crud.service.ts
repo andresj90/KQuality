@@ -29,9 +29,9 @@ export class CompanyCRUDService {
   }
 
   //get all the roles listed for the users
-  listSystemRoles() {
+  listSystemRoles():Observable<CRole[]> {
     this.header.append('content-type', 'application/json');
-    return this.http.get('http://localhost:3000/systemrole/all', { headers: this.header });
+    return this.http.get<CRole[]>('http://localhost:3000/systemrole/all', { headers: this.header });
   }
 
 
@@ -48,9 +48,9 @@ export class CompanyCRUDService {
   }
 
   //get all the roles listed for the users
-  listAreas() {
+  listAreas():Observable<CRole[]> {
     this.header.append('content-type', 'application/json');
-    return this.http.get('http://localhost:3000/area/all');
+    return this.http.get<CRole[]>('http://localhost:3000/area/all');
   }
 
 
@@ -68,7 +68,10 @@ export class CompanyCRUDService {
   //get all the roles listed for the users
   listCompanyRoles(): Observable<CRole[]> {
     this.header.append('content-type', 'application/json');
-    return this.http.get<CRole[]>('http://localhost:3000/company/all', { headers: this.header });
+    return this.http.get<CRole[]>('http://localhost:3000/company/all', { headers: this.header }).
+    pipe(map(res => 
+      res
+    ));
   }
 
 

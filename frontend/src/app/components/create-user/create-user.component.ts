@@ -30,8 +30,8 @@ export class CreateUserComponent implements OnInit  {
   companyRoleID: FormGroup;
   companyAreaID: FormGroup;
   systemRoleID: FormGroup;
-  systemroles:  CRole[];
-  areas: [] | object;
+  systemroles:  any;
+  areas: CRole[];
   companyroles: CRole[];
 
   emailFormControl = new FormControl('', [
@@ -76,7 +76,7 @@ export class CreateUserComponent implements OnInit  {
     });
 
      this.company.listSystemRoles().subscribe((data) => {
-      this.systemroles = data; 
+      this.systemroles = JSON.parse((JSON.stringify(data))); 
       console.log(data);
      });
 

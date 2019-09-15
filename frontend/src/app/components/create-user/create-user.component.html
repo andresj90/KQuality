@@ -65,7 +65,7 @@
 
         <mat-step [stepControl]="sexo">
           <form [formGroup]="sexo">
-            <ng-template matStepLabel>Area</ng-template>
+            <ng-template matStepLabel>Sexo</ng-template>
             <mat-form-field>
               <mat-label>Sexo</mat-label>
               <select matNativeControl required>
@@ -83,13 +83,27 @@
 
         <mat-step [stepControl]="systemRoleID">
           <mat-form-field>
-            <mat-label>State</mat-label>
+          <ng-template matStepLabel>Rol Sistema</ng-template>
+            <mat-label>Rol Sistema</mat-label>
             <mat-select>
               <mat-option>None</mat-option>
               <mat-option *ngFor="let role of systemroles" [value]="role.id">{{role.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </mat-step>
+
+
+        <!-- <mat-step [stepControl]="companyRoleID">
+            <mat-form-field>
+            <ng-template matStepLabel>Cargo Compañia</ng-template>
+              <mat-label>Cargo Compañia</mat-label>
+              <mat-select>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let role of companyroles" [value]="role.id">{{role.name}}</mat-option>
+              </mat-select>
+            
+            </mat-form-field> 
+          </mat-step> -->
        
         <mat-step>
           <ng-template matStepLabel>Registrar</ng-template>
@@ -99,6 +113,12 @@
           </div>
         </mat-step>
       </mat-vertical-stepper>
+
+      <ul>
+          <li *ngFor="let role of companyroles">
+            {{ role.name }}
+          </li>
+        </ul>
 
     </div>
 
@@ -141,6 +161,7 @@
 
 
   </form>
+
 
 
 </div>

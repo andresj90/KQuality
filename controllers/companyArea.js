@@ -36,6 +36,8 @@ module.exports.addCompanyArea = (area, res) => {
         }
     }).catch(err => {
         return console.log(err);
+       
+        
     })
 }
 
