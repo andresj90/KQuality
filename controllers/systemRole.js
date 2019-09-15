@@ -37,7 +37,7 @@ module.exports.getSystemRoles = (res) => {
         if (roles.length > 0) {
             res.json({
                 success: true,
-                systemroles: [roles]
+                elements: roles
             })
         } else {
             res.json({

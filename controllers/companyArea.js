@@ -46,7 +46,7 @@ module.exports.listCompanyAreas = (res) => {
         if (areas.length > 0) {
             res.json({
                 success: true,
-                companyareas: areas
+                elements: areas
             })
         } else {
             res.json({

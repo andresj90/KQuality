@@ -29,9 +29,11 @@ export class CreateUserComponent implements OnInit  {
   companyRoleID: FormGroup;
   companyAreaID: FormGroup;
   systemRoleID: FormGroup;
-  systemroles:  any;
-  areas: CRole[];
-  companyroles: CRole[];
+
+  /* properties from database */
+  systemroles:  CRole;
+  areas: CRole;
+  companyroles: CRole;
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -74,19 +76,19 @@ export class CreateUserComponent implements OnInit  {
       companyAreaID: ['', Validators.required]
     });
 
-     this.company.listSystemRoles().subscribe((data) => {
-      this.systemroles = JSON.parse((JSON.stringify(data))); 
-      console.log(data);
+     this.company.listSystemRoles().subscribe((data:CRole) => {
+      this.systemroles = data; 
+      console.log(this.systemroles.elements);
      });
 
-     this.company.listAreas().subscribe((data) => {
+     this.company.listAreas().subscribe((data:CRole) => {
       this.areas = data;
-      console.log(data); 
+      console.log(this.areas.elements); 
      });
     
-     this.company.listCompanyRoles().subscribe((data) => {
+     this.company.listCompanyRoles().subscribe((data: CRole) => {
       this.companyroles = data; 
-      console.log(data);
+      console.log(this.companyroles.elements);
      }); 
 
 
