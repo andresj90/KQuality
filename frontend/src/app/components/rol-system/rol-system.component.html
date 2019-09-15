@@ -7,7 +7,6 @@
       <div class="rightcolumn">
   
         <mat-vertical-stepper [linear]="isLinear" #stepper>
-  
           <mat-step [stepControl]="name">
             <form [formGroup]="name">
               <ng-template matStepLabel>Nombre</ng-template>
@@ -20,7 +19,6 @@
               </div>
             </form>
           </mat-step>
-  
           <mat-step [stepControl]="description">
            <form [formGroup]="description">
               <ng-template matStepLabel>Descripción</ng-template>
@@ -42,11 +40,8 @@
                     <button mat-button (click)="stepper.reset()">Reset</button>
                   </div>
                 </mat-step>
-   
-        </mat-vertical-stepper>
-  
+           </mat-vertical-stepper>
       </div>
-  
   
       <div class="leftcolumn">
   
@@ -75,7 +70,5 @@
   
   
     </form>
-  
-  
-  </div>
+ </div>
   

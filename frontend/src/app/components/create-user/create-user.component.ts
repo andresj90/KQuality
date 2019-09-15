@@ -21,7 +21,6 @@ export class CreateUserComponent implements OnInit  {
   isLinear = false;
   panelOpenState = false;
   hide = true;
-
   name: FormGroup;
   lastname: FormGroup;
   username: FormGroup;
