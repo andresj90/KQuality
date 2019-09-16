@@ -7,7 +7,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 const materialModules = [
   BrowserAnimationsModule,
@@ -18,7 +18,8 @@ const materialModules = [
   MatIconModule,
   MatMenuModule,
   MatSelectModule,
-  MatInputModule
+  MatInputModule,
+  MatProgressBarModule
 ]
 
 @NgModule({

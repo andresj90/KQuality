@@ -1,14 +1,11 @@
-<div *ngIf="companyroles != null else loading">
-    <mat-vertical-stepper [linear]="isLinear" #stepper>
+<div *ngIf="(companyroles != null && systemroles !=null && areas !=null) else loading">
   <div class="maincontainer">
-    <h3>Crear Usuario</h3>
-    <p>Creación de ususarios en el sistema.</p>
 
     <div class="contentcontainer">
 
       <div class="leftcolumn">
-
-       
+        <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(companyroles != null && systemroles !=null
+        && areas !=null) else loading">
           <mat-step [stepControl]="name">
             <form [formGroup]="name">
               <ng-template matStepLabel>Nombre</ng-template>
@@ -25,8 +22,35 @@
             <form [formGroup]="lastname">
               <ng-template matStepLabel>Apellido</ng-template>
               <mat-form-field>
-                <input matInput placeholder="Appelido" formControlName="lastname" required>
+                <input matInput placeholder="Apellido" formControlName="lastname" required>
               </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="gender">
+            <form [formGroup]="gender">
+              <ng-template matStepLabel>Sexo</ng-template>
+              <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="M">Masculino</mat-radio-button>
+                <mat-radio-button value="F">Femenino</mat-radio-button>
+              </mat-radio-group>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="email">
+            <form [formGroup]="email">
+              <ng-template matStepLabel>Email</ng-template>
+              <mat-form-field class="example-full-width">
+                  <input matInput placeholder="email" formControlName="email" required>
+                </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
@@ -48,7 +72,6 @@
             </form>
           </mat-step>
 
-
           <mat-step [stepControl]="password">
             <form [formGroup]="password">
               <ng-template matStepLabel>Contraseña</ng-template>
@@ -62,16 +85,33 @@
             </form>
           </mat-step>
 
-          <mat-step [stepControl]="sexo">
-            <form [formGroup]="sexo">
-              <ng-template matStepLabel>Sexo</ng-template>
-              <mat-form-field>
-                <mat-label>Sexo</mat-label>
-                <select matNativeControl required>
-                  <option value="volvo">Masculino</option>
-                  <option value="saab">Femenino</option>
-                </select>
 
+          <mat-step [stepControl]="companyAreaID">
+            <form [formGroup]="companyAreaID">
+              <mat-form-field>
+                <ng-template matStepLabel>Área Compañia</ng-template>
+                <mat-label>Area Compañia</mat-label>
+                <mat-select formControlName="companyAreaID">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let area of areas.elements" [value]="area.id">{{area.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
+
+          <mat-step [stepControl]="companyRoleID">
+            <form [formGroup]="companyRoleID">
+              <mat-form-field>
+                <ng-template matStepLabel>Cargo Área</ng-template>
+                <mat-label>Cargo</mat-label>
+                <mat-select formControlName="companyRoleID">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let role of companyroles.elements" [value]="role.id">{{role.name}}</mat-option>
+                </mat-select>
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -81,64 +121,44 @@
           </mat-step>
 
           <mat-step [stepControl]="systemRoleID">
-            <mat-form-field>
-              <ng-template matStepLabel>Rol Sistema</ng-template>
-              <mat-label>Rol Sistema</mat-label>
-              <mat-select>
-                <mat-option>None</mat-option>
-                <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-          </mat-step>
+              <form [formGroup]="systemRoleID">
+                <mat-form-field>
+                  <ng-template matStepLabel>Rol Sistema</ng-template>
+                  <mat-label>Rol</mat-label>
+                  <mat-select formControlName="systemRoleID">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Atras</button>
+                  <button mat-button matStepperNext>Siguiente</button>
+                </div>
+              </form>
+            </mat-step>
 
+            <mat-step>
+                <ng-template matStepLabel>Registrar</ng-template>
+                <div>
+                  <button mat-button (click)="addUser()">Crear</button>
+                  <button mat-button matStepperPrevious>Atras</button>
+                  <button mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
 
-          <!-- <mat-step [stepControl]="companyRoleID">
-              <mat-form-field>
-              <ng-template matStepLabel>Cargo Compañia</ng-template>
-                <mat-label>Cargo Compañia</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let role of companyroles" [value]="role.id">{{role.name}}</mat-option>
-                </mat-select>
-              
-              </mat-form-field> 
-            </mat-step> -->
-
-          
-
+        </mat-vertical-stepper>
       </div>
-
-
       <div class="rightcolumn">
 
-          <mat-step [stepControl]="systemRoleID">
-              <mat-form-field>
-                <ng-template matStepLabel>Rol Sistema</ng-template>
-                <mat-label>Rol Sistema</mat-label>
-                <mat-select>
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-step>
-    
-        <mat-step>
-          <ng-template matStepLabel>Registrar</ng-template>
-          <div>
-            <button mat-button matStepperPrevious>Atras</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-          </div>
-        </mat-step>
-     
 
       </div>
     </div>
+
   </div>
-</mat-vertical-stepper>
 </div>
 
 
 <ng-template #loading>
-  <p>Loading ..</p>
+    <mat-progress-bar mode="query"></mat-progress-bar>
 
 </ng-template>
