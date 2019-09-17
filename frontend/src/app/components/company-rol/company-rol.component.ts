@@ -1,7 +1,17 @@
-import { Component} from '@angular/core';
-import { DocumentCRUDService } from 'src/app/services/document-crud.service';
 import { HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { CompanyCRUDService } from 'src/app/services/company-crud.service';
+import { CRole } from './../../interfaces/croleinterface';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-company-rol',
@@ -11,65 +21,50 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CompanyRolComponent {
 
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  thirdFormGroup: FormGroup;
-  fourthFormGroup: FormGroup;
-  fifthFormGroup: FormGroup;
   panelOpenState = false;
   hide = true;
 
-  public newDocument: {
-    code: string;
-    name: string;
-    description: string;
-    area: string;
-  };
+  name: FormGroup;
+  description: FormGroup;
+
+  /* properties from database */
+  companyroles:  CRole;
+
+  matcher = new MyErrorStateMatcher();
 
   constructor(
     private http: HttpClient,
-    private document: DocumentCRUDService,
+    private company: CompanyCRUDService,
     private _formBuilder: FormBuilder
-  ) {
-    this.newDocument = {
-      code: "",
-      name: "",
-      description: "",
-      area: ""
-    };
-  }
-
-  addDocument() {
-    const doc = {
-      code: this.newDocument.code,
-      name: this.newDocument.name,
-      description: this.newDocument.description,
-      area: this.newDocument.area,
-    }
-
-    this.document.addNewDocument(doc).subscribe((data) => {
-      console.log(data);
-    });
-    console.log(doc);
-  }
+  ) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.name = this._formBuilder.group({
+      name: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.description = this._formBuilder.group({
+      description: ['', Validators.required]
     });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
-    });
-    this.fourthFormGroup = this._formBuilder.group({
-      fourthCtrl: ['', Validators.required]
-    });
-    this.fifthFormGroup = this._formBuilder.group({
-      fifthCtrl: ['', Validators.required]
-    });
+    this.company.listCompanyRoles().subscribe((data:CRole) => {
+      this.companyroles = data;
+      console.log(this.companyroles.elements); 
+     });
   }
+
+  addCompanyRole() {
+      let newCompanyrole = {
+        name: this.name.get('name').value,
+        description: this.description.get('description').value
+      }
+      this.company.addNewCompanyRole(newCompanyrole).subscribe((data) => {
+        console.log(data);
+      }, (error) => {
+        console.log(error);
+      });
+      let companyrol = JSON.stringify(newCompanyrole); 
+      console.log(`NEW COMPANYROL ${companyrol}`);
+    }
+
 
 }
       
