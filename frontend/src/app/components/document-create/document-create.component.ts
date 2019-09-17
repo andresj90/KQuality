@@ -9,18 +9,18 @@ import { Document } from './document';
   templateUrl: './document-create.component.html',
   styleUrls: ['./document-create.component.scss']
 })
-export class DocumentCreateComponent  {
+export class DocumentCreateComponent {
 
-  
+
 
   documentModel = new Document(
-     "",
-     "",
-     "",
-     "",
-     "",
-     0,
-     null
+    "",
+    "",
+    "",
+    "",
+    "",
+    0,
+    null
   );
 
   public newDocument: {
@@ -32,10 +32,6 @@ export class DocumentCreateComponent  {
     area: number;
     file: File | null;
   };
-
-   
-  
-  
 
 
   constructor(
@@ -52,9 +48,8 @@ export class DocumentCreateComponent  {
     };
   }
 
-  
-  addDocument() {
 
+  addDocument() {
 
     const doc = {
       code: this.newDocument.code,
@@ -73,15 +68,7 @@ export class DocumentCreateComponent  {
     });
 
     console.log();
-   
 
   }
-
-
-
-
-
-
-
 
 }
