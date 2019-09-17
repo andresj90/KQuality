@@ -52,7 +52,6 @@ export class CompanyAreaComponent implements OnInit {
 
     let area = JSON.stringify(newArea); 
     console.log(`NEW AREA ${area}`);
-
   }
 
 }
