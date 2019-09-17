@@ -1,11 +1,5 @@
-<div *ngIf="(companyroles != null && systemroles !=null
-&& areas !=null) else loading">
+<div *ngIf="(companyroles != null && systemroles !=null && areas !=null) else loading">
   <div class="maincontainer">
-      <div class="card">
-          <div class="card-body">
-            Formulario para agregar usuario al sistema 
-          </div>
-      </div>
 
     <div class="contentcontainer">
 
@@ -56,6 +50,12 @@
               <ng-template matStepLabel>Email</ng-template>
               <mat-form-field class="example-full-width">
                   <input matInput placeholder="email" formControlName="email" required>
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
                 </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -63,7 +63,6 @@
               </div>
             </form>
           </mat-step>
-
 
           <mat-step [stepControl]="username">
             <form [formGroup]="username">
@@ -82,7 +81,7 @@
             <form [formGroup]="password">
               <ng-template matStepLabel>Contraseña</ng-template>
               <mat-form-field>
-                <input matInput placeholder="Contraseña" formControlName="password" required>
+                <input type ="password" matInput placeholder="Contraseña" formControlName="password" required>
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
