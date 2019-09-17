@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
-import { CRole } from './../../interfaces/croleinterface';
 
 @Component({
   selector: 'app-company-area',
@@ -10,13 +9,9 @@ import { CRole } from './../../interfaces/croleinterface';
 })
 export class CompanyAreaComponent implements OnInit {
   isLinear = true;
-  panelOpenState = false;
-
   name: FormGroup;
   description: FormGroup;
-
-  /* properties from database */
-  areas: CRole;
+  panelOpenState = false;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -30,12 +25,6 @@ export class CompanyAreaComponent implements OnInit {
     this.description = this._formBuilder.group({
       description: ['', Validators.required]
     });
-
-    this.company.listAreas().subscribe((data:CRole) => {
-      this.areas = data;
-      console.log(this.areas.elements); 
-     });
-     
   }
 
   addArea() {
@@ -50,9 +39,7 @@ export class CompanyAreaComponent implements OnInit {
       console.log(error);
     });
 
-    let area = JSON.stringify(newArea); 
-    console.log(`NEW AREA ${area}`);
-
   }
+
 
 }

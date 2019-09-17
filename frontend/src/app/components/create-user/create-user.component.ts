@@ -6,7 +6,6 @@ import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 import { CRole } from './../../interfaces/croleinterface';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
-
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -24,10 +23,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./create-user.component.scss']
 })
 export class CreateUserComponent implements OnInit  {
-
-
-
-
   isLinear = true;
   panelOpenState = false;
   hide = true;
