@@ -5,12 +5,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module'; 
 import { MaterialCustomModule } from './sharedModule/materialCustom';
-import { NgprimeModule } from './sharedModule/ngprime.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxFileDropModule } from 'ngx-file-drop';
-import { MatStepperModule, MatInputModule, MatButtonModule, MatAutocompleteModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 import { FileSelectDirective } from 'ng2-file-upload';
@@ -55,13 +53,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     FormsModule,
     AppRoutingModule,
     MaterialCustomModule,
-    NgprimeModule,
     ReactiveFormsModule,
     NgxFileDropModule,
-    MatStepperModule,
-    MatInputModule,
-    MatButtonModule,
-    MatAutocompleteModule,
     MatExpansionModule,
     TranslateModule.forRoot({
       loader: {
