@@ -1,5 +1,11 @@
-<div *ngIf="(companyroles != null && systemroles !=null && areas !=null) else loading">
+<div *ngIf="(companyroles != null && systemroles !=null
+&& areas !=null) else loading">
   <div class="maincontainer">
+    <div class="card">
+      <div class="card-body">
+        Formulario para agregar usuario al sistema
+      </div>
+    </div>
 
     <div class="contentcontainer">
 
@@ -49,8 +55,8 @@
             <form [formGroup]="email">
               <ng-template matStepLabel>Email</ng-template>
               <mat-form-field class="example-full-width">
-                  <input matInput placeholder="email" formControlName="email" required>
-                </mat-form-field>
+                <input matInput placeholder="email" formControlName="email" required>
+              </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
@@ -121,30 +127,30 @@
           </mat-step>
 
           <mat-step [stepControl]="systemRoleID">
-              <form [formGroup]="systemRoleID">
-                <mat-form-field>
-                  <ng-template matStepLabel>Rol Sistema</ng-template>
-                  <mat-label>Rol</mat-label>
-                  <mat-select formControlName="systemRoleID">
-                    <mat-option>None</mat-option>
-                    <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Atras</button>
-                  <button mat-button matStepperNext>Siguiente</button>
-                </div>
-              </form>
-            </mat-step>
+            <form [formGroup]="systemRoleID">
+              <mat-form-field>
+                <ng-template matStepLabel>Rol Sistema</ng-template>
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="systemRoleID">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
 
-            <mat-step>
-                <ng-template matStepLabel>Registrar</ng-template>
-                <div>
-                  <button mat-button (click)="addUser()">Crear</button>
-                  <button mat-button matStepperPrevious>Atras</button>
-                  <button mat-button (click)="stepper.reset()">Reset</button>
-                </div>
-              </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Registrar</ng-template>
+            <div>
+              <button mat-button (click)="addUser()">Crear</button>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+          </mat-step>
 
         </mat-vertical-stepper>
       </div>
@@ -159,6 +165,6 @@
 
 
 <ng-template #loading>
-    <mat-progress-bar mode="query"></mat-progress-bar>
+  <mat-progress-bar mode="query"></mat-progress-bar>
 
 </ng-template>
