@@ -8,7 +8,6 @@ import { MaterialCustomModule } from './sharedModule/materialCustom';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgxFileDropModule } from 'ngx-file-drop';
 import {MatExpansionModule} from '@angular/material/expansion';
 
 /* Components */
@@ -51,7 +50,6 @@ export const createTranslateLoader = (http: HttpClient) => {
     AppRoutingModule,
     MaterialCustomModule,
     ReactiveFormsModule,
-    NgxFileDropModule,
     MatExpansionModule,
     TranslateModule.forRoot({
       loader: {

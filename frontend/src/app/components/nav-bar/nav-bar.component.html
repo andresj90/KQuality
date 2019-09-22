@@ -3,7 +3,7 @@
     <div id="toolbarLeft">
       <span> <img src="../../../assets/img/logo/LogoSample_ByTailorBrands (7).jpg" alt="" srcset=""> </span>
       <span><button id="hideshowNav" (click)="changeNavBarStatus()">
-          <mat-icon>reorder</mat-icon>
+          <i class="fas fa-bars icon"></i>
         </button></span>
     </div>
     <div id="toolbarMiddle">
@@ -11,38 +11,38 @@
     </div>
     <div id="toolbarRight">
       <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="language">
-          <mat-icon>language</mat-icon>
+        <i class="fas fa-globe icon"></i>
       </button>
       <mat-menu #language="matMenu">
-          <button mat-menu-item (click)="changeLang('en')">
-              <span>{{ 'English' | translate }}</span>
-          </button>
-          <button mat-menu-item (click)="changeLang('fr')">
-              <span>{{ 'French' | translate }}</span>
-          </button>
-          <button mat-menu-item (click)="changeLang('ur')">
-              <span>{{ 'Urdu' | translate }}s</span>
-          </button>
+        <button mat-menu-item (click)="changeLang('en')">
+          <span>{{ 'English' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="changeLang('fr')">
+          <span>{{ 'French' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="changeLang('ur')">
+          <span>{{ 'Urdu' | translate }}s</span>
+        </button>
       </mat-menu>
       <button class="hidden-sm" mat-icon-button [matMenuTriggerFor]="profile">
-          <mat-icon>account_circle</mat-icon>
+        <i class="fas fa-user-circle icon"></i>
       </button>
       <mat-menu #profile="matMenu">
-          <button mat-menu-item>
-              <mat-icon>person</mat-icon>
-              <span>{{ 'Perfil' | translate }}</span>
-          </button>
-          <button mat-menu-item>
-              <mat-icon>inbox</mat-icon>
-              <span>{{ 'Bandeja de entrada' | translate }}</span>
-          </button>
-          <button mat-menu-item>
-              <mat-icon>settings</mat-icon>
-              <span>{{ 'Ajustes' | translate }}</span>
-          </button>
+        <button mat-menu-item>
+          <i class="far fa-id-badge"></i>
+          <span>{{ ' Perfil' | translate }}</span>
+        </button>
+        <button mat-menu-item>
+          <i class="fas fa-envelope"></i>
+          <span>{{ ' Bandeja de entrada' | translate }}</span>
+        </button>
+        <button mat-menu-item>
+          <i class="fas fa-cog"></i>
+          <span>{{ ' Ajustes' | translate }}</span>
+        </button>
       </mat-menu>
       <button mat-icon-button (click)="onLoggedout()">
-          <mat-icon>exit_to_app</mat-icon>
+        <i class="fas fa-sign-out-alt icon"></i>
       </button>
     </div>
   </mat-toolbar-row>

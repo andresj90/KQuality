@@ -45,10 +45,12 @@ mat-toolbar {
     }
 }
 
-#toolbarLeft mat-icon {
-vertical-align: bottom;
-color: #ffffff;
+
+.icon {
+  color: #ffffff;
+  font-size: 20px;
 }
+  
 
 
 #toolbarLeft span:nth-child(2) {
