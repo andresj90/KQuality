@@ -14,9 +14,9 @@ export class CompanyAreaComponent implements OnInit {
 
   name: FormGroup;
   description: FormGroup;
-
-  /* properties from database */
-  areas: CRole;
+  
+    /* properties from database */
+    areas: CRole;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -35,7 +35,6 @@ export class CompanyAreaComponent implements OnInit {
       this.areas = data;
       console.log(this.areas.elements); 
      });
-     
   }
 
   addArea() {

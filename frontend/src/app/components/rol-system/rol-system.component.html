@@ -1,24 +1,23 @@
-<div class="maincontainer">
+<div class="maincontainer" *ngIf="(systemroles !=null) else loading">
     <h3>Crear Rol en el Sistema</h3>
     <p>Creación de los Roles que tendran los usuarios en el sistema</p>
   
     <form class="contentcontainer">
-  
-      <div class="rightcolumn">
-  
-        <mat-vertical-stepper [linear]="isLinear" #stepper>
+
+        <div class="leftcolumn" > 
+          <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(systemroles !=null) else loading">
           <mat-step [stepControl]="name">
             <form [formGroup]="name">
-              <ng-template matStepLabel>Nombre</ng-template>
+              <ng-template matStepLabel>Nombre del Rol</ng-template>
               <mat-form-field>
-                <input matInput placeholder="name" formControlName="name" 
-                 required>
+                <input matInput placeholder="Nombre" formControlName="name" required>
               </mat-form-field>
               <div>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
             </form>
           </mat-step>
+
           <mat-step [stepControl]="description">
            <form [formGroup]="description">
               <ng-template matStepLabel>Descripción</ng-template>
@@ -36,39 +35,29 @@
                   <ng-template matStepLabel>Registro</ng-template>
                   <div>
                     <button mat-button matStepperPrevious>Atras</button>
-                    <button mat-button (click)="addRole()" >Registrar</button>
+                    <button mat-button (click)="addSystemrole()" >Registrar</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
                   </div>
                 </mat-step>
            </mat-vertical-stepper>
       </div>
-  
-      <div class="leftcolumn">
-  
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Personal data
-              </mat-panel-title>
-              <mat-panel-description>
-                Type your name and age
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-  
-            <mat-form-field>
-              <input matInput placeholder="First name">
-            </mat-form-field>
-  
-            <mat-form-field>
-              <input matInput placeholder="Age">
-            </mat-form-field>
-          </mat-expansion-panel>
-        </mat-accordion>
-  
-      </div>
-  
-  
-    </form>
- </div>
-  
+
+      <!--<div class="rightcolumn">
+
+          <h3>Listado de Roles</h3>
+          <p>Listado de las áreas en el Sistema.</p>
+    
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let systemroles of CRole.elements">
+              <mat-expansion-panel-header>
+                {{systemroles.name}}
+              </mat-expansion-panel-header>
+              {{systemroles.description}}
+            </mat-expansion-panel>
+          </mat-accordion>
+    
+        </div>-->
+      
+<ng-template #loading>
+    <mat-progress-bar mode="query"></mat-progress-bar>
+</ng-template>

@@ -2,7 +2,7 @@
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button> -->
 
-<div class="maincontainer" *ngIf="areas != null else loading">
+<div class="maincontainer">
   <form class="contentcontainer">
 
     <div class="leftcolumn">
@@ -93,8 +93,5 @@
 
   </form>
 
-  <ng-template #loading>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </ng-template>
 
 </div>

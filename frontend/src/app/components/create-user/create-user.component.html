@@ -1,11 +1,11 @@
 <div *ngIf="(companyroles != null && systemroles !=null
 && areas !=null) else loading">
   <div class="maincontainer">
-      <div class="card">
-          <div class="card-body">
-            Formulario para agregar usuario al sistema 
-          </div>
+    <div class="card">
+      <div class="card-body">
+        Formulario para agregar usuario al sistema
       </div>
+    </div>
 
     <div class="contentcontainer">
 
@@ -55,8 +55,8 @@
             <form [formGroup]="email">
               <ng-template matStepLabel>Email</ng-template>
               <mat-form-field class="example-full-width">
-                  <input matInput placeholder="email" formControlName="email" required>
-                </mat-form-field>
+                <input matInput placeholder="email" formControlName="email" required>
+              </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
@@ -167,6 +167,6 @@
 
 
 <ng-template #loading>
-    <mat-progress-bar mode="query"></mat-progress-bar>
+  <mat-progress-bar mode="query"></mat-progress-bar>
 
 </ng-template>
