@@ -5,13 +5,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, RoutingComponent } from './app-routing.module'; 
 import { MaterialCustomModule } from './sharedModule/materialCustom';
-
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-import { FileSelectDirective } from 'ng2-file-upload';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -43,8 +40,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     RoutingComponent,
     DocumentCreateComponent,
     FileInputValueAccessor,
-    CompanyAreaComponent,
-    FileSelectDirective
+    CompanyAreaComponent
    
   ],
   imports: [

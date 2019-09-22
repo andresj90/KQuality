@@ -73,8 +73,6 @@ export class CreateUserComponent implements OnInit  {
       email : ['', Validators.required]
     });
 
-
-
     this.username = this._formBuilder.group({
       username: ['', Validators.required]
     });
@@ -110,6 +108,8 @@ export class CreateUserComponent implements OnInit  {
       this.companyroles = data; 
       console.log(this.companyroles.elements);
      }); 
+
+    
 
 
   }
