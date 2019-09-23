@@ -21,7 +21,8 @@ const companyAreaRoutes = require('./routes/companyArea');
 const companyRoleRoutes = require('./routes/companyRole');
 const userRoutes = require('./routes/user');
 const documentRoutes = require('./routes/document');
-
+const prefixRouter = require('./routes/documentPrefix');
+const procedureRouter = require('./routes/procedure');
 
 /* create the application, app is an instance of express */
 const app = express();
@@ -34,14 +35,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cosr());
 
-
-
 /* Middleware for applicationroutes */
 app.use('/systemrole', systemRoleRoutes);
 app.use('/area', companyAreaRoutes);
 app.use('/company', companyRoleRoutes);
 app.use('/user', userRoutes);
 app.use('/document', documentRoutes);
+app.use('/prefix', prefixRouter);
+app.use('/procedure', procedureRouter);
 
 /* verify database connection */
 models.sequelize.sync().then(() => {

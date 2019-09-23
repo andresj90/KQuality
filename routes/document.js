@@ -24,26 +24,21 @@ const upload = multer({ storage: storage });
 documentRouter.post('/create', upload.single('file'), (req, res) => {
    /*Build object with params from form  */
    let newDoc = {
-      code: req.body.code,
+      code: req.body.code[0],
       name: req.body.name,
       type: req.body.type,
       description: req.body.description,
-      procedure: req.body.procedure,
-      area: req.body.area,
-      attachment: req.file,
+      procedure: 'test procedure',
+      area: 'test area',
+      attachment: req.file.path,
+      procedureID: req.body.procedureID,
       documentPrefixID: req.body.documentPrefixID
    }
 
    console.log(newDoc)
+//    res.json({msg: req.file});
    
-    // console.log('storage location is ', req.hostname +'/' + req.file.name);
-    console.log(req.file.originalname);
-
-   res.json({msg: req.file});
-   
-
-
-   // Document.addDocument(newDoc, res);
+   Document.addDocument(newDoc, res);
 
 });
 

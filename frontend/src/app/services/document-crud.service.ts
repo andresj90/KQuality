@@ -1,3 +1,4 @@
+import { CRole } from './../interfaces/croleinterface';
 import { Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { tap, map, filter } from 'rxjs/operators';
@@ -30,6 +31,15 @@ export class DocumentCRUDService {
     return this.http.get('http://localhost:3000/document/all', {headers: this.header});
   }
 
- 
+  /*
+  ----------------------------------------------------------
+  SERVICES FOR DOCUMENT PREFIX TABLE
+  ----------------------------------------------------------
+  */
+
+ listPrefixes(): Observable<CRole> {
+  this.header.append('content-type', 'application/json'); 
+  return this.http.get<CRole>('http://localhost:3000/prefix/all', {headers: this.header});
+} 
 
 }
