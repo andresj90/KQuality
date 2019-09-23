@@ -21,13 +21,14 @@ export class UserCRUDService {
 
   //POST method to add a new user to the system
   createUser(user) {
-
+   this.header.append('content-type', 'application/json'); 
+   return this.http.post('http://localhost:3000/user/create', user, {headers: this.header, responseType: "json"});
   }
 
   //POST method to update an existing user in the system 
   updateUser(user) {
    this.header.append('content-type', 'application/json'); 
-   this.http.put('http://localhost:3000/user/update', user, {headers: this.header, responseType: "json"});
+   return this.http.put('http://localhost:3000/user/update', user, {headers: this.header, responseType: "json"});
   }
 
   

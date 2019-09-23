@@ -5,6 +5,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 import { CRole } from './../../interfaces/croleinterface';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { UserCRUDService } from 'src/app/services/user-crud.service';
 
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -26,16 +27,18 @@ export class CreateUserComponent implements OnInit {
   hide = true;
 
   newUser = this._formBuilder.group({
-    name: FormGroup,
-    lastname: FormGroup,
-    username: FormGroup,
-    password: FormGroup,
-    gender: FormGroup,
-    email: FormGroup,
-    companyRoleID: FormGroup,
-    companyAreaID: FormGroup,
-    systemRoleID: FormGroup,
-  }); 
+    name: ['', Validators.required],
+    lastname: ['', Validators.required],
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+    gender: ['', Validators.required],
+    email: ['', Validators.required],
+    companyRoleID: ['', Validators.required],
+    companyAreaID: ['', Validators.required],
+    systemRoleID: ['', Validators.required]
+  });
+
+
   /* properties from database */
   systemroles: CRole;
   areas: CRole;
@@ -43,27 +46,14 @@ export class CreateUserComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private company: CompanyCRUDService
+    private company: CompanyCRUDService,
+    private _userService: UserCRUDService
   ) { }
-
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
-  matcher = new MyErrorStateMatcher();
-
-
 
   ngOnInit() {
     this.company.listSystemRoles().subscribe((data: CRole) => {
       this.systemroles = data;
       console.log(this.systemroles.elements);
-    });
-
-    this.company.listAreas().subscribe((data: CRole) => {
-      this.areas = data;
-      console.log(this.areas.elements);
     });
 
     this.company.listCompanyRoles().subscribe((data: CRole) => {
@@ -74,20 +64,22 @@ export class CreateUserComponent implements OnInit {
 
 
   addUser() {
-    // let newUser = {
-    //   name: this.name.get('name').value,
-    //   lastname: this.lastname.get('lastname').value,
-    //   gender: this.gender.get('gender').value,
-    //   email: this.email.get('email').value,
-    //   username: this.username.get('username').value,
-    //   password: this.password.get('password').value,
-    //   companyRoleID: this.companyRoleID.get('companyRoleID').value,
-    //   companyAreaID: this.companyAreaID.get('companyAreaID').value,
-    //   systemRoleID: this.systemRoleID.get('systemRoleID').value
-    // }
+    let newUser = {
+      name: this.newUser.get('name').value,
+      lastname: this.newUser.get('lastname').value,
+      gender: this.newUser.get('gender').value,
+      email: this.newUser.get('email').value,
+      username: this.newUser.get('username').value,
+      password: this.newUser.get('password').value,
+      companyRoleID: this.newUser.get('companyRoleID').value,
+      systemRoleID: this.newUser.get('systemRoleID').value
+    }
 
-    // let user = JSON.stringify(newUser);
-    // console.log(`NEW USER ${user}`);
+    this._userService.createUser(newUser).subscribe(data => {
+      console.log(data);
+    }, err => {
+      console.log(err);
+    })
   }
 
 }

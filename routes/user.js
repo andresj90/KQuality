@@ -9,10 +9,11 @@ userRouter.post('/create', (req, res) => {
     let newUser = {
         name: req.body.name,
         lastname: req.body.lastname,
+        gender: req.body.gender,
+        email:req.body.email,
         username:req.body.username,
         password:req.body.password,
         companyRoleID:req.body.companyRoleID,
-        companyAreaID:req.body.companyAreaID,
         systemRoleID:req.body.systemRoleID
     }
     console.log(newUser);

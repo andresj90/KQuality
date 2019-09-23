@@ -1,5 +1,4 @@
-<div *ngIf="(companyroles != null && systemroles !=null
-&& areas !=null) else loading">
+<div *ngIf="(companyroles != null && systemroles !=null) else loading">
   <div class="maincontainer">
     <div class="card">
       <div class="card-body">
@@ -10,10 +9,10 @@
     <div class="contentcontainer">
 
       <div class="leftcolumn">
-        <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(companyroles != null && systemroles !=null
-        && areas !=null) else loading">
-          <mat-step [stepControl]="name">
-            <form [formGroup]="name">
+        <form [formGroup]="newUser" *ngIf="(companyroles != null && systemroles !=null) else loading">
+
+          <mat-vertical-stepper [linear]="isLinear" #stepper>
+            <mat-step [stepControl]="newUser.get('name')">
               <ng-template matStepLabel>Nombre</ng-template>
               <mat-form-field>
                 <input matInput placeholder="Nombre" formControlName="name" required>
@@ -21,11 +20,11 @@
               <div>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
-          <mat-step [stepControl]="lastname">
-            <form [formGroup]="lastname">
+            </mat-step>
+
+            <mat-step [stepControl]="newUser.get('lastname')">
+
               <ng-template matStepLabel>Apellido</ng-template>
               <mat-form-field>
                 <input matInput placeholder="Apellido" formControlName="lastname" required>
@@ -34,11 +33,11 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
-          <mat-step [stepControl]="gender">
-            <form [formGroup]="gender">
+            </mat-step>
+
+            <mat-step [stepControl]="newUser.get('gender')">
+
               <ng-template matStepLabel>Sexo</ng-template>
               <mat-radio-group aria-label="Select an option" formControlName="gender">
                 <mat-radio-button value="M">Masculino</mat-radio-button>
@@ -48,11 +47,11 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
-          <mat-step [stepControl]="email">
-            <form [formGroup]="email">
+            </mat-step>
+
+            <mat-step [stepControl]="newUser.get('email')">
+
               <ng-template matStepLabel>Email</ng-template>
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="email" formControlName="email" required>
@@ -63,12 +62,12 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
+
+            </mat-step>
 
 
-          <mat-step [stepControl]="username">
-            <form [formGroup]="username">
+            <mat-step [stepControl]="newUser.get('username')">
+
               <ng-template matStepLabel>Usuario</ng-template>
               <mat-form-field>
                 <input matInput placeholder="Nombre Usuario" formControlName="username" required>
@@ -77,14 +76,15 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
-          <mat-step [stepControl]="password">
-            <form [formGroup]="password">
+            </mat-step>
+
+            <mat-step [stepControl]="newUser.get('password')">
+
               <ng-template matStepLabel>Contraseña</ng-template>
               <mat-form-field>
-                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password"
+                  required>
                 <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button> -->
@@ -93,11 +93,11 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
+            </mat-step>
+            <!-- 
           <mat-step [stepControl]="companyAreaID">
-            <form [formGroup]="companyAreaID">
+          
               <mat-form-field>
                 <ng-template matStepLabel>Área Compañia</ng-template>
                 <mat-label>Area Compañia</mat-label>
@@ -110,11 +110,11 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
+            
+          </mat-step> -->
 
-          <mat-step [stepControl]="companyRoleID">
-            <form [formGroup]="companyRoleID">
+            <mat-step [stepControl]="newUser.get('companyRoleID')">
+
               <mat-form-field>
                 <ng-template matStepLabel>Cargo Área</ng-template>
                 <mat-label>Cargo</mat-label>
@@ -127,36 +127,37 @@
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button matStepperNext>Siguiente</button>
               </div>
-            </form>
-          </mat-step>
 
-          <mat-step [stepControl]="systemRoleID">
-              <form [formGroup]="systemRoleID">
-                <mat-form-field>
-                  <ng-template matStepLabel>Rol Sistema</ng-template>
-                  <mat-label>Rol</mat-label>
-                  <mat-select formControlName="systemRoleID">
-                    <mat-option>None</mat-option>
-                    <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Atras</button>
-                  <button mat-button matStepperNext>Siguiente</button>
-                </div>
-              </form>
+            </mat-step>
+
+            <mat-step [stepControl]="newUser.get('systemRoleID')">
+
+              <mat-form-field>
+                <ng-template matStepLabel>Rol Sistema</ng-template>
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="systemRoleID">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let role of systemroles.elements" [value]="role.id">{{role.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button matStepperNext>Siguiente</button>
+              </div>
+
             </mat-step>
 
             <mat-step>
-                <ng-template matStepLabel>Registrar</ng-template>
-                <div>
-                  <button mat-button (click)="addUser()">Crear</button>
-                  <button mat-button matStepperPrevious>Atras</button>
-                  <button mat-button (click)="stepper.reset()">Reset</button>
-                </div>
-              </mat-step>
+              <ng-template matStepLabel>Registrar</ng-template>
+              <div>
+                <button mat-button (click)="addUser()">Crear</button>
+                <button mat-button matStepperPrevious>Atras</button>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
 
-        </mat-vertical-stepper>
+          </mat-vertical-stepper>
+        </form>
       </div>
       <div class="rightcolumn">
       </div>

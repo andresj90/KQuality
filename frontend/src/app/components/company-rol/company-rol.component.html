@@ -2,10 +2,9 @@
   <h3>Crear Rol en la Compañia</h3>
   <p>Creación de los Roles en la compañia.</p>
 
-  <form class="contentcontainer">
-      <form [formGroup]="newRole">
+  <form class="contentcontainer" [formGroup]="newRole" #stepper *ngIf="(companyareas !=null) else loading">
     <div class="leftcolumn">
-      <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(companyareas !=null) else loading">
+      <mat-vertical-stepper [linear]="isLinear" >
 
         <mat-step [stepControl]="newRole.get('name')">
             <ng-template matStepLabel>Nombre</ng-template>
@@ -29,7 +28,7 @@
         </mat-step>
 
         <mat-step [stepControl]="newRole.get('companyAreaID')">
-            <ng-template matStepLabel>Descripción</ng-template>
+            <ng-template matStepLabel>Área Compañia</ng-template>
             <mat-form-field>
                 <mat-select formControlName="companyAreaID">
                     <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
@@ -89,7 +88,7 @@
         </mat-expansion-panel>
       </mat-accordion> -->
     </div>
-
+</div>
       <ng-template #loading>
         <div class="loaderContainer">
           <div class="loader"></div>

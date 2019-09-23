@@ -7,7 +7,16 @@ module.exports.addUser = (newUser, res) => {
     User.create(newUser).then(() => {
         User.findOrCreate({
             where: {
+                email: newUser.email,
                 username: newUser.username
+            },
+            defaults:{
+                name: newUser.name,
+                lastname: newUser.lastname,
+                gender: newUser.gender,
+                password:newUser.password,
+                companyRoleID:newUser.companyRoleID,
+                systemRoleID:newUser.systemRoleID
             }
         }).
         then(([user, wasCreated]) => {
