@@ -20,14 +20,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./create-user.component.scss']
 })
 export class CreateUserComponent implements OnInit {
-
-
-
-
   isLinear = true;
   panelOpenState = false;
   hide = true;
-
   name: FormGroup;
   lastname: FormGroup;
   username: FormGroup;
@@ -37,6 +32,14 @@ export class CreateUserComponent implements OnInit {
   companyRoleID: FormGroup;
   companyAreaID: FormGroup;
   systemRoleID: FormGroup;
+
+  // email = new FormControl('', [Validators.required, Validators.email]);
+
+  // getErrorMessage() {
+  //   return this.email.hasError('required') ? 'You must enter a value' :
+  //       this.email.hasError('email') ? 'Not a valid email' :
+  //           '';
+  // }
 
   /* properties from database */
   systemroles: CRole;
