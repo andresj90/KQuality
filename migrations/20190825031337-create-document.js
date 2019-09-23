@@ -9,35 +9,47 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       code: {
-        type: Sequelize.STRING, 
+        type: Sequelize.STRING,
         allowNull: false
-       }, 
-       name: {
-         type: Sequelize.STRING, 
-         allowNull: false
-        }, 
-       type: {
-         type: Sequelize.STRING, 
-         allowNull: false
-        },
-       description: {
-         type: Sequelize.STRING, 
-         allowNull: false
-       },
-       procedure: {
-         type: Sequelize.STRING, 
-         allowNull: false
-        }, 
-       area: {
-         type: Sequelize.STRING, 
-         allowNull: false
-        },
-       attachment: {
-         type: Sequelize.STRING, 
-         allowNull: true
-        },    
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      procedure: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      area: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      attachment: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+
+      procedureID: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: 'NO ACTION',
+        onUpdate: 'CASCADE',
+        references: {
+          model: 'Procedures',
+          key: 'id',
+          as: 'procedureID'
+        }
+      },
       documentPrefixID: {
-        type: Sequelize.INTEGER, 
+        type: Sequelize.INTEGER,
         allowNull: false,
         onDelete: 'NO ACTION',
         onUpdate: 'CASCADE',
@@ -45,7 +57,7 @@ module.exports = {
           model: 'DocumentPrefixes',
           key: 'id',
           as: 'documentPrefixID'
-        } 
+        }
       },
       createdAt: {
         allowNull: false,

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique:true
+      unique: true
     },
 
     username: {
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    
+
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -54,12 +54,6 @@ module.exports = (sequelize, DataTypes) => {
     //A user has a role in the system assigned 
     User.belongsTo(models.SystemRole, {
       foreignKey: 'systemRoleID',
-      onDelete: 'NO ACTION',
-      onUpdate: 'CASCADE'
-    });
-
-    User.belongsTo(models.CompanyArea, {
-      foreignKey: 'companyAreaID',
       onDelete: 'NO ACTION',
       onUpdate: 'CASCADE'
     });

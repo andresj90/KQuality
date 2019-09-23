@@ -1,7 +1,8 @@
 .container {
-  width: 79%;
+  width: 85%;
   height: 100%;
-  margin: 10px;
+  margin: 10px auto auto auto;
+  overflow: hidden;
 }
 .fa-download:before {
     padding-right: 20px;

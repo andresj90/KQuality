@@ -24,13 +24,14 @@ export class CompanyRolComponent {
   panelOpenState = false;
   hide = true;
 
-  name: FormGroup;
-  description: FormGroup;
+  newRole = this._formBuilder.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    companyAreaID: ['', Validators.required]
+  }); 
 
   /* properties from database */
-  companyroles:  CRole;
-
-  matcher = new MyErrorStateMatcher();
+  companyareas:  CRole;
 
   constructor(
     private http: HttpClient,
@@ -39,30 +40,26 @@ export class CompanyRolComponent {
   ) { }
 
   ngOnInit() {
-    this.name = this._formBuilder.group({
-      name: ['', Validators.required]
-    });
-    this.description = this._formBuilder.group({
-      description: ['', Validators.required]
-    });
-    this.company.listCompanyRoles().subscribe((data:CRole) => {
-      this.companyroles = data;
-      console.log(this.companyroles.elements); 
+    this.company.listAreas().subscribe((data:CRole) => {
+      console.log(data);
+      this.companyareas = data;
+      console.log(this.companyareas); 
      });
   }
 
   addCompanyRole() {
-      let newCompanyrole = {
-        name: this.name.get('name').value,
-        description: this.description.get('description').value
-      }
-      this.company.addNewCompanyRole(newCompanyrole).subscribe((data) => {
+
+      let role = {
+        name: this.newRole.get('name').value,
+        description: this.newRole.get('description').value,
+        companyAreaID: this.newRole.get('companyAreaID').value 
+      } 
+
+      this.company.addNewCompanyRole(role).subscribe((data) => {
         console.log(data);
       }, (error) => {
         console.log(error);
       });
-      let companyrol = JSON.stringify(newCompanyrole); 
-      console.log(`NEW COMPANYROL ${companyrol}`);
     }
 
 

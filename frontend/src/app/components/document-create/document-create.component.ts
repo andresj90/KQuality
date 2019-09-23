@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { DocumentCRUDService } from 'src/app/services/document-crud.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Document } from './document';
+import { FormBuilder, FormGroup , Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-document-create',
@@ -11,64 +9,57 @@ import { Document } from './document';
 })
 export class DocumentCreateComponent {
 
+  isLinear = true;
+  file:File[];
+  types: ['Procedimiento', 'Acta de entrega', 'Requirimientos']; 
 
-
-  documentModel = new Document(
-    "",
-    "",
-    "",
-    "",
-    "",
-    0,
-    null
-  );
-
-  public newDocument: {
-    code: string;
-    name: string;
-    type: string;
-    description: string;
-    procedure: string;
-    area: number;
-    file: File | null;
-  };
-
+  newDocument = this._formBuilder.group({
+    code: ['', Validators.required],
+    name: ['', Validators.required],
+    // type: ['', Validators.required],
+    description:['', Validators.required],
+    // procedure: ['', Validators.required],
+    // area: ['', Validators.required ],
+    attachment: ['' , Validators.required]
+  }); 
 
   constructor(
-    private document: DocumentCRUDService
+    private document: DocumentCRUDService,
+    private _formBuilder: FormBuilder
   ) {
-    this.newDocument = {
-      code: "",
-      name: "",
-      type: "",
-      description: "",
-      procedure: "",
-      area: 0,
-      file: null
-    };
+  }
+
+
+  ngOnInit() {
+   
+  }
+
+  upload(file: File[]){
+    //pick from one of the 4 styles of file uploads below
+    // this.uploadAndProgress(files);
+    this.file = file;
+    console.log(this.file);
   }
 
 
   addDocument() {
 
-    const doc = {
-      code: this.newDocument.code,
-      name: this.newDocument.name,
-      type: this.newDocument.type,
-      description: this.newDocument.description,
-      procedure: this.newDocument.procedure,
-      area: this.newDocument.area,
-      file: this.newDocument.file,
-      documentPrefixID: 1,
-    }
+    var formData = new FormData();
+    formData.append('file', this.file[0], this.file[0].name); 
+    formData.append('code', this.newDocument.get('code').value)
+    formData.append('name', this.newDocument.get('name').value)
+    formData.append('description', this.newDocument.get('description').value)
+    formData.append('code', this.newDocument.get('code').value)
+    // formData.append('code', this.newDocument.get('code').value)
 
 
-    this.document.addNewDocument(doc).subscribe((data) => {
+    this.document.addNewDocument(formData).subscribe((data) => {
       console.log(data);
+    }, err => {
+       console.log(err);
     });
 
-    console.log();
-
   }
+
 
 }

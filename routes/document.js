@@ -11,7 +11,7 @@ var storage = multer.diskStorage({
         cb(null, './files/');
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
 
@@ -23,22 +23,25 @@ const upload = multer({ storage: storage });
 /* Route for document creation */
 documentRouter.post('/create', upload.single('file'), (req, res) => {
    /*Build object with params from form  */
-   // let newDoc = {
-   //    code: req.body.code,
-   //    name: req.body.name,
-   //    type: req.body.type,
-   //    description: req.body.description,
-   //    procedure: req.body.procedure,
-   //    area: req.body.area,
-   //    attachment: req.body.file,
-   //    documentPrefixID: req.body.documentPrefixID
-   // }
+   let newDoc = {
+      code: req.body.code,
+      name: req.body.name,
+      type: req.body.type,
+      description: req.body.description,
+      procedure: req.body.procedure,
+      area: req.body.area,
+      attachment: req.file,
+      documentPrefixID: req.body.documentPrefixID
+   }
+
+   console.log(newDoc)
    
-    console.log('storage location is ', req.hostname +'/' + req.file);
+    // console.log('storage location is ', req.hostname +'/' + req.file.name);
+    console.log(req.file.originalname);
 
    res.json({msg: req.file});
    
-//    console.log(JSON.stringify(req.file.path));
+
 
    // Document.addDocument(newDoc, res);
 

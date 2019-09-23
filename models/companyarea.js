@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      }
   });
   CompanyArea.associate = function (models) {
-    CompanyArea.hasMany(models.User, {
+    CompanyArea.hasMany(models.CompanyRole, {
       foreignKey: 'companyAreaID',
-      as: 'users'
+      as: 'roles'
     });
   };
   return CompanyArea;

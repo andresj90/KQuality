@@ -20,7 +20,7 @@ export class DocumentCRUDService {
 
   //POST method to add a new role to the system
   addNewDocument(newDocument) {
-    this.header.append('Content-type', 'application/x-www-form-urlencoded');
+    this.header.append('Content-type', 'multipart/form-data');
     return this.http.post('http://localhost:3000/document/create', newDocument, { headers: this.header });
   }
 

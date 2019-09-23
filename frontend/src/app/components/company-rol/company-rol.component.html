@@ -1,14 +1,13 @@
-<div class="maincontainer" *ngIf="(companyroles !=null) else loading">
+<div class="maincontainer" *ngIf="(companyareas !=null) else loading">
   <h3>Crear Rol en la Compañia</h3>
   <p>Creación de los Roles en la compañia.</p>
 
   <form class="contentcontainer">
-
+      <form [formGroup]="newRole">
     <div class="leftcolumn">
-      <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(companyroles !=null) else loading">
+      <mat-vertical-stepper [linear]="isLinear" #stepper *ngIf="(companyareas !=null) else loading">
 
-        <mat-step [stepControl]="name">
-          <form [formGroup]="name">
+        <mat-step [stepControl]="newRole.get('name')">
             <ng-template matStepLabel>Nombre</ng-template>
             <mat-form-field>
               <input matInput placeholder="Nombre" formControlName="name" required>
@@ -16,37 +15,49 @@
             <div>
               <button mat-button matStepperNext>Siguiente</button>
             </div>
-          </form>
         </mat-step>
 
-        <mat-step [stepControl]="description">
-          <form [formGroup]="description">
+        <mat-step [stepControl]="newRole.get('description')">
             <ng-template matStepLabel>Descripción</ng-template>
             <mat-form-field>
               <input matInput placeholder="Descripcion" formControlName="description" required>
             </mat-form-field>
             <div>
-                <button mat-button matStepperPrevious>Atras</button>
-                <button mat-button matStepperNext>Siguiente</button>
-              </div>
-            </form>
-          </mat-step>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
 
-              <mat-step>
-                  <ng-template matStepLabel>Registro</ng-template>
-                  <div>
-                    <button mat-button matStepperPrevious>Atras</button>
-                    <button mat-button (click)="addCompanyRole()" >Registrar</button>
-                    <button mat-button (click)="stepper.reset()">Reset</button>
-                  </div>
-                </mat-step>
+        <mat-step [stepControl]="newRole.get('companyAreaID')">
+            <ng-template matStepLabel>Descripción</ng-template>
+            <mat-form-field>
+                <mat-select formControlName="companyAreaID">
+                    <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
+                      {{area.name}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Registro</ng-template>
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button (click)="addCompanyRole()">Registrar</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
       </mat-vertical-stepper>
     </div>
-
+ </form>
 
     <div class="rightcolumn">
 
-    <!--  <mat-accordion>
+      <!--  <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -76,10 +87,11 @@
           </mat-expansion-panel-header>
           <p>I'm visible because I am open</p>
         </mat-expansion-panel>
-      </mat-accordion>
-    </div>-->
+      </mat-accordion> -->
+    </div>
 
-<ng-template #loading>
-  <mat-progress-bar mode="query"></mat-progress-bar>
-</ng-template>
-
+      <ng-template #loading>
+        <div class="loaderContainer">
+          <div class="loader"></div>
+        </div>
+      </ng-template>

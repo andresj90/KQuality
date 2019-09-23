@@ -41,6 +41,12 @@ module.exports = (sequelize, DataTypes) => {
        onUpdate: 'CASCADE',
        constraints:true
     });
+    Document.belongsTo(models.Procedure, {
+      foreignKey: 'procedureID', 
+      onDelete: 'NO ACTION',
+      onUpdate: 'CASCADE',
+      constraints:true
+   });
   };
   return Document;
 };

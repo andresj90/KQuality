@@ -21,27 +21,30 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class CreateUserComponent implements OnInit {
 
-
-
-
   isLinear = true;
   panelOpenState = false;
   hide = true;
 
-  name: FormGroup;
-  lastname: FormGroup;
-  username: FormGroup;
-  password: FormGroup;
-  gender: FormGroup;
-  email: FormGroup;
-  companyRoleID: FormGroup;
-  companyAreaID: FormGroup;
-  systemRoleID: FormGroup;
-
+  newUser = this._formBuilder.group({
+    name: FormGroup,
+    lastname: FormGroup,
+    username: FormGroup,
+    password: FormGroup,
+    gender: FormGroup,
+    email: FormGroup,
+    companyRoleID: FormGroup,
+    companyAreaID: FormGroup,
+    systemRoleID: FormGroup,
+  }); 
   /* properties from database */
   systemroles: CRole;
   areas: CRole;
   companyroles: CRole;
+
+  constructor(
+    private _formBuilder: FormBuilder,
+    private company: CompanyCRUDService
+  ) { }
 
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -51,49 +54,8 @@ export class CreateUserComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
 
-  constructor(
-
-    private _formBuilder: FormBuilder,
-    private company: CompanyCRUDService
-  ) { }
 
   ngOnInit() {
-
-    this.name = this._formBuilder.group({
-      name: ['', Validators.required]
-    });
-    this.lastname = this._formBuilder.group({
-      lastname: ['', Validators.required]
-    });
-    this.gender = this._formBuilder.group({
-      gender: ['', Validators.required]
-    });
-
-    this.email = this._formBuilder.group({
-      email: ['', Validators.required]
-    });
-
-    this.username = this._formBuilder.group({
-      username: ['', Validators.required]
-    });
-
-
-    this.password = this._formBuilder.group({
-      password: ['', Validators.required]
-    });
-
-
-
-    this.companyRoleID = this._formBuilder.group({
-      companyRoleID: ['', Validators.required]
-    });
-    this.systemRoleID = this._formBuilder.group({
-      systemRoleID: ['', Validators.required]
-    });
-    this.companyAreaID = this._formBuilder.group({
-      companyAreaID: ['', Validators.required]
-    });
-
     this.company.listSystemRoles().subscribe((data: CRole) => {
       this.systemroles = data;
       console.log(this.systemroles.elements);
@@ -108,34 +70,24 @@ export class CreateUserComponent implements OnInit {
       this.companyroles = data;
       console.log(this.companyroles.elements);
     });
-
-    
-
-
   }
 
-
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
-        '';
-  }
 
   addUser() {
-    let newUser = {
-      name: this.name.get('name').value,
-      lastname: this.lastname.get('lastname').value,
-      gender: this.gender.get('gender').value,
-      email: this.email.get('email').value,
-      username: this.username.get('username').value,
-      password: this.password.get('password').value,
-      companyRoleID: this.companyRoleID.get('companyRoleID').value,
-      companyAreaID: this.companyAreaID.get('companyAreaID').value,
-      systemRoleID: this.systemRoleID.get('systemRoleID').value
-    }
+    // let newUser = {
+    //   name: this.name.get('name').value,
+    //   lastname: this.lastname.get('lastname').value,
+    //   gender: this.gender.get('gender').value,
+    //   email: this.email.get('email').value,
+    //   username: this.username.get('username').value,
+    //   password: this.password.get('password').value,
+    //   companyRoleID: this.companyRoleID.get('companyRoleID').value,
+    //   companyAreaID: this.companyAreaID.get('companyAreaID').value,
+    //   systemRoleID: this.systemRoleID.get('systemRoleID').value
+    // }
 
-    let user = JSON.stringify(newUser);
-    console.log(`NEW USER ${user}`);
+    // let user = JSON.stringify(newUser);
+    // console.log(`NEW USER ${user}`);
   }
 
 }

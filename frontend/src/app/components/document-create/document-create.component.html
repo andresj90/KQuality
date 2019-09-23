@@ -1,126 +1,78 @@
 <div class="maincontainer">
-  <h3>Registro de Documento</h3>
-  <p>Creación de documentos los cuales apoyan el control y la
-    operación de cada uno de los procesos para que en
-    ellos se garantice su actualización, disponibilidad y su uso.</p>
 
-  <form class="contentcontainer" (ngSubmit)="addDocument()" enctype="multipart/form-data" #documentForm="ngForm">
-    <div class="rightcolumn">
+  <form [formGroup]="newDocument">
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
 
-      <div class="input-group input-group mb-3 , form-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="code">Código</span>
+      <mat-step [stepControl]="newDocument.get('code')">
+        <ng-template matStepLabel>Código</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="code">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
         </div>
-        <input type="text" #code="ngModel" [class.is-invalid]="code.invalid && code.touched" class="form-control"
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="code"
-          [(ngModel)]="newDocument.code" [(ngModel)]="documentModel.code" required>
-        <small [class.d-none]="code.valid || code.untouched" class="text-danger">Code is Required</small>
-      </div>
+      </mat-step>
 
-      <div class="input-group input-group mb-3 , form-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="name">Nombre</span>
+      <mat-step [stepControl]="newDocument.get('name')">
+        <ng-template matStepLabel>Nombre</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="name">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
         </div>
-        <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control"
-          aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="name" id="name"
-          [(ngModel)]="newDocument.name" [(ngModel)]="documentModel.name" required>
-        <small [class.d-none]="name.valid || name.untouched" class="text-danger">Name is Required</small>
-      </div>
+      </mat-step>
 
-      <div class="input-group mb-3 , form-group">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Tipo</label>
+      <mat-step [stepControl]="newDocument.get('description')">
+        <ng-template matStepLabel>Descripción</ng-template>
+        <mat-form-field>
+          <textarea matInput placeholder="Descripción" formControlName="description"></textarea>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
         </div>
-        <select class="custom-select" #type="ngModel" [class.is-invalid]="type.invalid && type.touched" id="type"
-          name="type" [(ngModel)]="newDocument.type" [(ngModel)]="documentModel.type" required>
-          <option selected>Seleccione...</option>
-          <option value="Procedimiento">Procedimiento</option>
-          <option value="Documento">Documento</option>
-        </select>
-        <small [class.d-none]="type.valid || type.untouched" class="text-danger">Type is Required</small>
-      </div>
+      </mat-step>
 
-      <div class="input-group input-group mb-3,  form-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Descripción</span>
+
+      <mat-step [stepControl]="newDocument.get('name')">
+          <ng-template matStepLabel>Tipo</ng-template>
+          <mat-form-field>
+              <mat-select formControlName="type" >
+                  <mat-option *ngFor="let type of types" [value]="type">
+                    {{type}}
+                  </mat-option>
+                </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+
+         <mat-step [stepControl]="newDocument.get('file')">
+            <ng-template matStepLabel>Adjunto</ng-template>
+              <input type="file"  placeholder="Adjunto" 
+              (change)="upload($event.target.files)" formControlName="attachment">
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>  
+
+
+      <mat-step>
+        <ng-template matStepLabel>Registro</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="addDocument()" >Register</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
-        <textarea id="description" name="description" #description="ngModel"
-          [class.is-invalid]="description.invalid && description.touched" class="form-control"
-          aria-label="With textarea" [(ngModel)]="newDocument.description" [(ngModel)]="documentModel.description"
-          required></textarea>
-      </div>
-      <small [class.d-none]="description.valid || description.untouched" class="text-danger">Description is
-        Required</small>
-    </div>
-
-    <div class="leftcolumn">
-
-      <div class="input-group input-group mb-3, form-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Proceso</span>
-        </div>
-        <input type="text" class="form-control" #procedure="ngModel"
-          [class.is-invalid]="procedure.invalid && procedure.touched" aria-label=Sizing example input
-          aria-describedby="inputGroup-sizing-sm" id="procedure" name="procedure" [(ngModel)]="newDocument.procedure"
-          [(ngModel)]="documentModel.procedure" required>
-      </div>
-
-      <div class="input-group mb-3, form-group">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Area</label>
-        </div>
-
-        <select class="custom-select" #area="ngModel" [class.is-invalid]="area.invalid && area.touched" id="area"
-          name="area" [(ngModel)]="newDocument.area"  [(ngModel)]="documentModel.area">
-          <option selected>Seleccione...</option>
-          <option value="1">DIR</option>
-          <option value="3">RRHH</option>
-          <option value="3">ADM</option>
-          <option value="3">JUR</option>
-        </select>
-      </div>
-
-      <div class="input-group mb-3">
-        <div class="adjunto">
-          <input type="file" name="file" [(ngModel)]="newDocument.attachment" />
-
-        </div>
-
-      </div>
-
-      <div class="containerButton">
-        <div class="containerbuttonflex">
-          <input class="btn btn-primary" type="reset" value="Limpiar">
-          <button type="submit" class="btn btn-success">Guardar</button>
-        </div>
-      </div>
+      </mat-step>
 
 
-    </div>
+
+    </mat-vertical-stepper>
   </form>
-
-
-</div> 
-
-
-
-<div class="container">
-  <div class="row">
-      <div class="col-md-6 offset-md-3">
-          <h3>Choose File</h3>
-          <form (ngSubmit)="onSubmit()">
-              <div class="form-group">
-                  <input type="file" name="image"/>
-              </div>
-              <div class="form-group">
-                  <button class="btn btn-primary">Submit</button>p
-              </div>
-          </form>
-      </div>
-  </div>
 </div>
-
-<form action="POST"  enctype="multipart/form-data" (ngSubmit)="addDocument()">
-  <input type="file" name="file" id="file" [(ngModel)]="this.newDocument.file">
-  <button type="submit">Send Data</button>
-</form>

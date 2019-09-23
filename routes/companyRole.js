@@ -7,8 +7,10 @@ const companyRoleRouter = require('express').Router();
 companyRoleRouter.post('/create', (req, res) => {
     let newRole = {
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
+        companyAreaID:req.body.companyAreaID
     }
+    console.log(newRole);
     companyRole.addCompanyRole(newRole, res);
 });
 

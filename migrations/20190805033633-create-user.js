@@ -59,16 +59,6 @@ module.exports = {
           as: 'companyRoleID'
         }
       },
-      companyAreaID: {
-        type: Sequelize.INTEGER,
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE',
-        references: {
-          model: 'CompanyAreas',
-          key: 'id',
-          as: 'companyAreaID'
-        }
-      },
       systemRoleID: {
         type: Sequelize.INTEGER,
         onDelete: 'NO ACTION',

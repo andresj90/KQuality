@@ -1,31 +1,25 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('CompanyRoles', {
+    return queryInterface.createTable('Procedures', {
       id: {
-        allowNull: false, 
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       name: {
         type: Sequelize.STRING,
-        allowNull: false, 
+        allowNull: false
       },
-      description: {
+      type: {
         type: Sequelize.STRING,
-        allowNull: false, 
+        allowNull: false
       },
-      companyAreaID: {
+      parentProcedureID: {
         type: Sequelize.INTEGER,
-        onDelete: 'NO ACTION',
-        onUpdate: 'CASCADE',
-        references: {
-          model: 'CompanyAreas',
-          key: 'id',
-          as: 'companyAreaID'
-        },
-        allowNull:false
+        allowNull: false,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('CompanyRoles');
+    return queryInterface.dropTable('Procedures');
   }
 };
