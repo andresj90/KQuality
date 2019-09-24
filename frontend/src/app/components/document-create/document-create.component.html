@@ -53,7 +53,7 @@
 
          <mat-step [stepControl]="newDocument.get('file')">
             <ng-template matStepLabel>Adjunto</ng-template>
-              <input type="file"  placeholder="Adjunto" 
+              <input type="file"  placeholder="Adjunto" id="buttonUpload"
               (change)="upload($event.target.files)" formControlName="attachment">
             <div>
               <button mat-button matStepperPrevious>Back</button>
@@ -62,7 +62,7 @@
           </mat-step>  
          
           <mat-step [stepControl]="newDocument.get('procedureID')">
-              <ng-template matStepLabel>Tipo</ng-template>
+              <ng-template matStepLabel>Proceso Documento</ng-template>
               <mat-form-field>
                   <mat-select formControlName="procedureID" >
                       <mat-option *ngFor="let procedure of procedures.elements"  [value]="procedure.id">
@@ -77,7 +77,7 @@
             </mat-step>
             
             <mat-step [stepControl]="newDocument.get('documentPrefixID')">
-                <ng-template matStepLabel>Tipo</ng-template>
+                <ng-template matStepLabel>Prefijo Documento</ng-template>
                 <mat-form-field>
                     <mat-select formControlName="documentPrefixID" >
                         <mat-option *ngFor="let prefix of prefixes.elements"  [value]="prefix.id">

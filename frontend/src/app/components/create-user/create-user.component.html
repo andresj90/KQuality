@@ -4,6 +4,7 @@
       <div class="card-body">
         Formulario para agregar un usuario al sistema
       </div>
+
     </div>
 
     <div class="contentcontainer">
@@ -83,7 +84,7 @@
 
               <ng-template matStepLabel>Contraseña</ng-template>
               <mat-form-field>
-                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="password"
+                <input type="password" matInput placeholder="Contraseña" formControlName="password"
                   required>
                 <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -149,11 +150,19 @@
 
             <mat-step>
               <ng-template matStepLabel>Registrar</ng-template>
-              <div>
+                <ng-container *ngIf="!hide; then formNotSubmitted ; else formSubmitted">
+                </ng-container>
+              <ng-template #formNotSubmitted>
                 <button mat-button (click)="addUser()">Crear</button>
                 <button mat-button matStepperPrevious>Atras</button>
                 <button mat-button (click)="stepper.reset()">Reset</button>
-              </div>
+              </ng-template>
+              <ng-template #formSubmitted>
+                <button class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Enviando Solicitud al sistema...
+                </button>
+              </ng-template>
             </mat-step>
 
           </mat-vertical-stepper>
@@ -162,8 +171,9 @@
       <div class="rightcolumn">
       </div>
     </div>
-
+    
   </div>
+  <ng-flash-message></ng-flash-message>
 </div>
 
 <ng-template #loading>

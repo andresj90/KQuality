@@ -4,7 +4,7 @@ const User = require('../models').User;
 /* apply the businnes logic with the model */
 
 module.exports.addUser = (newUser, res) => {
-    User.create(newUser).then(() => {
+   
         User.findOrCreate({
             where: {
                 email: newUser.email,
@@ -20,6 +20,8 @@ module.exports.addUser = (newUser, res) => {
             }
         }).
         then(([user, wasCreated]) => {
+            console.log(wasCreated);
+
             if (wasCreated) {
                 res.json({
                     success: true,
@@ -38,12 +40,6 @@ module.exports.addUser = (newUser, res) => {
             });
         });
 
-    }).catch((err) => {
-        res.json({
-            success: false,
-            msg: err
-        })
-    });
 }
 
 module.exports.listUsers = (res) => {

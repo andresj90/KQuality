@@ -88,3 +88,9 @@ $primaryColor:#ffffff;
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+
+  #buttonUpload input{
+    background-color: #3B495F;
+    border: 1px solid red;
+  }

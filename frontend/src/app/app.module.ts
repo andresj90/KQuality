@@ -9,6 +9,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { NgprimeModule } from './sharedModule/ngprime.module';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -24,7 +26,7 @@ import { DocumentCRUDService } from './services/document-crud.service';
 import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { UserCRUDService } from './services/user-crud.service';
-
+import {MessageService} from 'primeng/api';
 
 
 export const createTranslateLoader = (http: HttpClient) => {
@@ -51,6 +53,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     MaterialCustomModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    NgprimeModule,
+    NgFlashMessagesModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -62,7 +66,8 @@ export const createTranslateLoader = (http: HttpClient) => {
   providers: [
     CompanyCRUDService,
     DocumentCRUDService,
-    UserCRUDService
+    UserCRUDService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

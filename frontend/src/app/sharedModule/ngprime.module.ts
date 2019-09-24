@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SlideMenuModule} from 'primeng/slidemenu';
-
+import {ToastModule} from 'primeng/toast';
 
 
 const ngprime = [
-  SlideMenuModule
+  SlideMenuModule,
+  ToastModule
 ]
 
 
 @NgModule({
   declarations: [],
   imports: [
+    CommonModule,
     ngprime
   ],
   exports: [
