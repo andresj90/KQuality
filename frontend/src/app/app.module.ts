@@ -8,9 +8,10 @@ import { MaterialCustomModule } from './sharedModule/materialCustom';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion';
 import { NgprimeModule } from './sharedModule/ngprime.module';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     MatExpansionModule,
     NgprimeModule,
     NgFlashMessagesModule.forRoot(),
+    NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

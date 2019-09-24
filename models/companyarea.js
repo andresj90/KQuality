@@ -9,12 +9,16 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING,
       allowNull:false
-     }
+     },
+     upperAreaID: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    }
   });
   CompanyArea.associate = function (models) {
-    CompanyArea.hasMany(models.CompanyRole, {
+    CompanyArea.hasMany(models.User, {
       foreignKey: 'companyAreaID',
-      as: 'roles'
+      as: 'users'
     });
   };
   return CompanyArea;
