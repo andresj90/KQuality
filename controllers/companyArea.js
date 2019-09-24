@@ -17,7 +17,8 @@ module.exports.addCompanyArea = (area, res) => {
         },
 
             defaults: {
-                description: area.description
+                description: area.description,
+                upperAreaID: area.upperAreaID
             }
         
     }).

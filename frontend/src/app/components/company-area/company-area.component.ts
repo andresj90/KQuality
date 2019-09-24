@@ -15,6 +15,7 @@ export class CompanyAreaComponent implements OnInit {
 
   name: FormGroup;
   description: FormGroup;
+  upperAreaID: FormGroup;
   
     /* properties from database */
     areas: CRole;
@@ -31,6 +32,9 @@ export class CompanyAreaComponent implements OnInit {
     this.description = this._formBuilder.group({
       description: ['', Validators.required]
     });
+    this.upperAreaID = this._formBuilder.group({
+      upperAreaID: ['', Validators.required]
+    });
 
     this.company.listAreas().subscribe((data:CRole) => {
       this.areas = data;
@@ -41,7 +45,8 @@ export class CompanyAreaComponent implements OnInit {
   addArea() {
     let newArea = {
       name: this.name.get('name').value,
-      description: this.description.get('description').value
+      description: this.description.get('description').value,
+      upperAreaID: this.upperAreaID.get('upperAreaID').value
     }
 
     this.company.addCompanyArea(newArea).subscribe((data) => {
@@ -49,6 +54,11 @@ export class CompanyAreaComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
+
+    this.company.listAreas().subscribe((data:CRole) => {
+      this.areas = data;
+      console.log(this.areas.elements); 
+     });
 
     let area = JSON.stringify(newArea); 
     console.log(`NEW AREA ${area}`);

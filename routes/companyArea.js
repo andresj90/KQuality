@@ -10,7 +10,8 @@ const { check, validationResult } = require('express-validator');
 companyAreasRouter.post('/create',(req, res) => {
     let area = {
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
+        upperAreaID: req.body.upperAreaID
     }
       
 

@@ -31,31 +31,22 @@
           </form>
         </mat-step>
 
-        <!-- <mat-step [stepControl]="thirdFormGroup">
-      <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Padre</ng-template>
-        <mat-form-field>
-          <mat-label>Padre</mat-label> -->
-        <!-- <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select> -->
-
-        <!-- <select matNativeControl required>
-            <option value="padre1">Padre 1</option>
-            <option value="padre2">Padre 2</option>
-            <option value="padre3">Padre 3</option>
-            <option value="padre4">Padre 4</option>
-          </select>
-
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Atras</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
-      </form>
-    </mat-step> -->
+        <mat-step [stepControl]="upperAreaID">
+          <form [formGroup]="upperAreaID">
+            <mat-form-field>
+              <ng-template matStepLabel>Área Superior</ng-template>
+              <mat-label>Área</mat-label>
+              <mat-select formControlName="upperAreaID">
+                <mat-option value="null">Ninguno</mat-option>
+                <mat-option *ngFor="let area of areas.elements" [value]="area.id">{{area.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          </form>
+        </mat-step>
 
         <mat-step>
           <ng-template matStepLabel>Registro</ng-template>
@@ -75,7 +66,7 @@
       <p>Listado de las áreas de la empresa.</p>
 
       <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
-      <mat-accordion>
+      <mat-accordion *ngIf="areas">
         <mat-expansion-panel *ngFor="let area of areas.elements | paginate: {itemsPerPage: 5, currentPage: pageActual}">
           <mat-expansion-panel-header>
             {{area.name}}
