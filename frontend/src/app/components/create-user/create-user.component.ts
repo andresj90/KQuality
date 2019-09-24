@@ -32,7 +32,6 @@ export class CreateUserComponent implements OnInit {
     gender: ['', Validators.required],
     email: ['', Validators.required],
     companyRoleID: ['', Validators.required],
-    companyAreaID: ['', Validators.required],
     systemRoleID: ['', Validators.required]
   });
 

@@ -57,7 +57,8 @@ module.exports = {
           model: 'CompanyRoles',
           key: 'id',
           as: 'companyRoleID'
-        }
+        },
+        allowNull:false
       },
       systemRoleID: {
         type: Sequelize.INTEGER,
@@ -67,7 +68,8 @@ module.exports = {
           model: 'SystemRoles', //has to be pluralized
           key: 'id',
           as: 'systemRoleID'
-        }
+        }, 
+        allowNull:false
       },
       createdAt: {
         allowNull: false,

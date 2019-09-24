@@ -55,9 +55,7 @@
 
               <ng-template matStepLabel>Email</ng-template>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="email" formControlName="email" required>
-                <!-- <input matInput placeholder="Enter your email" [formControl]="email" required>
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                <input matInput type="email" placeholder="email" formControlName="email" required>
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -86,9 +84,6 @@
               <mat-form-field>
                 <input type="password" matInput placeholder="Contraseña" formControlName="password"
                   required>
-                <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                  </button> -->
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -96,23 +91,7 @@
               </div>
 
             </mat-step>
-            <!-- 
-          <mat-step [stepControl]="companyAreaID">
-          
-              <mat-form-field>
-                <ng-template matStepLabel>Área Compañia</ng-template>
-                <mat-label>Area Compañia</mat-label>
-                <mat-select formControlName="companyAreaID">
-                  <mat-option>None</mat-option>
-                  <mat-option *ngFor="let area of areas.elements" [value]="area.id">{{area.name}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <div>
-                <button mat-button matStepperPrevious>Atras</button>
-                <button mat-button matStepperNext>Siguiente</button>
-              </div>
-            
-          </mat-step> -->
+
 
             <mat-step [stepControl]="newUser.get('companyRoleID')">
 

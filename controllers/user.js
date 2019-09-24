@@ -5,6 +5,8 @@ const User = require('../models').User;
 
 module.exports.addUser = (newUser, res) => {
    
+    console.log(newUser); 
+    
         User.findOrCreate({
             where: {
                 email: newUser.email,
