@@ -23,6 +23,14 @@ const upload = multer({ storage: storage });
 /* Route for document creation */
 documentRouter.post('/create', upload.single('file'), (req, res) => {
    /*Build object with params from form  */
+   console.log(req.file);
+   let route; 
+   if (req.file == undefined || req.file == null) {
+       route = null;
+   } else {
+       route = req.file.path; 
+   }
+
    let newDoc = {
       code: req.body.code[0],
       name: req.body.name,
@@ -30,7 +38,7 @@ documentRouter.post('/create', upload.single('file'), (req, res) => {
       description: req.body.description,
       procedure: 'test procedure',
       area: 'test area',
-      attachment: req.file.path,
+      attachment: route,
       procedureID: req.body.procedureID,
       documentPrefixID: req.body.documentPrefixID
    }

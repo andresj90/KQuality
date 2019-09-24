@@ -37,78 +37,87 @@
 
 
       <mat-step [stepControl]="newDocument.get('type')">
-          <ng-template matStepLabel>Tipo</ng-template>
-          <mat-form-field>
-              <mat-select formControlName="type" >
-                  <mat-option *ngFor="let type of types"  [value]="type">
-                    {{type}}
-                  </mat-option>
-                </mat-select>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </mat-step>
+        <ng-template matStepLabel>Tipo</ng-template>
+        <mat-form-field>
+          <mat-select formControlName="type">
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
 
-         <mat-step [stepControl]="newDocument.get('file')">
-            <ng-template matStepLabel>Adjunto</ng-template>
-              <input type="file"  placeholder="Adjunto" id="buttonUpload"
-              (change)="upload($event.target.files)" formControlName="attachment">
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </mat-step>  
-         
-          <mat-step [stepControl]="newDocument.get('procedureID')">
-              <ng-template matStepLabel>Proceso Documento</ng-template>
-              <mat-form-field>
-                  <mat-select formControlName="procedureID" >
-                      <mat-option *ngFor="let procedure of procedures.elements"  [value]="procedure.id">
-                        {{procedure.name}}
-                      </mat-option>
-                    </mat-select>
-              </mat-form-field>
-              <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-              </div>
-            </mat-step>
-            
-            <mat-step [stepControl]="newDocument.get('documentPrefixID')">
-                <ng-template matStepLabel>Prefijo Documento</ng-template>
-                <mat-form-field>
-                    <mat-select formControlName="documentPrefixID" >
-                        <mat-option *ngFor="let prefix of prefixes.elements"  [value]="prefix.id">
-                          {{prefix.prefix}}
-                        </mat-option>
-                      </mat-select>
-                </mat-form-field>
-                <div>
-                  <button mat-button matStepperPrevious>Back</button>
-                  <button mat-button matStepperNext>Next</button>
-                </div>
-              </mat-step> 
+      <mat-step [stepControl]="newDocument.get('file')">
+        <ng-template matStepLabel>Adjunto</ng-template>
+        <input type="file" placeholder="Adjunto" id="buttonUpload" (change)="upload($event.target.files)"
+          formControlName="attachment">
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="newDocument.get('procedureID')">
+        <ng-template matStepLabel>Proceso Documento</ng-template>
+        <mat-form-field>
+          <mat-select formControlName="procedureID">
+            <mat-option *ngFor="let procedure of procedures.elements" [value]="procedure.id">
+              {{procedure.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="newDocument.get('documentPrefixID')">
+        <ng-template matStepLabel>Prefijo Documento</ng-template>
+        <mat-form-field>
+          <mat-select formControlName="documentPrefixID">
+            <mat-option *ngFor="let prefix of prefixes.elements" [value]="prefix.id">
+              {{prefix.prefix}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
 
 
       <mat-step>
         <ng-template matStepLabel>Registro</ng-template>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="addDocument()" >Register</button>
+        <ng-container *ngIf="!hide; then formNotSubmitted ; else formSubmitted">
+        </ng-container>
+        <ng-template #formNotSubmitted>
+          <button mat-button (click)="addDocument()">Crear</button>
+          <button mat-button matStepperPrevious>Atras</button>
           <button mat-button (click)="stepper.reset()">Reset</button>
-        </div>
+        </ng-template>
+        <ng-template #formSubmitted>
+          <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Enviando Solicitud al sistema...
+          </button>
+        </ng-template>
       </mat-step>
 
 
 
     </mat-vertical-stepper>
   </form>
+  <ng-flash-message></ng-flash-message>
 </div>
 
 <ng-template #loading>
-    <div class="loaderContainer">
-      <div class="loader"></div>
-    </div>
-  </ng-template>
+  <div class="loaderContainer">
+    <div class="loader"></div>
+  </div>
+</ng-template>

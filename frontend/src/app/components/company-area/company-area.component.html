@@ -1,4 +1,4 @@
-<div class="maincontainer">
+<div class="maincontainer" *ngIf="(areas != null) else loading">
   <form class="contentcontainer">
 
     <div class="leftcolumn">
@@ -50,11 +50,19 @@
 
         <mat-step>
           <ng-template matStepLabel>Registro</ng-template>
-          <div>
-            <button mat-button matStepperPrevious>Atras</button>
-            <button mat-button (click)="addArea()">Registrar</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
-          </div>
+          <ng-container *ngIf="!hide; then formNotSubmitted ; else formSubmitted">
+          </ng-container>
+        <ng-template #formNotSubmitted>
+          <button mat-button (click)="addArea()">Crear</button>
+          <button mat-button matStepperPrevious>Atras</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </ng-template>
+        <ng-template #formSubmitted>
+          <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Enviando Solicitud al sistema...
+          </button>
+        </ng-template>
         </mat-step>
       </mat-vertical-stepper>
 
@@ -78,5 +86,11 @@
     </div>
 
   </form>
-
+  <ng-flash-message></ng-flash-message>
 </div>
+
+<ng-template #loading>
+  <div class="loaderContainer">
+    <div class="loader"></div>
+  </div>
+</ng-template>

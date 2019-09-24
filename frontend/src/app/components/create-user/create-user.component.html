@@ -10,7 +10,7 @@
     <div class="contentcontainer">
 
       <div class="leftcolumn">
-        <form [formGroup]="newUser" *ngIf="(companyroles != null && systemroles !=null) else loading">
+        <form [formGroup]="newUser" (companyroles != null && systemroles !=null) else loading>
 
           <mat-vertical-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="newUser.get('name')">

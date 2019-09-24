@@ -43,8 +43,7 @@ export class CompanyCRUDService {
 
   addCompanyArea(newArea) {
     this.header.append('Content-type', 'application/json');
-    return this.http.post('http://localhost:3000/area/create', newArea, { headers: this.header })
-    .pipe(map((res:Response) => res.json()));
+    return this.http.post('http://localhost:3000/area/create', newArea, { headers: this.header });
   }
 
   //get all the roles listed for the users
