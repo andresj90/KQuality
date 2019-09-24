@@ -9,6 +9,7 @@ import { CRole } from './../../interfaces/croleinterface';
   styleUrls: ['./company-area.component.scss']
 })
 export class CompanyAreaComponent implements OnInit {
+  pageActual: number = 1;
   isLinear = true;
   panelOpenState = false;
 

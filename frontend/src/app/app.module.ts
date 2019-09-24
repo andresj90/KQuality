@@ -8,7 +8,8 @@ import { MaterialCustomModule } from './sharedModule/materialCustom';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     MaterialCustomModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

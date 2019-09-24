@@ -69,14 +69,14 @@
 
     </div>
 
-
     <div class="rightcolumn">
 
       <h3>Listado de áreas</h3>
       <p>Listado de las áreas de la empresa.</p>
 
+      <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
       <mat-accordion>
-        <mat-expansion-panel *ngFor="let area of areas.elements">
+        <mat-expansion-panel *ngFor="let area of areas.elements | paginate: {itemsPerPage: 5, currentPage: pageActual}">
           <mat-expansion-panel-header>
             {{area.name}}
           </mat-expansion-panel-header>
@@ -86,8 +86,6 @@
 
     </div>
 
-
   </form>
-
 
 </div>
