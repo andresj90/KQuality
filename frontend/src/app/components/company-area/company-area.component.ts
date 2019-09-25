@@ -64,7 +64,7 @@ export class CompanyAreaComponent implements OnInit {
     this.company.addCompanyArea(newArea).subscribe((data: httpResponse) => {
       if (data.success) {
         this.ngFlashMessageService.showFlashMessage({
-          messages: ["área Agregada Al Sistema"], 
+          messages: ["Área Agregada Al Sistema"], 
           dismissible: false , 
           timeout: 5000,
           type: 'success'
@@ -72,7 +72,7 @@ export class CompanyAreaComponent implements OnInit {
         
       } else {
         this.ngFlashMessageService.showFlashMessage({
-          messages: ["área No Pudo Ser Agregada Al Sistema, Email o Usuario ya existen"], 
+          messages: ["Área No Pudo Ser Agregada Al Sistema, Email o Usuario ya existen"], 
           dismissible: false , 
           timeout: 5000,
           type: 'danger'

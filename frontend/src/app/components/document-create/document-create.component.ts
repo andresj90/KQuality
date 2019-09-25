@@ -97,7 +97,7 @@ export class DocumentCreateComponent {
         
       } else {
         this.ngFlashMessageService.showFlashMessage({
-          messages: ["Documento No Pudo Ser Agregado Al Sistema, Email o Usuario ya existen"], 
+          messages: ["Documento No Pudo Ser Agregado Al Sistema, Código Ya Existe"], 
           dismissible: false , 
           timeout: 5000,
           type: 'danger'

@@ -5,6 +5,8 @@ import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 import { CRole } from './../../interfaces/croleinterface';
+import { NgFlashMessageService } from 'ng-flash-messages';
+import { httpResponse } from './../../interfaces/httpResponse';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,7 +24,7 @@ export class CompanyRolComponent {
 
   isLinear = false;
   panelOpenState = false;
-  hide = true;
+  hide=false;
 
   newRole = this._formBuilder.group({
     name: ['', Validators.required],
@@ -36,7 +38,8 @@ export class CompanyRolComponent {
   constructor(
     private http: HttpClient,
     private company: CompanyCRUDService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private ngFlashMessageService: NgFlashMessageService
   ) { }
 
   ngOnInit() {
@@ -48,15 +51,32 @@ export class CompanyRolComponent {
   }
 
   addCompanyRole() {
-
+    this.hide = true;
       let role = {
         name: this.newRole.get('name').value,
         description: this.newRole.get('description').value,
         companyAreaID: this.newRole.get('companyAreaID').value 
       } 
 
-      this.company.addNewCompanyRole(role).subscribe((data) => {
-        console.log(data);
+      this.company.addNewCompanyRole(role).subscribe((data: httpResponse) => {
+        if (data.success) {
+          this.ngFlashMessageService.showFlashMessage({
+            messages: ["Rol Agregado Al Sistema"], 
+            dismissible: false , 
+            timeout: 5000,
+            type: 'success'
+          })
+          
+        } else {
+          this.ngFlashMessageService.showFlashMessage({
+            messages: ["Rol No Pudo Ser Agregado Al Sistema, Nombre Ya Existe"], 
+            dismissible: false , 
+            timeout: 5000,
+            type: 'danger'
+          })
+      }
+  
+      this.hide = false;
       }, (error) => {
         console.log(error);
       });

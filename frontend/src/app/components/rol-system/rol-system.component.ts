@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 import { CRole } from './../../interfaces/croleinterface';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { NgFlashMessageService } from 'ng-flash-messages';
+import { httpResponse } from './../../interfaces/httpResponse';
 
 
 @Component({
@@ -22,7 +15,7 @@ export class RolSystemComponent implements OnInit {
 
   isLinear = true;
   panelOpenState = false;
-  hide = true;
+  hide= false;
 
   name: FormGroup;
   description: FormGroup;
@@ -30,11 +23,12 @@ export class RolSystemComponent implements OnInit {
   /* properties from database */
   systemroles:  CRole;
 
-  matcher = new MyErrorStateMatcher();
+
 
   constructor(
     private _formBuilder: FormBuilder ,
-    private company: CompanyCRUDService 
+    private company: CompanyCRUDService,
+    private ngFlashMessageService: NgFlashMessageService
   ) { }
 
   ngOnInit() {
@@ -51,12 +45,30 @@ export class RolSystemComponent implements OnInit {
   }
 
   addSystemrole() {
+    this.hide = true;
     let newSystemrole = {
       name: this.name.get('name').value,
       description: this.description.get('description').value
     }
-    this.company.addNewSystemRole(newSystemrole).subscribe((data) => {
-      console.log(data);
+    this.company.addNewSystemRole(newSystemrole).subscribe((data : httpResponse) => {
+      if (data.success) {
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["Rol Agregado Al Sistema"], 
+          dismissible: false , 
+          timeout: 5000,
+          type: 'success'
+        })
+        
+      } else {
+        this.ngFlashMessageService.showFlashMessage({
+          messages: ["Rol No Pudo Ser Agregado Al Sistema, Nombre Ya Existe"], 
+          dismissible: false , 
+          timeout: 5000,
+          type: 'danger'
+        })
+    }
+
+    this.hide = false;
     }, (error) => {
       console.log(error);
     });

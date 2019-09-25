@@ -10,7 +10,7 @@
     <div class="contentcontainer">
 
       <div class="leftcolumn">
-        <form [formGroup]="newUser" (companyroles != null && systemroles !=null) else loading>
+        <form [formGroup]="newUser">
 
           <mat-vertical-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="newUser.get('name')">
@@ -82,8 +82,7 @@
 
               <ng-template matStepLabel>Contraseña</ng-template>
               <mat-form-field>
-                <input type="password" matInput placeholder="Contraseña" formControlName="password"
-                  required>
+                <input type="password" matInput placeholder="Contraseña" formControlName="password" required>
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -129,8 +128,8 @@
 
             <mat-step>
               <ng-template matStepLabel>Registrar</ng-template>
-                <ng-container *ngIf="!hide; then formNotSubmitted ; else formSubmitted">
-                </ng-container>
+              <ng-container *ngIf="!hide; then formNotSubmitted ; else formSubmitted">
+              </ng-container>
               <ng-template #formNotSubmitted>
                 <button mat-button (click)="addUser()">Crear</button>
                 <button mat-button matStepperPrevious>Atras</button>
@@ -150,7 +149,7 @@
       <div class="rightcolumn">
       </div>
     </div>
-    
+
   </div>
   <ng-flash-message></ng-flash-message>
 </div>
