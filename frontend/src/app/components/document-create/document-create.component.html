@@ -5,7 +5,7 @@
 
       <mat-step [stepControl]="newDocument.get('code')">
         <ng-template matStepLabel>Código</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="Codigo del documento">
           <input matInput placeholder="Código" formControlName="code">
         </mat-form-field>
         <div>

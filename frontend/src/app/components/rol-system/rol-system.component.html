@@ -8,7 +8,7 @@
         <mat-step [stepControl]="name">
           <form [formGroup]="name">
             <ng-template matStepLabel>Nombre del Rol</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre rol en el sistema a crear">
               <input matInput placeholder="Nombre" formControlName="name" required>
             </mat-form-field>
             <div>
@@ -20,7 +20,7 @@
         <mat-step [stepControl]="description">
           <form [formGroup]="description">
             <ng-template matStepLabel>Descripción</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripción del rol en el sistema a crear">
               <textarea matInput placeholder="Descripción" formControlName="description" required></textarea>
             </mat-form-field>
             <div>

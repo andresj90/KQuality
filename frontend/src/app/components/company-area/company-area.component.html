@@ -9,7 +9,7 @@
         <mat-step [stepControl]="name">
           <form [formGroup]="name">
             <ng-template matStepLabel>Nombre del área</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre del área a crear">
               <input matInput placeholder="Area" formControlName="name" required>
             </mat-form-field>
             <div>
@@ -21,7 +21,7 @@
         <mat-step [stepControl]="description">
           <form [formGroup]="description">
             <ng-template matStepLabel>Descripción del área</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripción del área a crear">
               <textarea matInput placeholder="Descripcion" formControlName="description"></textarea>
             </mat-form-field>
             <div>
