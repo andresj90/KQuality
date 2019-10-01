@@ -15,7 +15,7 @@
 
       <mat-step [stepControl]="newDocument.get('name')">
         <ng-template matStepLabel>Nombre</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre del documento a crear">
           <input matInput placeholder="Nombre" formControlName="name">
         </mat-form-field>
         <div>
@@ -26,7 +26,7 @@
 
       <mat-step [stepControl]="newDocument.get('description')">
         <ng-template matStepLabel>Descripción</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripción del documento a crear">
           <textarea matInput placeholder="Descripción" formControlName="description"></textarea>
         </mat-form-field>
         <div>
@@ -38,7 +38,7 @@
 
       <mat-step [stepControl]="newDocument.get('type')">
         <ng-template matStepLabel>Tipo</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="¿Cuál es el tipo de documento que desea crear?">
           <mat-select formControlName="type">
             <mat-option *ngFor="let type of types" [value]="type">
               {{type}}
@@ -63,7 +63,7 @@
 
       <mat-step [stepControl]="newDocument.get('procedureID')">
         <ng-template matStepLabel>Proceso Documento</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="A que procedimiento pertenece el documento">
           <mat-select formControlName="procedureID">
             <mat-option *ngFor="let procedure of procedures.elements" [value]="procedure.id">
               {{procedure.name}}
@@ -78,7 +78,7 @@
 
       <mat-step [stepControl]="newDocument.get('documentPrefixID')">
         <ng-template matStepLabel>Prefijo Documento</ng-template>
-        <mat-form-field>
+        <mat-form-field data-toggle="tooltip" data-placement="top" title="Prefijo del documento">
           <mat-select formControlName="documentPrefixID">
             <mat-option *ngFor="let prefix of prefixes.elements" [value]="prefix.id">
               {{prefix.prefix}}

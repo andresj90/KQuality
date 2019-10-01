@@ -13,11 +13,10 @@
 
         <form [formGroup]="newUser">
 
-          <mat-vertical-stepper [linear]="isLinear" #stepper matTooltip="Info about the action">
-
-            <mat-step [stepControl]="newUser.get('name')" >
+          <mat-vertical-stepper [linear]="isLinear" #stepper >
+            <mat-step [stepControl]="newUser.get('name')"  >
               <ng-template matStepLabel>Nombre</ng-template>
-              <mat-form-field>
+              <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre del usuario a crear">
                 <input matInput placeholder="Nombre" formControlName="name" required>
               </mat-form-field>
               <div>
@@ -27,7 +26,7 @@
 
             <mat-step [stepControl]="newUser.get('lastname')">
               <ng-template matStepLabel>Apellido</ng-template>
-              <mat-form-field>
+              <mat-form-field data-toggle="tooltip" data-placement="top" title="Apellido del usuario a crear">
                 <input matInput placeholder="Apellido" formControlName="lastname" required>
               </mat-form-field>
               <div>
@@ -51,7 +50,7 @@
             <mat-step [stepControl]="newUser.get('email')">
 
               <ng-template matStepLabel>Email</ng-template>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" data-toggle="tooltip" data-placement="top" title="Email del usuario a crear">
                 <input matInput type="email" placeholder="email" formControlName="email" required>
               </mat-form-field>
               <div>
