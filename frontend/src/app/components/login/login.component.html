@@ -1,6 +1,6 @@
 <form class="form-signin">
   <img class="mb-4" src="../../../assets/img/logo/LogoSample_ByTailorBrands (7).jpg" alt="" width="170" height="72">
-  
+
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
   <label for="inputUser" class="sr-only">Username</label>
@@ -18,9 +18,14 @@
   <!--<p>{{message}}</p>-->
 
   <p>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()" *ngIf="!authService.isLoggedIn">Sign in</button>
-      <!--<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logout()" *ngIf="authService.isLoggedIn">Sign out</button>-->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login()"
+      *ngIf="!authService.isLoggedIn">Sign in</button>
+    <!--<button class="btn btn-lg btn-primary btn-block" type="submit" (click)="logout()" *ngIf="authService.isLoggedIn">Sign out</button>-->
   </p>
+
+  {{ userData | json }}
+
+  <button (click)="microsoftSignIn()">Sign in with Microsoft account</button>
 
   <p class="mt-5 mb-3 text-muted">&copy; 2019-{{ site.time | date: "%Y" }}</p>
 
