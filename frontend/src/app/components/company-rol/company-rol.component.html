@@ -29,8 +29,8 @@
 
         <mat-step [stepControl]="newRole.get('companyAreaID')">
             <ng-template matStepLabel>Área Compañia</ng-template>
-            <mat-form-field>
-                <mat-select formControlName="companyAreaID">
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Area a la cual pertenece el rol">
+              <mat-select formControlName="companyAreaID">
                     <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
                       {{area.name}}
                     </mat-option>

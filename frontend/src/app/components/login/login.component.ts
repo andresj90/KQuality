@@ -21,7 +21,7 @@ export class LoginComponent {
     };
 
     /*We need to verify the userAgentApplication, since it is the one that opens the window to log in with the Microsoft account.*/
-    this.userAgentApplication = new UserAgentApplication(applicationConfig.clientID, null, this.tokenReceivedCallback);
+    //this.userAgentApplication = new UserAgentApplication(applicationConfig.clientID, null, this.tokenReceivedCallback);
   }
 
   setMessage() {
