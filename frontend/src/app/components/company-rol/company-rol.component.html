@@ -8,7 +8,7 @@
 
         <mat-step [stepControl]="newRole.get('name')">
             <ng-template matStepLabel>Nombre</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre del rol de la compañia">
               <input matInput placeholder="Nombre" formControlName="name" required>
             </mat-form-field>
             <div>
@@ -18,7 +18,7 @@
 
         <mat-step [stepControl]="newRole.get('description')">
             <ng-template matStepLabel>Descripción</ng-template>
-            <mat-form-field>
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripcion del rol">
               <input matInput placeholder="Descripcion" formControlName="description" required>
             </mat-form-field>
             <div>
@@ -55,7 +55,6 @@
  </form>
 
     <div class="rightcolumn">
-
       <!--  <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
