@@ -10,8 +10,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTooltipModule} from '@angular/material/tooltip'; 
 
-
-
 const materialModules = [
   BrowserAnimationsModule,
   MatButtonModule,

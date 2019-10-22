@@ -30,7 +30,6 @@
             </div>
           </form>
         </mat-step>
-
         <!-- <mat-step [stepControl]="thirdFormGroup">
       <form [formGroup]="thirdFormGroup">
         <ng-template matStepLabel>Padre</ng-template>
@@ -56,7 +55,6 @@
         </div>
       </form>
     </mat-step> -->
-
         <mat-step>
           <ng-template matStepLabel>Registro</ng-template>
           <div>
@@ -73,7 +71,7 @@
     <div class="rightcolumn">
 
       <h3>Listado de áreas</h3>
-      <p>Listado de las áreas de la empresa.</p>
+      <p>Listado de todas las áreas de la empresa creadas con su nombre y descripción.</p>
 
       <mat-accordion>
         <mat-expansion-panel *ngFor="let area of areas.elements">

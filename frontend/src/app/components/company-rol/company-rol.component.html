@@ -8,7 +8,7 @@
 
         <mat-step [stepControl]="newRole.get('name')">
             <ng-template matStepLabel>Nombre</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre del rol de la compañia">
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre a crear del rol de la compañia">
               <input matInput placeholder="Nombre" formControlName="name" required>
             </mat-form-field>
             <div>
@@ -18,7 +18,7 @@
 
         <mat-step [stepControl]="newRole.get('description')">
             <ng-template matStepLabel>Descripción</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripcion del rol">
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripcion del rol de la compañia a crear">
               <input matInput placeholder="Descripcion" formControlName="description" required>
             </mat-form-field>
             <div>
@@ -29,7 +29,7 @@
 
         <mat-step [stepControl]="newRole.get('companyAreaID')">
             <ng-template matStepLabel>Área Compañia</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Area a la cual pertenece el rol">
+            <mat-form-field data-toggle="tooltip" data-placement="top" title="Área a la cual pertenece el rol de la compañia">
               <mat-select formControlName="companyAreaID">
                     <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
                       {{area.name}}
