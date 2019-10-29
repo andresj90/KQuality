@@ -1,3 +1,24 @@
-<p>
-  approve-document works!
-</p>
+<div class="maincontainer">
+  <form class="contentcontainer">
+
+    <div class="rightcolumn">
+
+      <h3>Listado de documentos para Aprobar</h3>
+      <p>Listado de todos los documentos para realizar su respectiva aprobación o rechazo.</p>
+
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let documento of documentos.docs">
+          <mat-expansion-panel-header>
+            {{documento.name}}
+          </mat-expansion-panel-header>
+          {{documento.description}}
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
+
+  </form>
+
+
+</div>
