@@ -9,6 +9,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { CompanyRolComponent } from './components/company-rol/company-rol.component';
 import { RolSystemComponent } from './components/rol-system/rol-system.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ViewAreaComponent } from './components/view-area/view-area.component';
+import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component';
 
 
 
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'documents', component:  DocumentMasterComponent },
   { path: 'companyrole', component:  CompanyRolComponent},
   { path: 'systemrole', component: RolSystemComponent},
+  { path: 'viewArea', component: ViewAreaComponent},
+  { path: 'viewRolS', component: ViewRolSComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];

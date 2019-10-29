@@ -1,0 +1,44 @@
+<div class="maincontainer">
+
+    <div class="card mb-2">  
+      <div class="row no-gutters">
+        <div class="col-md-3">
+          <img src="../../../assets/img/img/rolesSistema.jpg" class="card-img" >
+        </div>
+        <div class="col-md-7">
+          <h2> Roles en el sistema</h2>
+        </div>
+      </div>
+    </div>
+  
+    <table class="table table-hover table-dark" >
+      <thead>
+        <!--<tr *ngFor="let systemroles of CRole.elements" >-->
+          <tr>
+          <th scope="level">Nivel</th>
+          <th scope="name">Nombre del Rol</th>
+          <th scope="description">Descripción</th>         
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Admin</td>
+          <td>superAdmin</td>
+          <!--<td>{{systemroles.id}}</td>
+          <td>{{systemroles.name}}</td>
+          <td>{{systemroles.description}}</td>
+          <td>-->
+          <td>
+            <i class="far fa-edit"></i>  
+          </td>
+          <td>
+            <i class="far fa-trash-alt"></i> 
+          </td> 
+          <td>
+            <i class="fas fa-plus-circle"></i>
+          </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>

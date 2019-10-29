@@ -24,6 +24,8 @@ import { DocumentCRUDService } from './services/document-crud.service';
 import { FileInputValueAccessor } from './directives/file-input-value-accessor.directive';
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { UserCRUDService } from './services/user-crud.service';
+import { ViewAreaComponent } from './components/view-area/view-area.component';
+import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component';
 
 
 
@@ -40,7 +42,9 @@ export const createTranslateLoader = (http: HttpClient) => {
     RoutingComponent,
     DocumentCreateComponent,
     FileInputValueAccessor,
-    CompanyAreaComponent
+    CompanyAreaComponent,
+    ViewAreaComponent,
+    ViewRolSComponent
    
   ],
   imports: [
