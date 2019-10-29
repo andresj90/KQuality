@@ -10,13 +10,13 @@ module.exports.addUser = (newUser, res) => {
                 email: newUser.email,
                 username: newUser.username
             },
-            defaults:{
+            defaults: {
                 name: newUser.name,
                 lastname: newUser.lastname,
                 gender: newUser.gender,
-                password:newUser.password,
-                companyRoleID:newUser.companyRoleID,
-                systemRoleID:newUser.systemRoleID
+                password: newUser.password,
+                companyRoleID: newUser.companyRoleID,
+                systemRoleID: newUser.systemRoleID
             }
         }).
         then(([user, wasCreated]) => {
@@ -87,3 +87,7 @@ module.exports.updateUser = (user, res) => {
     });
 
 }
+
+
+/* User Login */
+
