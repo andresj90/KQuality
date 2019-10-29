@@ -11,6 +11,9 @@ import { RolSystemComponent } from './components/rol-system/rol-system.component
 import { AuthGuard } from './auth/auth.guard';
 import { ViewAreaComponent } from './components/view-area/view-area.component';
 import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component';
+import { ViewRolCComponent } from './components/view-rol-c/view-rol-c.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
+import { ViewDocumentComponent } from './components/view-document/view-document.component';
 
 
 
@@ -25,6 +28,9 @@ const routes: Routes = [
   { path: 'systemrole', component: RolSystemComponent},
   { path: 'viewArea', component: ViewAreaComponent},
   { path: 'viewRolS', component: ViewRolSComponent},
+  { path: 'viewRolC', component: ViewRolCComponent},
+  { path: 'viewUser', component: ViewUserComponent},
+  { path: 'viewDoc', component: ViewDocumentComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -35,4 +41,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent];
+  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent,
+  ViewDocumentComponent,ViewUserComponent,  ViewRolCComponent, ViewRolSComponent]; 
