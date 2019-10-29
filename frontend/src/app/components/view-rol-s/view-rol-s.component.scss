@@ -19,3 +19,13 @@ h2{
     text-align: center;
     text-shadow: 2px 2px rgb(26, 179, 179);
 }
+
+#tablerowicon {
+    border: 1 px solid red;
+    display: flex;
+}
+
+
+#tablerowicon i {
+    flex: 1;
+}

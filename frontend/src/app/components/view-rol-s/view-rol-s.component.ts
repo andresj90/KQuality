@@ -11,17 +11,17 @@ import { element } from '@angular/core/src/render3';
 })
 export class ViewRolSComponent implements OnInit {
 
-  systemRoles : any;
+  systemRoles : CRole;
 
   constructor(private _systemRole: CompanyCRUDService) { }
 
   ngOnInit() {
-   // this._systemRole.listSystemRoles().subscribe((data:CRole) => {
-     // this.systemRoles = data.elements; 
-      //this.systemRoles.forEach(element => {
-        //console.log(element);
-      //})
-   // })
+    this._systemRole.listSystemRoles().subscribe((data:CRole) => {
+      this.systemRoles = data; 
+      this.systemRoles.elements.forEach(element => {
+        console.log(element);
+      })
+    })
   }
 
 
