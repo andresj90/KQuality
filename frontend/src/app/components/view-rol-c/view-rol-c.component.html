@@ -1,3 +1,45 @@
-<p>
-  view-rol-c works!
-</p>
+<div class="maincontainer" *ngIf=" (companyRoles !=null || companyRoles  != undefined) else spinner">
+
+    <div class="card mb-2">  
+      <div class="row no-gutters">
+        <div class="col-md-3">
+          <img src="../../../assets/img/img/rolesSistema.jpg" class="card-img" >
+        </div>
+        <div class="col-md-7">
+          <h2> Roles en el sistema</h2>
+        </div>
+      </div>
+    </div>
+  
+    <table class="table table-hover table-dark" >
+      <thead>
+        <tr >
+          <tr>
+          <th scope="level">Nivel</th>
+          <th scope="name">Nombre del Rol</th>
+          <th scope="description">Descripción</th>       
+          <th scope="actions">Acciones</th>  
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of this.companyRoles.elements" >
+          <td>{{role.id}}</td>
+          <td>{{role.name}}</td>
+          <td>{{role.description}}</td>
+          <td>
+            <div id="tablerowicon"> 
+                <i class="far fa-edit"></i>  
+                <i class="far fa-trash-alt"></i> 
+                <i class="fas fa-plus-circle"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #spinner>
+      <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+  </ng-template>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyCRUDService } from 'src/app/services/company-crud.service';
 import { CRole } from 'src/app/interfaces/croleinterface';
-import { element } from '@angular/core/src/render3';
 
 
 @Component({

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyCRUDService } from 'src/app/services/company-crud.service';
+import { CRole } from 'src/app/interfaces/croleinterface';
 
 @Component({
   selector: 'app-view-rol-c',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewRolCComponent implements OnInit {
 
-  constructor() { }
+  companyRoles : CRole;
+
+  constructor(private _CompanyArea: CompanyCRUDService) { }
 
   ngOnInit() {
+    this._CompanyArea.listAreas().subscribe((data:CRole) => {
+      this.companyRoles = data; 
+      this.companyRoles.elements.forEach(element => {
+        console.log(element);
+      })
+    })
   }
 
 }
