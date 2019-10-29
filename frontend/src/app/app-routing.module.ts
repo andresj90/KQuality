@@ -10,6 +10,11 @@ import { CompanyRolComponent } from './components/company-rol/company-rol.compon
 import { RolSystemComponent } from './components/rol-system/rol-system.component';
 import { ApproveDocumentComponent } from './components/approve-document/approve-document.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ViewAreaComponent } from './components/view-area/view-area.component';
+import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component';
+import { ViewRolCComponent } from './components/view-rol-c/view-rol-c.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
+import { ViewDocumentComponent } from './components/view-document/view-document.component';
 
 
 
@@ -23,6 +28,11 @@ const routes: Routes = [
   { path: 'companyrole', component:  CompanyRolComponent},
   { path: 'systemrole', component: RolSystemComponent},
   { path: 'approvedocument' , component: ApproveDocumentComponent},
+  { path: 'viewArea', component: ViewAreaComponent},
+  { path: 'viewRolS', component: ViewRolSComponent},
+  { path: 'viewRolC', component: ViewRolCComponent},
+  { path: 'viewUser', component: ViewUserComponent},
+  { path: 'viewDoc', component: ViewDocumentComponent},
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -34,4 +44,8 @@ const routes: Routes = [
 export class AppRoutingModule { } export const 
 RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
   CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent,
+<<<<<<< HEAD
 ApproveDocumentComponent];
+=======
+  ViewDocumentComponent,ViewUserComponent,  ViewRolCComponent, ViewRolSComponent]; 
+>>>>>>> af51f97424609e6236b1c9ed7092430085771af8

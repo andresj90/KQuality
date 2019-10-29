@@ -48,6 +48,11 @@ module.exports = (sequelize, DataTypes) => {
     passwordResetCount: {
       type: DataTypes.INTEGER,
       defaultValue: 0
+    },
+
+    socialLogID: {
+      allowNull: true, 
+      type:DataTypes.STRING
     }
   });
   User.associate = function (models) {
