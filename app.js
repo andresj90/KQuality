@@ -2,7 +2,6 @@
   this is the file where everything will be verified (dependencies, middleware and so on)
 */
 
-
 /* DEPENDENCIES, libraries or modules for the project */
 const express = require('express');
 const logger = require('morgan');
@@ -11,8 +10,8 @@ const models = require('./models');
 const cosr = require('cors');
 const multer = require('multer');
 const path = require('path');
-
-
+const passportSetUp = require('./config/passport-config');  //for azure only
+const passport = require('passport'); 
 
 /* routes required */
 
@@ -43,6 +42,11 @@ app.use('/user', userRoutes);
 app.use('/document', documentRoutes);
 app.use('/prefix', prefixRouter);
 app.use('/procedure', procedureRouter);
+
+
+/* Middleware for third party services */
+app.use(passport.initialize()); 
+app.use(passport.session());
 
 /* verify database connection */
 models.sequelize.sync().then(() => {

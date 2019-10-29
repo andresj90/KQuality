@@ -76,6 +76,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      }, 
+
+      socialLogID: {
+        allowNull: true, 
+        type:Sequelize.STRING
       }
     });
   },
