@@ -25,6 +25,7 @@ import { FileInputValueAccessor } from './directives/file-input-value-accessor.d
 import { CompanyAreaComponent } from './components/company-area/company-area.component';
 import { UserCRUDService } from './services/user-crud.service';
 import { LoginTestComponent } from './components/login-test/login-test.component';
+import { ApproveDocumentComponent } from './components/approve-document/approve-document.component';
 
 
 
@@ -42,7 +43,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     DocumentCreateComponent,
     FileInputValueAccessor,
     CompanyAreaComponent,
-    LoginTestComponent
+    LoginTestComponent,
+    ApproveDocumentComponent
    
   ],
   imports: [
