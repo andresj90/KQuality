@@ -10,6 +10,7 @@ export class ViewDocumentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

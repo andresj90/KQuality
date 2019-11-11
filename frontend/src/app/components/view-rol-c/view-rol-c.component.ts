@@ -14,7 +14,7 @@ export class ViewRolCComponent implements OnInit {
   constructor(private _CompanyArea: CompanyCRUDService) { }
 
   ngOnInit() {
-    this._CompanyArea.listAreas().subscribe((data:CRole) => {
+    this._CompanyArea.listCompanyRoles().subscribe((data:CRole) => {
       this.companyRoles = data; 
       this.companyRoles.elements.forEach(element => {
         console.log(element);
