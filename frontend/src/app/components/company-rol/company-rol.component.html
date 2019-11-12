@@ -4,58 +4,67 @@
 
   <form class="contentcontainer" [formGroup]="newRole" #stepper *ngIf="(companyareas !=null) else loading">
     <div class="leftcolumn">
-      <mat-vertical-stepper [linear]="isLinear" >
+      <mat-vertical-stepper [linear]="isLinear">
 
         <mat-step [stepControl]="newRole.get('name')">
-            <ng-template matStepLabel>Nombre</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre a crear del rol de la compañia">
-              <input matInput placeholder="Nombre" formControlName="name" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Siguiente</button>
-            </div>
+          <ng-template matStepLabel>Nombre</ng-template>
+          <mat-form-field data-toggle="tooltip" data-placement="top" title="Nombre a crear del rol de la compañia">
+            <input matInput placeholder="Nombre" formControlName="name" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
         </mat-step>
 
         <mat-step [stepControl]="newRole.get('description')">
-            <ng-template matStepLabel>Descripción</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripcion del rol de la compañia a crear">
-              <input matInput placeholder="Descripcion" formControlName="description" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Atras</button>
-              <button mat-button matStepperNext>Siguiente</button>
-            </div>
+          <ng-template matStepLabel>Descripción</ng-template>
+          <mat-form-field data-toggle="tooltip" data-placement="top" title="Descripcion del rol de la compañia a crear">
+            <input matInput placeholder="Descripcion" formControlName="description" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
         </mat-step>
 
         <mat-step [stepControl]="newRole.get('companyAreaID')">
-            <ng-template matStepLabel>Área Compañia</ng-template>
-            <mat-form-field data-toggle="tooltip" data-placement="top" title="Área a la cual pertenece el rol de la compañia">
-              <mat-select formControlName="companyAreaID">
-                    <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
-                      {{area.name}}
-                    </mat-option>
-                  </mat-select>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Atras</button>
-              <button mat-button matStepperNext>Siguiente</button>
-            </div>
+          <ng-template matStepLabel>Área Compañia</ng-template>
+          <mat-form-field data-toggle="tooltip" data-placement="top"
+            title="Área a la cual pertenece el rol de la compañia">
+            <mat-select formControlName="companyAreaID">
+              <mat-option *ngFor="let area of companyareas.elements" [value]="area.id">
+                {{area.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
         </mat-step>
 
         <mat-step>
           <ng-template matStepLabel>Registro</ng-template>
-          <div>
+
+          <div *ngIf="this.hide else loadingbutton">
             <button mat-button matStepperPrevious>Atras</button>
             <button mat-button (click)="addCompanyRole()">Registrar</button>
             <button mat-button (click)="stepper.reset()">Reset</button>
           </div>
+          <ng-template #loadingbutton>
+            <button class="btn btn-primary" type="button" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+          </ng-template>
+
         </mat-step>
       </mat-vertical-stepper>
     </div>
- </form>
+  </form>
 
-    <div class="rightcolumn">
-      <!--  <mat-accordion>
+  <div class="rightcolumn">
+    <!--  <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -86,10 +95,38 @@
           <p>I'm visible because I am open</p>
         </mat-expansion-panel>
       </mat-accordion> -->
-    </div>
+  </div>
 </div>
-      <ng-template #loading>
-        <div class="loaderContainer">
-          <div class="loader"></div>
-        </div>
-      </ng-template>
+<ng-template #loading>
+  <div class="loaderContainer">
+    <div class="loader"></div>
+  </div>
+</ng-template>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -79,8 +79,9 @@ module.exports = {
       }, 
 
       socialLogID: {
-        allowNull: true, 
-        type:Sequelize.STRING
+        allowNull: false, 
+        type:Sequelize.STRING,
+        unique:true
       }
     });
   },

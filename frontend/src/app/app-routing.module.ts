@@ -19,20 +19,20 @@ import { ViewDocumentComponent } from './components/view-document/view-document.
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, pathMatch: 'full' },
+  // { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'area', component: CompanyAreaComponent},
-  { path: 'document', component:  DocumentCreateComponent},
-  { path: 'user', component:  CreateUserComponent},
-  { path: 'documents', component:  DocumentMasterComponent },
-  { path: 'companyrole', component:  CompanyRolComponent},
-  { path: 'systemrole', component: RolSystemComponent},
-  { path: 'approvedocument' , component: ApproveDocumentComponent},
-  { path: 'viewArea', component: ViewAreaComponent},
-  { path: 'viewRolS', component: ViewRolSComponent},
-  { path: 'viewRolC', component: ViewRolCComponent},
-  { path: 'viewUser', component: ViewUserComponent},
-  { path: 'viewDoc', component: ViewDocumentComponent},
+  { path: 'area', component: CompanyAreaComponent },
+  { path: 'document', component: DocumentCreateComponent },
+  { path: 'user', component: CreateUserComponent },
+  { path: 'documents', component: DocumentMasterComponent },
+  { path: 'companyrole', component: CompanyRolComponent },
+  { path: 'systemrole', component: RolSystemComponent },
+  { path: 'approvedocument', component: ApproveDocumentComponent },
+  { path: 'viewArea', component: ViewAreaComponent },
+  { path: 'viewRolS', component: ViewRolSComponent },
+  { path: 'viewRolC', component: ViewRolCComponent },
+  { path: 'viewUser', component: ViewUserComponent },
+  { path: 'viewDoc', component: ViewDocumentComponent },
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -41,11 +41,8 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { } export const 
-RoutingComponent = [LoginComponent,NotFoundComponent,DocumentCreateComponent,DocumentMasterComponent, 
-  CompanyAreaComponent,CompanyRolComponent, CompanyRolComponent, CreateUserComponent,RolSystemComponent,
-<<<<<<< HEAD
-ApproveDocumentComponent];
-=======
-  ViewDocumentComponent,ViewUserComponent,  ViewRolCComponent, ViewRolSComponent]; 
->>>>>>> af51f97424609e6236b1c9ed7092430085771af8
+export class AppRoutingModule { } export const
+  RoutingComponent = [LoginComponent, NotFoundComponent, DocumentCreateComponent, DocumentMasterComponent,
+    CompanyAreaComponent, CompanyRolComponent, CompanyRolComponent, CreateUserComponent, RolSystemComponent,
+    ApproveDocumentComponent,
+    ViewDocumentComponent, ViewUserComponent, ViewRolCComponent, ViewRolSComponent]; 

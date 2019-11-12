@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -51,9 +51,11 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     socialLogID: {
-      allowNull: true, 
-      type:DataTypes.STRING
+      allowNull: false, 
+      type:DataTypes.STRING,
+      unique: true
     }
+
   });
   User.associate = function (models) {
     //A user has a role in the system assigned 

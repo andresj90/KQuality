@@ -91,3 +91,36 @@ module.exports.updateUser = (user, res) => {
 
 /* User Login */
 
+module.exports.addUserOauth = (user) => {
+
+    return new Promise((resolve, reject) => {
+        let username = user.upn.split("@");
+
+        User.findOrCreate({
+            where: {
+                socialLogID: user.aud
+            },
+            defaults: {
+                name: user.given_name,
+                lastname: user.family_name,
+                gender: 'n/a',
+                email: user.upn,
+                username: username[0],
+                password: 'n/a'
+            }
+        }).then(([userFound, wasCreated]) => {
+            if (userFound || wasCreated) {
+                let newUser = {
+                    user: userFound,
+                    userCreated: true
+                }
+                resolve(newUser)
+            } else {
+                resolve(false)
+            }
+        }).catch(err => {
+            reject(err);
+        });
+
+    });
+}

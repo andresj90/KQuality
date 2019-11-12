@@ -40,10 +40,9 @@ userRouter.get('/auth/azureadoauth2', passport.authenticate('azure_ad_oauth2', {
     scope: ['profile']
 }));
 
-userRouter.get('/auth/redirect', passport.authenticate('azure_ad_oauth2', {
-    session: false
-}), (req, res) => {
-    res.send('account registered');
+userRouter.get('/auth/azureadoauth2/redirect', passport.authenticate('azure_ad_oauth2', 
+{failureRedirect: '/'} ), (req, res) => {
+    res.redirect('/');
 });
 
 module.exports = userRouter;

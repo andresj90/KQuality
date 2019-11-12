@@ -49,6 +49,8 @@ export class CompanyRolComponent {
 
   addCompanyRole() {
 
+      this.hide = false;
+
       let role = {
         name: this.newRole.get('name').value,
         description: this.newRole.get('description').value,
@@ -57,6 +59,7 @@ export class CompanyRolComponent {
 
       this.company.addNewCompanyRole(role).subscribe((data) => {
         console.log(data);
+        this.hide = true; 
       }, (error) => {
         console.log(error);
       });
