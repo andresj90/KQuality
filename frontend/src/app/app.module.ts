@@ -33,6 +33,7 @@ import { LoginTestComponent } from './components/login-test/login-test.component
 import { ApproveDocumentComponent } from './components/approve-document/approve-document.component';
 import { AuthPageComponent } from './components/auth-page/auth-page.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { ProcessComponent } from './components/process/process.component';
 
 
 
@@ -57,7 +58,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     ViewDocumentComponent,
     LoginTestComponent,
     ApproveDocumentComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    ProcessComponent
    
   ],
   imports: [

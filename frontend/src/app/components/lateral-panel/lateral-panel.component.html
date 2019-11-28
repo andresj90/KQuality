@@ -22,10 +22,10 @@
   <div class="menu-list">
 
     <ul id="menu-content" class="menu-content collapse out">
-      <li data-toggle="collapse" data-target=".documents" class="collapsed">
+      <li data-toggle="collapse" data-target="#documents" class="collapsed">
         <i class="fa fa-file-text fa-lg"></i> Documentos <span class="arrow"></span>
       </li>
-      <ul class="sub-menu collapse" class="documents">
+      <ul class="sub-menu collapse" id="documents">
         <li><a [routerLink]="[ '/document']">Crear Documento
           </a></li>
         <li>Actualizar documento</li>
@@ -34,20 +34,20 @@
           </a></li>
       </ul>
 
-      <li data-toggle="collapse" data-target=".processes" class="collapsed">
+      <li data-toggle="collapse" data-target="#processes" class="collapsed">
         <i class="fa fa-cogs fa-lg"></i> Procesos <span class="arrow"></span>
       </li>
-      <ul class="sub-menu collapse" class="processes">
+      <ul class="sub-menu collapse" id="processes">
         <li>Crear proceso</li>
         <li>Actualizar proceso</li>
         <li>Eliminar proceso</li>
       </ul>
 
 
-      <li data-toggle="collapse" data-target=".sitemap" class="collapsed">
+      <li data-toggle="collapse" data-target="#sitemap" class="collapsed">
         <i class="fa fa-sitemap fa-lg"></i> Unidad Organizacional <span class="arrow"></span>
       </li>
-      <ul class="sub-menu collapse" class="sitemap">
+      <ul class="sub-menu collapse" id="sitemap">
         <li><a [routerLink]="[ '/hierarchyView']">Visualizar Jerarquía</a>
         </li>
         <li><a [routerLink]="[ '/area']">Crear Área
@@ -55,10 +55,10 @@
         <li>Eliminar área</li>
       </ul>
 
-      <li data-toggle="collapse" data-target=".users" class="collapsed">
+      <li data-toggle="collapse" data-target="#users" class="collapsed">
         <i class="fa fa-users"></i> Administrar Usuarios <span class="arrow"></span>
       </li>
-      <ul class="sub-menu collapse" class="users">
+      <ul class="sub-menu collapse" id="users">
         <li><a [routerLink]="[ '/companyrole']">Rol Compañia</a>
         </li>
         <li><a [routerLink]="[ '/systemrole']">Rol Sistema</a>
