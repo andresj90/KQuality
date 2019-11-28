@@ -1,6 +1,6 @@
-<div class="maincontainer" *ngIf="(procedures != null && prefixes !=null) else loading">
+<div class="maincontainer" *ngIf="(process !=null) else loading">
 
-  <form [formGroup]="newDocument">
+  <form [formGroup]="newDocument" *ngIf="(process !=null) else loading">
     <mat-vertical-stepper [linear]="isLinear" #stepper>
 
       <mat-step [stepControl]="newDocument.get('name')">
