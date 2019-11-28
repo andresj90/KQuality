@@ -31,6 +31,7 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
 import { LoginTestComponent } from './components/login-test/login-test.component';
 import { ApproveDocumentComponent } from './components/approve-document/approve-document.component';
+import { ProcessComponent } from './components/process/process.component';
 
 
 
@@ -54,7 +55,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     ViewUserComponent,
     ViewDocumentComponent,
     LoginTestComponent,
-    ApproveDocumentComponent
+    ApproveDocumentComponent,
+    ProcessComponent
    
   ],
   imports: [

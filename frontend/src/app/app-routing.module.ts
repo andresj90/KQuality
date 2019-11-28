@@ -15,6 +15,7 @@ import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component'
 import { ViewRolCComponent } from './components/view-rol-c/view-rol-c.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
+import { ProcessComponent } from './components/process/process.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'viewRolC', component: ViewRolCComponent },
   { path: 'viewUser', component: ViewUserComponent },
   { path: 'viewDoc', component: ViewDocumentComponent },
+  { path: 'process', component: ProcessComponent },
   /* wildcard*/
   { path: '**', component: NotFoundComponent },
 ];
@@ -44,5 +46,5 @@ const routes: Routes = [
 export class AppRoutingModule { } export const
   RoutingComponent = [LoginComponent, NotFoundComponent, DocumentCreateComponent, DocumentMasterComponent,
     CompanyAreaComponent, CompanyRolComponent, CompanyRolComponent, CreateUserComponent, RolSystemComponent,
-    ApproveDocumentComponent,
+    ApproveDocumentComponent, ProcessComponent,
     ViewDocumentComponent, ViewUserComponent, ViewRolCComponent, ViewRolSComponent]; 
