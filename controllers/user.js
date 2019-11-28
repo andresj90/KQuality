@@ -3,20 +3,24 @@ const User = require('../models').User;
 
 /* apply the businnes logic with the model */
 
-module.exports.addUser = (newUser, res) => {
-    User.create(newUser).then(() => {
-        User.findOrCreate({
+module.exports.addUser = (user, res) => {
+  
+    console.log(user); 
+
+    let username = user.upn.split("@");
+    User.findOrCreate({
             where: {
-                email: newUser.email,
-                username: newUser.username
+                socialLogID: user.aud
             },
             defaults: {
-                name: newUser.name,
-                lastname: newUser.lastname,
-                gender: newUser.gender,
-                password: newUser.password,
-                companyRoleID: newUser.companyRoleID,
-                systemRoleID: newUser.systemRoleID
+                name: user.given_name,
+                lastname: user.family_name,
+                gender: null,
+                email: user.upn,
+                username: username[0],
+                password: null,
+                companyRoleID: 1, 
+                systemRoleID:1
             }
         }).
         then(([user, wasCreated]) => {
@@ -25,10 +29,15 @@ module.exports.addUser = (newUser, res) => {
                     success: true,
                     msg: 'New user has been added to the system'
                 });
+            } else if(!wasCreated && user) {
+                res.json({
+                    success: true,
+                    msg: 'Usuario Logged in'
+                });
             } else {
                 res.json({
                     success: false,
-                    msg: 'The username already exits in the system'
+                    msg: 'Unable to log in'
                 });
             }
         }).catch(err => {
@@ -37,13 +46,6 @@ module.exports.addUser = (newUser, res) => {
                 msg: err
             });
         });
-
-    }).catch((err) => {
-        res.json({
-            success: false,
-            msg: err
-        })
-    });
 }
 
 module.exports.listUsers = (res) => {
@@ -103,10 +105,11 @@ module.exports.addUserOauth = (user) => {
             defaults: {
                 name: user.given_name,
                 lastname: user.family_name,
-                gender: 'n/a',
+                gender: null,
                 email: user.upn,
                 username: username[0],
-                password: 'n/a'
+                password: null,
+                socialLogID: user.appid
             }
         }).then(([userFound, wasCreated]) => {
             if (userFound || wasCreated) {

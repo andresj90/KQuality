@@ -40,8 +40,8 @@ export class NavBarComponent implements OnInit {
   }
 
   onLoggedout() {
-    localStorage.removeItem('isLoggedin');
-    this.router.navigate(['/login']);
+    sessionStorage.clear();
+    // this.router.navigate(['/login']);
   }
 
 }

@@ -1,0 +1,15 @@
+<ng-container *ngIf="userLogged; then userloggedview; else userNotLoggedView"> 
+
+</ng-container >
+
+
+
+<ng-template #userloggedview>
+  
+</ng-template>
+
+<ng-template #userNotLoggedView>
+  <div class="spinner-grow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>

@@ -1,18 +1,29 @@
-<ng-container *ngIf="1==1; then login; else mainpanel">
+<ng-container *ngIf="!setVisibility && !getSessionStorage(); then login; else secondvalidator">
 </ng-container>
 
-<ng-template #mainpanel>
-  <app-nav-bar (hideNavBarEvent)="statusNavBar=$event"></app-nav-bar>
-  <mat-sidenav-container>
-    <mat-sidenav mode="side" opened={{statusNavBar}}>
-      <app-lateral-panel></app-lateral-panel>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  <app-footer></app-footer>
-</ng-template>
 <ng-template #login>
-  <app-login></app-login>
+    <app-login (setContentVisibility)="setVisibility=$event"></app-login>
 </ng-template>
+
+
+<ng-template #secondvalidator>
+    <ng-container *ngIf="setVisibility && !getSessionStorage(); then authView; else maincontent">
+    </ng-container>
+  </ng-template>
+
+  <ng-template #maincontent>
+      <app-nav-bar (hideNavBarEvent)="statusNavBar=$event"></app-nav-bar>
+      <mat-sidenav-container>
+        <mat-sidenav mode="side" opened={{statusNavBar}}>
+          <app-lateral-panel></app-lateral-panel>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      <app-footer></app-footer>
+    </ng-template>
+
+    <ng-template #authView>
+      <app-auth-page></app-auth-page>
+    </ng-template>

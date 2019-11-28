@@ -2,22 +2,22 @@
 const User = require('../controllers/user');
 const userRouter = require('express').Router();
 const passport = require('passport');
+const jwt = require('jsonwebtoken'); 
 
 /* Routes for the systemroute in the app */
 
 userRouter.post('/create', (req, res) => {
-    let newUser = {
-        name: req.body.name,
-        lastname: req.body.lastname,
-        gender: req.body.gender,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.password,
-        companyRoleID: req.body.companyRoleID,
-        systemRoleID: req.body.systemRoleID
-    }
-    console.log(newUser);
-    User.addUser(newUser, res);
+    
+    // console.log(newUser);
+    // User.addUser(newUser, res);
+
+    
+
+    let userData = jwt.decode(req.body.token, {complete:true});
+
+    // console.log(userData.payload); 
+    User.addUser(userData.payload, res);
+     
 });
 
 userRouter.get('/all', (req, res) => {
@@ -36,9 +36,8 @@ userRouter.put('/update', (req, res) => {
 
 
 /* USER REGISTRATION */
-userRouter.get('/auth/azureadoauth2', passport.authenticate('azure_ad_oauth2', {
-    scope: ['profile']
-}));
+userRouter.get('/auth/azureadoauth2', passport.authenticate('azure_ad_oauth2'
+));
 
 userRouter.get('/auth/azureadoauth2/redirect', passport.authenticate('azure_ad_oauth2', 
 {failureRedirect: '/'} ), (req, res) => {

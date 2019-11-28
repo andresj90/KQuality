@@ -19,5 +19,26 @@
     </label>
   </div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <div id="ms365-logincontainer">
+      <button class="btn btn-lg btn-default btn-block" [disabled]=flag (click)="changeFlagStatus()" >Sign in Microsoft 365</button>
+      <i class="fab fa-windows"></i>
+  </div>
   <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2019</p>
 </form>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- <iframe src="http://localhost:3000/user/auth/azureadoauth2/redirect" style="position: relative;   top: 0;  bottom: 0; left: 0;   width:400px;   height: 100%;  border: 0" frameborder="0"></iframe> -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+  </div>
+</ng-template>

@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -9,6 +8,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -31,6 +31,8 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
 import { LoginTestComponent } from './components/login-test/login-test.component';
 import { ApproveDocumentComponent } from './components/approve-document/approve-document.component';
+import { AuthPageComponent } from './components/auth-page/auth-page.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 
 
@@ -54,7 +56,8 @@ export const createTranslateLoader = (http: HttpClient) => {
     ViewUserComponent,
     ViewDocumentComponent,
     LoginTestComponent,
-    ApproveDocumentComponent
+    ApproveDocumentComponent,
+    AuthPageComponent
    
   ],
   imports: [
@@ -65,14 +68,17 @@ export const createTranslateLoader = (http: HttpClient) => {
     MaterialCustomModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    OAuthModule.forRoot(),
+    NgbModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,
           deps: [HttpClient]
       }
-  })
-  ],
+      
+  })],
+
   providers: [
     CompanyCRUDService,
     DocumentCRUDService,

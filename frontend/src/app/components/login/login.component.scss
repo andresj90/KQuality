@@ -100,3 +100,30 @@ body {
     color: #777;
   }
 }
+
+
+
+#ms365-logincontainer {
+  margin-top: 20px;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#ms365-logincontainer button {
+  background-color: #fff;
+  border: 1px solid #EB4700;
+  color: #EB4700;;
+}
+
+
+#ms365-logincontainer i {
+  position: absolute;
+  right: 10%;
+  top:35%;
+  size: 3x;
+}
+
+.fa-windows:before {
+   color: #EB4700;
+}

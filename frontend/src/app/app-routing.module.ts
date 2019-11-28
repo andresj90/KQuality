@@ -15,6 +15,7 @@ import { ViewRolSComponent } from './components/view-rol-s/view-rol-s.component'
 import { ViewRolCComponent } from './components/view-rol-c/view-rol-c.component';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { ViewDocumentComponent } from './components/view-document/view-document.component';
+import { AuthPageComponent } from './components/auth-page/auth-page.component';
 
 
 
@@ -33,8 +34,9 @@ const routes: Routes = [
   { path: 'viewRolC', component: ViewRolCComponent },
   { path: 'viewUser', component: ViewUserComponent },
   { path: 'viewDoc', component: ViewDocumentComponent },
+   {path:'loginauth', component:AuthPageComponent},
   /* wildcard*/
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

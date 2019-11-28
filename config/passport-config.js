@@ -19,12 +19,14 @@ passport.use(new AzureAdOAuth2Strategy({
         waadProfile = jwt.decode(params.id_token);
 
         console.log('Before sending the request');
-        let newUser = await User.addUserOauth(waadProfile);
+        let newUser = await User.addUserOauth(waadProfile).catch(err => {
+            return console.log("Something went wrong");
+        })
         console.log('After the async await');
 
         if (newUser.userCreated) {
             console.log("Got in true"); 
-            done(null, newUser);
+            // done(null, newUser);
         } else {
             console.log("Got in false");
             done(true, null);

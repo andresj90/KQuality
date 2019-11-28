@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
 
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     proceduresCreated: {
       type: DataTypes.INTEGER,
